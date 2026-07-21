@@ -1,28 +1,27 @@
 const fs = require('fs');
 const path = require('path');
+const teamMembers = require('../config/team.js');
 
 const rootDir = path.join(__dirname, '..');
 const teamHtmlPath = path.join(rootDir, 'team', 'index.html');
-const assetsTeamDir = path.join(rootDir, 'assets', 'healthplus team');
 
 function generateCardsAndModals(category) {
     let cardsHtml = `<div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">\n`;
     let modalsHtml = '';
     
-    // We create exactly 3 empty placeholder slots per category to prepare the layout
-    const slots = [1, 2, 3];
+    const members = teamMembers.filter(m => m.category === category);
     
-    slots.forEach(slotNum => {
-        const name = `${category === 'Physicians' ? 'Family Physician' : 'Specialist'} ${slotNum} (Draft)`;
-        const role = category === 'Physicians' ? 'Family Physician' : 'Specialist';
-        const imgPath = '../../assets/images/global/healthplus-placeholder.svg';
-        const modalId = `modal-${category.toLowerCase()}-${slotNum}`;
+    members.forEach((member, index) => {
+        const name = `Dr. ${member.firstName} ${member.lastName}`;
+        const role = member.role;
+        const imgPath = `/${member.photo}`;
+        const modalId = `modal-${category.toLowerCase()}-${index}`;
         
         cardsHtml += `
         <!-- <meta name="robots" content="noindex, nofollow"> -->
         <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
             <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
-                <img src="${imgPath}" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                <img src="${imgPath}" alt="${name}" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
             </div>
             <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
                 <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">${role}</p>
@@ -40,7 +39,7 @@ function generateCardsAndModals(category) {
                 </button>
                 <div style="display:grid;grid-template-columns:1fr;gap:0;">
                     <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
-                        <img src="${imgPath}" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                        <img src="${imgPath}" alt="${name}" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
                     </div>
                     <div style="padding:var(--space-8);">
                         <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">${role}</p>
