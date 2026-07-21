@@ -26,7 +26,7 @@ function generateCardsAndModals(category) {
             <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
                 <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">${role}</p>
                 <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">${name}</h3>
-                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">${member.bio ? (member.bio.length > 150 ? member.bio.substring(0, 150).trim() + '...' : member.bio) : 'Biography and professional credentials will be updated once the final medical team profile is approved.'}</p>
                 <button onclick="openModal('${modalId}')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
             </div>
         </div>\n`;
@@ -44,7 +44,7 @@ function generateCardsAndModals(category) {
                     <div style="padding:var(--space-8);">
                         <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">${role}</p>
                         <h2 style="font-size:var(--text-3xl);color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">${name}</h2>
-                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">${member.bio || 'Biography and professional credentials will be updated once the final medical team profile is approved.'}</p>
                     </div>
                 </div>
             </div>
