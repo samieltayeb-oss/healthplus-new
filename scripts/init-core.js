@@ -28,11 +28,13 @@ function getHeader(depth, title, description, schemaStr = '') {
     <meta property="og:description" content="${description}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://healthplusmed.ca/">
-    <meta property="og:image" content="https://healthplusmed.ca/assets/social_share.webp">
+    <meta property="og:image" content="https://healthplusmed.ca/assets/images/global/social-share.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="${rootPrefix}assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="${rootPrefix}assets/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="${rootPrefix}css/hp-premium.css">
     ${schemaStr}
 </head>
@@ -91,7 +93,9 @@ const aboutSchema = `
 </script>`;
 let aboutHtml = getHeader(1, "About Us | HealthPlus Medical", "Learn about HealthPlus Medical's mission, vision, and values.", aboutSchema);
 aboutHtml += `
-    <section class="hp-hero" style="min-height: 50vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-primary-ultra);">
+    <section class="hp-hero" style="position:relative; min-height: 50vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-primary-ultra); overflow:hidden;">
+        <img src="../assets/images/global/healthplus-placeholder.svg" alt="" width="1920" height="1080" decoding="async" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; opacity:0.15;">
+        <div class="container text-center" style="position:relative; z-index:1;">
         <div class="container text-center">
             <span class="eyebrow" style="color:var(--hp-primary);">Our Story</span>
             <h1 class="display-title" style="color:var(--hp-heading);margin:var(--space-4) 0; font-size: var(--text-5xl);">A Passion for Better Medicine</h1>
@@ -143,8 +147,9 @@ const teamSchema = `
 </script>`;
 let teamHtml = getHeader(1, "Our Team | HealthPlus Medical", "Meet the experienced physicians and staff at HealthPlus Medical.", teamSchema);
 teamHtml += `
-    <section class="section">
-        <div class="container text-center" style="max-width: 800px;">
+    <section class="hp-hero" style="position:relative; padding-top: 120px; padding-bottom: 60px; background:var(--hp-primary-ultra); overflow:hidden;">
+        <img src="../assets/images/global/healthplus-placeholder.svg" alt="" width="1920" height="1080" decoding="async" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; opacity:0.15;">
+        <div class="container text-center" style="position:relative; z-index:1; max-width: 800px;">
             <p class="subtitle" style="color:var(--hp-secondary);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:var(--space-2);">Dedicated Professionals</p>
             <h1 class="display-title" style="color:var(--hp-primary);margin-bottom:var(--space-4);">Meet Our Medical Team</h1>
             <p class="lead-text" style="color:var(--hp-text-muted);">Experienced, compassionate physicians dedicated to your long-term health.</p>
@@ -196,7 +201,9 @@ const contactSchema = `
 </script>`;
 let contactHtml = getHeader(0, "Contact Us | HealthPlus Medical", "Get in touch with HealthPlus Medical for general inquiries.", contactSchema);
 contactHtml += `
-    <section class="hp-hero" style="min-height: 30vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-primary-ultra);">
+    <section class="hp-hero" style="position:relative; min-height: 30vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-primary-ultra); overflow:hidden;">
+        <img src="../assets/images/global/healthplus-placeholder.svg" alt="" width="1920" height="1080" decoding="async" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; opacity:0.15;">
+        <div class="container text-center" style="position:relative; z-index:1;">
         <div class="container text-center">
             <h1 style="color:var(--hp-heading);margin:var(--space-4) 0;">Contact Us</h1>
             <p class="lead" style="color:var(--hp-text-muted);max-width:700px;margin:0 auto;">We're here to help. Reach out with any general questions.</p>

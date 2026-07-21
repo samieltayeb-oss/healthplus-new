@@ -10,11 +10,13 @@
     <meta property="og:description" content="Meet the experienced physicians and staff at HealthPlus Medical.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://healthplusmed.ca/">
-    <meta property="og:image" content="https://healthplusmed.ca/assets/social_share.webp">
+    <meta property="og:image" content="https://healthplusmed.ca/assets/images/global/social-share.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="../css/hp-premium.css">
     
 <script type="application/ld+json">
@@ -66,8 +68,9 @@
 </header>
 <main>
 
-    <section class="section">
-        <div class="container text-center" style="max-width: 800px;">
+    <section class="hp-hero" style="position:relative; padding-top: 120px; padding-bottom: 60px; background:var(--hp-primary-ultra); overflow:hidden;">
+        <img src="../assets/images/global/healthplus-placeholder.svg" alt="" width="1920" height="1080" decoding="async" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; opacity:0.15;">
+        <div class="container text-center" style="position:relative; z-index:1; max-width: 800px;">
             <p class="subtitle" style="color:var(--hp-secondary);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:var(--space-2);">Dedicated Professionals</p>
             <h1 class="display-title" style="color:var(--hp-primary);margin-bottom:var(--space-4);">Meet Our Medical Team</h1>
             <p class="lead-text" style="color:var(--hp-text-muted);">Experienced, compassionate physicians dedicated to your long-term health.</p>
@@ -80,7 +83,48 @@
             <h2 style="color:var(--hp-primary);margin-bottom:var(--space-8);">Family Physicians</h2>
             <div class="team-grid">
                 <!-- HP_TEAM_PHYSICIANS_START -->
-                <!-- HP_TEAM_PHYSICIANS_END -->
+<div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
+
+        <!-- <meta name="robots" content="noindex, nofollow"> -->
+        <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
+            <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+            </div>
+            <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
+                <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Family Physician</p>
+                <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">Family Physician 1 (Draft)</h3>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                <button onclick="openModal('modal-physicians-1')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
+            </div>
+        </div>
+
+        <!-- <meta name="robots" content="noindex, nofollow"> -->
+        <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
+            <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+            </div>
+            <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
+                <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Family Physician</p>
+                <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">Family Physician 2 (Draft)</h3>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                <button onclick="openModal('modal-physicians-2')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
+            </div>
+        </div>
+
+        <!-- <meta name="robots" content="noindex, nofollow"> -->
+        <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
+            <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+            </div>
+            <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
+                <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Family Physician</p>
+                <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">Family Physician 3 (Draft)</h3>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                <button onclick="openModal('modal-physicians-3')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
+            </div>
+        </div>
+</div>
+<!-- HP_TEAM_PHYSICIANS_END -->
             </div>
         </div>
     </section>
@@ -91,7 +135,48 @@
             <h2 style="color:var(--hp-primary);margin-bottom:var(--space-8);">Specialists</h2>
             <div class="team-grid">
                 <!-- HP_TEAM_SPECIALISTS_START -->
-                <!-- HP_TEAM_SPECIALISTS_END -->
+<div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
+
+        <!-- <meta name="robots" content="noindex, nofollow"> -->
+        <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
+            <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+            </div>
+            <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
+                <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Specialist</p>
+                <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">Specialist 1 (Draft)</h3>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                <button onclick="openModal('modal-specialists-1')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
+            </div>
+        </div>
+
+        <!-- <meta name="robots" content="noindex, nofollow"> -->
+        <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
+            <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+            </div>
+            <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
+                <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Specialist</p>
+                <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">Specialist 2 (Draft)</h3>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                <button onclick="openModal('modal-specialists-2')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
+            </div>
+        </div>
+
+        <!-- <meta name="robots" content="noindex, nofollow"> -->
+        <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
+            <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+            </div>
+            <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
+                <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Specialist</p>
+                <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">Specialist 3 (Draft)</h3>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                <button onclick="openModal('modal-specialists-3')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
+            </div>
+        </div>
+</div>
+<!-- HP_TEAM_SPECIALISTS_END -->
             </div>
         </div>
     </section>
@@ -99,7 +184,116 @@
     <!-- MODALS CONTAINER -->
     <div id="hp-modals-container">
         <!-- HP_TEAM_MODALS_START -->
-        <!-- HP_TEAM_MODALS_END -->
+
+        <div id="modal-physicians-1" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
+            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
+                <button onclick="closeModal('modal-physicians-1')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div style="display:grid;grid-template-columns:1fr;gap:0;">
+                    <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                        <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                    </div>
+                    <div style="padding:var(--space-8);">
+                        <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Family Physician</p>
+                        <h2 style="font-size:var(--text-3xl);color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Family Physician 1 (Draft)</h2>
+                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-physicians-2" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
+            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
+                <button onclick="closeModal('modal-physicians-2')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div style="display:grid;grid-template-columns:1fr;gap:0;">
+                    <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                        <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                    </div>
+                    <div style="padding:var(--space-8);">
+                        <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Family Physician</p>
+                        <h2 style="font-size:var(--text-3xl);color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Family Physician 2 (Draft)</h2>
+                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-physicians-3" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
+            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
+                <button onclick="closeModal('modal-physicians-3')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div style="display:grid;grid-template-columns:1fr;gap:0;">
+                    <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                        <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                    </div>
+                    <div style="padding:var(--space-8);">
+                        <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Family Physician</p>
+                        <h2 style="font-size:var(--text-3xl);color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Family Physician 3 (Draft)</h2>
+                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="modal-specialists-1" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
+            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
+                <button onclick="closeModal('modal-specialists-1')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div style="display:grid;grid-template-columns:1fr;gap:0;">
+                    <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                        <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                    </div>
+                    <div style="padding:var(--space-8);">
+                        <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Specialist</p>
+                        <h2 style="font-size:var(--text-3xl);color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Specialist 1 (Draft)</h2>
+                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-specialists-2" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
+            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
+                <button onclick="closeModal('modal-specialists-2')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div style="display:grid;grid-template-columns:1fr;gap:0;">
+                    <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                        <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                    </div>
+                    <div style="padding:var(--space-8);">
+                        <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Specialist</p>
+                        <h2 style="font-size:var(--text-3xl);color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Specialist 2 (Draft)</h2>
+                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-specialists-3" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
+            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
+                <button onclick="closeModal('modal-specialists-3')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div style="display:grid;grid-template-columns:1fr;gap:0;">
+                    <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
+                        <img src="../../assets/images/global/healthplus-placeholder.svg" alt="" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                    </div>
+                    <div style="padding:var(--space-8);">
+                        <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Specialist</p>
+                        <h2 style="font-size:var(--text-3xl);color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Specialist 3 (Draft)</h2>
+                        <p style="margin-bottom:var(--space-3);line-height:1.6;color:var(--hp-text);">Biography and professional credentials will be updated once the final medical team profile is approved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- HP_TEAM_MODALS_END -->
     </div>
 </main>
 <footer class="hp-footer" style="margin-top:auto;">

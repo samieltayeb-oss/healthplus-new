@@ -1,59 +1,71 @@
-# Services Architecture Implementation Plan
+# HealthPlus Custom Image System Preparation
 
-This plan outlines the approach to building the HealthPlus Medical V2 Services ecosystem as requested. 
+This plan outlines the architecture and execution steps for the "HealthPlus Custom Image System — Production Preparation" milestone. Our objective is to standardize all image slots, secure their dimensions, define metadata, and institute safe fallbacks across the site, without altering existing layouts or requesting any AI generation of the final assets.
+
+> [!IMPORTANT]  
+> Please review this plan. Once approved, the image system architecture and placeholder assets will be propagated to the site.
 
 ## Proposed Changes
 
-### 1. Centralized Data Source (`config/services.js`)
-We will create a pure JavaScript configuration file containing the `hpServices` array. This will act as the single source of truth for all service information (metadata, slugs, descriptions, icons, features).
+### 1. Configuration & Manifest
+#### [NEW] `config/images.js`
+Create a centralized image manifest serving as the single source of truth. Each entry will define:
+- `id`, `filename`, `path`, `page`, `section`
+- `aspectRatio`, `sourceWidth`, `sourceHeight`
+- `alt` text direction
+- `focalPointDesktop`, `focalPointMobile`
+- `loading` (`eager` for heroes, `lazy` for others)
+- `priority` (`high` for heroes, `auto` for others)
+- `status` (`placeholder`), `approved` (false)
 
-**Why this approach?**
-- Allows us to maintain one file for content updates.
-- Keeps the architecture 100% vanilla (no React, Next.js, etc.).
-- Can be easily loaded into any page to dynamically render the navigation dropdown, related services, or homepage cards via a lightweight script.
+### 2. Assets Structure
+Create the required directory hierarchy and populate it with a unified HealthPlus-branded SVG placeholder to prevent any broken image icons.
+#### [NEW] Directories
+- `assets/images/home/`
+- `assets/images/core/`
+- `assets/images/interiors/`
+- `assets/images/services/`
+- `assets/images/global/`
+- `assets/images/team/`
+- `assets/icons/`
 
-### 2. Client-Side Rendering Script (`js/hp-services-renderer.js`)
-A lightweight, vanilla JS script that reads from `config/services.js` to automatically inject:
-1. The dropdown menu links in the main navigation.
-2. The featured service cards on the Homepage.
-3. The full grid of 11 service cards on the Services Directory page.
-4. The "Related Services" cards at the bottom of individual service pages.
+#### [NEW] Placeholder Assets
+We will generate a lightweight, neutral SVG placeholder containing the HealthPlus brand colors (Teal/Navy) and the required dimensions. This placeholder will be duplicated to every expected file path (e.g., `assets/images/home/home-hero.webp`) so that the site visually maintains its layout and avoids broken image links while awaiting final custom photography. 
 
-*Note: Individual service pages will have their core content hardcoded in HTML for perfect SEO, while peripheral elements (like the navigation and related services footer) will be populated by this script.*
+### 3. HTML Image Implementation
+We will update `init-core.js`, `index.html`, and any relevant generation scripts to ensure all image tags comply with the new requirements.
 
-### 3. Services Directory (`pages/services/index.html`)
-A new premium index page featuring:
-- A clean Hero section with an introductory trust statement.
-- A dynamically generated grid of all 11 service cards (using the renderer script).
-- A "Why choose HealthPlus" section.
-- Clear routing to the booking flow and human handoff.
+#### [MODIFY] `index.html` (Homepage)
+- Update `<img src="...">` paths to `assets/images/home/home-hero.webp` and `assets/images/home/family-wellness.webp`.
+- Inject `width`, `height`, `alt`, `decoding="async"`, `loading="eager"`, and `fetchpriority="high"` for the hero image.
+- Inject `loading="lazy"` for the family wellness banner.
+- Ensure CSS object-fit/object-position is stable.
 
-### 4. 11 Individual Service Pages (`pages/services/*.html`)
-We will create 11 distinct static HTML files (e.g., `family-medicine.html`, `walk-in-clinic.html`).
-Each page will follow a strict, reusable architecture:
-- **SEO Elements**: Unique titles, descriptions, canonical URLs, and Open Graph tags.
-- **Hero Area**: Specific to the service, with a placeholder hero image (e.g., `assets/images/services/family-medicine.webp`).
-- **Core Content**: Custom-written, empathetic, and professional copy (Who it's for, What to expect, Preparation, FAQ).
-- **Navigation & Breadcrumbs**: Proper internal linking.
-- **Booking CTAs**: Sticky or prominent appointment links.
+#### [MODIFY] `scripts/init-core.js`
+- **Core Heroes (About, Team, Contact, Book, 404):** Update standard header generation to apply the exact image paths (e.g., `assets/images/core/about-hero.webp`).
+- **Services Templates:** Update the generation loops to output `<img src="assets/images/services/{slug}.webp">` with correct width/height constraints, lazy loading, and dynamic alt text.
+- **Global Assets:** Update Open Graph metadata (`<meta property="og:image">`) and favicons to point to the new `/assets/images/global/social-share.webp` and `/assets/icons/apple-touch-icon.png`.
 
-### 5. Content Generation Strategy
-I will write entirely new copy for all 11 pages, ensuring the tone is warm, professional, and accessible. No guaranteed outcomes, overly technical jargon, or "world-class" fluff will be used. The copy will be tailored strictly to HealthPlus Medical's brand identity.
+#### [MODIFY] `scripts/init-team.js`
+- Ensure team portrait generation respects the `firstname-lastname.webp` future naming convention.
+- Ensure the placeholder is applied properly with `loading="lazy"`.
 
-### 6. Adjustments to Existing Files
-- **`index.html`**: Will be updated to include the `config/services.js` and `js/hp-services-renderer.js` scripts, replacing the current static services grid with a dynamic one featuring 6 curated services and a "View All Services" link. The navigation will be updated to include a "Services" dropdown.
-- **`css/hp-premium.css`**: Will receive new styles for the service cards, breadcrumbs, and directory layout, adhering strictly to the established design system tokens.
+### 4. Documentation
+#### [NEW] `HealthPlus_Image_System_Report.md`
+Generate the final requested artifact containing the complete image inventory, technical specifications, focal points, and readiness status.
+
+## Open Questions
+> [!NOTE]
+> Do you have a preferred SVG icon or brand text you'd like embedded within the temporary placeholder images, or is a plain colored block in the HealthPlus Teal/Navy palette sufficient?
 
 ## Verification Plan
 
-1. **Routing & Links**: Ensure all 11 pages are reachable from the homepage and directory, and that no dead links exist.
-2. **SEO & Accessibility**: Validate heading hierarchy (single H1), meta tags, alt text, and keyboard navigability across the new pages.
-3. **Responsiveness**: Verify the directory grid and service page layouts down to 320px and up to 1440px.
-4. **Data Injection**: Confirm the `hp-services-renderer.js` correctly populates the nav, homepage, and related services without layout shifts.
+### Automated/Structural Verification
+- Verify the existence of all 23 defined image paths and the `/team/` directory.
+- Confirm `config/images.js` contains the complete schema.
+- Validate `index.html` and generated pages for proper `width`, `height`, `alt`, `loading`, and `fetchpriority` attributes on `<img>` tags.
 
-## User Review Required
-
-> [!IMPORTANT]
-> The plan proposes using **Client-Side Rendering (Vanilla JS)** for the Homepage service cards, the Services Directory grid, and the Navigation Dropdown. The 11 individual pages will still have fully hardcoded HTML content for their specific copy to ensure perfect SEO. 
-> 
-> Are you comfortable with client-side rendering for the *lists/menus* of services, or would you prefer everything to be 100% hardcoded HTML (which would mean manually updating the navigation on all 13+ pages if a service is added later)?
+### Manual Verification
+- Deploy to Vercel preview.
+- Inspect the site via browser DevTools to ensure zero layout shifts occur during page load.
+- Ensure screen readers correctly interpret the alt text and ignore decorative elements.
