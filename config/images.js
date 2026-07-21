@@ -2,8 +2,8 @@ const hpImages = [
   // HOMEPAGE
   {
     id: "home-hero",
-    filename: "home-hero.webp",
-    path: "assets/images/home/home-hero.webp",
+    filename: "home-hero.png",
+    path: "assets/images/home/home-hero.png",
     page: "home",
     section: "hero",
     aspectRatio: "16:9",
@@ -21,8 +21,8 @@ const hpImages = [
   },
   {
     id: "family-wellness",
-    filename: "family-wellness.webp",
-    path: "assets/images/home/family-wellness.webp",
+    filename: "family-wellness.png",
+    path: "assets/images/home/family-wellness.png",
     page: "home",
     section: "banner",
     aspectRatio: "21:9",
@@ -42,8 +42,8 @@ const hpImages = [
   // CORE PAGES
   {
     id: "about-hero",
-    filename: "about-hero.webp",
-    path: "assets/images/core/about-hero.webp",
+    filename: "about-hero.png",
+    path: "assets/images/core/about-hero.png",
     page: "about",
     section: "hero",
     aspectRatio: "16:9",
@@ -61,8 +61,8 @@ const hpImages = [
   },
   {
     id: "team-hero",
-    filename: "team-hero.webp",
-    path: "assets/images/core/team-hero.webp",
+    filename: "team-hero.png",
+    path: "assets/images/core/team-hero.png",
     page: "team",
     section: "hero",
     aspectRatio: "16:9",
@@ -80,8 +80,8 @@ const hpImages = [
   },
   {
     id: "contact-hero",
-    filename: "contact-hero.webp",
-    path: "assets/images/core/contact-hero.webp",
+    filename: "contact-hero.png",
+    path: "assets/images/core/contact-hero.png",
     page: "contact",
     section: "hero",
     aspectRatio: "16:9",
@@ -99,8 +99,8 @@ const hpImages = [
   },
   {
     id: "appointment-hero",
-    filename: "appointment-hero.webp",
-    path: "assets/images/core/appointment-hero.webp",
+    filename: "appointment-hero.png",
+    path: "assets/images/core/appointment-hero.png",
     page: "book",
     section: "hero",
     aspectRatio: "16:9",
@@ -120,8 +120,8 @@ const hpImages = [
   // INTERIORS
   {
     id: "reception",
-    filename: "reception.webp",
-    path: "assets/images/interiors/reception.webp",
+    filename: "reception.png",
+    path: "assets/images/interiors/reception.png",
     page: "various",
     section: "interiors",
     aspectRatio: "16:9",
@@ -139,8 +139,8 @@ const hpImages = [
   },
   {
     id: "consultation-room",
-    filename: "consultation-room.webp",
-    path: "assets/images/interiors/consultation-room.webp",
+    filename: "consultation-room.png",
+    path: "assets/images/interiors/consultation-room.png",
     page: "various",
     section: "interiors",
     aspectRatio: "16:9",
@@ -158,8 +158,8 @@ const hpImages = [
   },
   {
     id: "examination-room",
-    filename: "examination-room.webp",
-    path: "assets/images/interiors/examination-room.webp",
+    filename: "examination-room.png",
+    path: "assets/images/interiors/examination-room.png",
     page: "various",
     section: "interiors",
     aspectRatio: "16:9",
@@ -179,8 +179,8 @@ const hpImages = [
   // SERVICES
   {
     id: "family-medicine",
-    filename: "family-medicine.webp",
-    path: "assets/images/services/family-medicine.webp",
+    filename: "family-medicine.png",
+    path: "assets/images/services/family-medicine.png",
     page: "service-family-medicine",
     section: "hero",
     aspectRatio: "16:9",
@@ -198,8 +198,8 @@ const hpImages = [
   },
   {
     id: "walk-in-clinic",
-    filename: "walk-in-clinic.webp",
-    path: "assets/images/services/walk-in-clinic.webp",
+    filename: "walk-in-clinic.png",
+    path: "assets/images/services/walk-in-clinic.png",
     page: "service-walk-in-clinic",
     section: "hero",
     aspectRatio: "16:9",
@@ -217,8 +217,8 @@ const hpImages = [
   },
   {
     id: "internal-medicine",
-    filename: "internal-medicine.webp",
-    path: "assets/images/services/internal-medicine.webp",
+    filename: "internal-medicine.png",
+    path: "assets/images/services/internal-medicine.png",
     page: "service-internal-medicine",
     section: "hero",
     aspectRatio: "16:9",
@@ -236,8 +236,8 @@ const hpImages = [
   },
   {
     id: "mental-health",
-    filename: "mental-health.webp",
-    path: "assets/images/services/mental-health.webp",
+    filename: "mental-health.png",
+    path: "assets/images/services/mental-health.png",
     page: "service-mental-health",
     section: "hero",
     aspectRatio: "16:9",
@@ -255,8 +255,8 @@ const hpImages = [
   },
   {
     id: "mva-care",
-    filename: "mva-care.webp",
-    path: "assets/images/services/mva-care.webp",
+    filename: "mva-care.png",
+    path: "assets/images/services/mva-care.png",
     page: "service-mva-care",
     section: "hero",
     aspectRatio: "16:9",
@@ -274,8 +274,8 @@ const hpImages = [
   },
   {
     id: "obstetrics-gynecology",
-    filename: "obstetrics-gynecology.webp",
-    path: "assets/images/services/obstetrics-gynecology.webp",
+    filename: "obstetrics-gynecology.png",
+    path: "assets/images/services/obstetrics-gynecology.png",
     page: "service-obstetrics-gynecology",
     section: "hero",
     aspectRatio: "16:9",
@@ -293,8 +293,8 @@ const hpImages = [
   },
   {
     id: "pediatric-care",
-    filename: "pediatric-care.webp",
-    path: "assets/images/services/pediatric-care.webp",
+    filename: "pediatric-care.png",
+    path: "assets/images/services/pediatric-care.png",
     page: "service-pediatric-care",
     section: "hero",
     aspectRatio: "16:9",
@@ -312,8 +312,8 @@ const hpImages = [
   },
   {
     id: "sports-medicine",
-    filename: "sports-medicine.webp",
-    path: "assets/images/services/sports-medicine.webp",
+    filename: "sports-medicine.png",
+    path: "assets/images/services/sports-medicine.png",
     page: "service-sports-medicine",
     section: "hero",
     aspectRatio: "16:9",
@@ -331,8 +331,8 @@ const hpImages = [
   },
   {
     id: "virtual-care",
-    filename: "virtual-care.webp",
-    path: "assets/images/services/virtual-care.webp",
+    filename: "virtual-care.png",
+    path: "assets/images/services/virtual-care.png",
     page: "service-virtual-care",
     section: "hero",
     aspectRatio: "16:9",
@@ -350,8 +350,8 @@ const hpImages = [
   },
   {
     id: "womens-health",
-    filename: "womens-health.webp",
-    path: "assets/images/services/womens-health.webp",
+    filename: "womens-health.png",
+    path: "assets/images/services/womens-health.png",
     page: "service-womens-health",
     section: "hero",
     aspectRatio: "16:9",
@@ -369,8 +369,8 @@ const hpImages = [
   },
   {
     id: "concussion-care",
-    filename: "concussion-care.webp",
-    path: "assets/images/services/concussion-care.webp",
+    filename: "concussion-care.png",
+    path: "assets/images/services/concussion-care.png",
     page: "service-concussion-care",
     section: "hero",
     aspectRatio: "16:9",
@@ -390,8 +390,8 @@ const hpImages = [
   // GLOBAL
   {
     id: "social-share",
-    filename: "social-share.webp",
-    path: "assets/images/global/social-share.webp",
+    filename: "social-share.png",
+    path: "assets/images/global/social-share.png",
     page: "global",
     section: "meta",
     aspectRatio: "1.91:1",
