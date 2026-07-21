@@ -296,7 +296,7 @@ services.forEach(service => {
 '    <div style="border-top: 1px solid var(--hp-border); background: #f8fafc;">\n' +
 '        <div class="container" style="padding: var(--space-6) 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">\n' +
 '            <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin: 0;">&copy; 2026 HealthPlus by SEHA Medical. All rights reserved.</p>\n' +
-'            <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin: 0;">Built by <a href="#" style="color: var(--hp-primary); font-weight: 600; text-decoration: none;">Nexora</a></p>\n' +
+'            <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin: 0;">Built by <a href="https://nexorayyc.io" target="_blank" rel="noopener" style="color: var(--hp-primary); font-weight: 600; text-decoration: none;">Nexora</a></p>\n' +
 '        </div>\n' +
 '    </div>\n' +
 '</footer>\n' +
