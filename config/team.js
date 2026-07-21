@@ -41,7 +41,7 @@ module.exports = [
     "firstName": "Dr",
     "lastName": "Elhadi Mohammed",
     "role": "Family Physician",
-    "photo": "assets/healthplus team/dr_elhadi_mohammed/dr_elhadi_mohammed.jpg",
+    "photo": "assets/healthplus team/dr_elhadi_mohammed/dr_elhadi_mohammed.png",
     "category": "Physicians"
   },
   {
