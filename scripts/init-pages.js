@@ -279,14 +279,8 @@ services.forEach(service => {
 '                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>\n' +
 '                    <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>\n' +
 '                </div>\n' +
-'            </div>\n' +
-'            \n' +
-'            '            <!-- RIGHT: MASTER UNIFIED SHOWCASE (FULL CLEAR PHOTO WITH INTEGRATED HUD MOTION OVERLAY) -->\n' +
 '            <div>\n' +
 '                ' + getServiceMotionHUD(service.slug, service.title) + '\n' +
-'            </div>\n' +
-'                <!-- 2. DYNAMIC ANIMATED MEDICAL MOTION GRAPHIC WIDGET -->\n' +
-'                ' + motionWidgetHtml + '\n' +
 '            </div>\n' +
 '        </div>\n' +
 '    </section>\n' +
