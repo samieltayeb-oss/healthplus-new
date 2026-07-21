@@ -305,9 +305,7 @@ services.forEach(service => {
 '            \n' +
 '            <!-- RIGHT: STACKED SHOWCASE (STANDALONE 8K PHOTO + DYNAMIC MOTION GRAPHIC WIDGET) -->\n' +
 '            <div style="display:flex; flex-direction:column; gap:var(--space-4);">\n' +
-'                <!-- 1. STANDALONE CLEAR 8K PHOTO SHOWCASE CARD -->\n' +
-'                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.35); border: 2px solid rgba(255,255,255,0.25); background:#000;">\n' +
-'                    <img src="../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.src='../assets/images/global/healthplus-placeholder.svg'">\n' +
+'                    <img src="../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.style.display=\'none\'">\n' +
 '                </div>\n' +
 '                <!-- 2. DYNAMIC ANIMATED MEDICAL MOTION GRAPHIC WIDGET -->\n' +
 '                ' + motionWidgetHtml + '\n' +
