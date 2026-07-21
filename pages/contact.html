@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | HealthPlus Medical</title>
     <meta name="description" content="Get in touch with HealthPlus Medical for general inquiries.">
+    <link rel="canonical" href="https://healthplusmed.ca/">
+    <meta property="og:title" content="Contact Us | HealthPlus Medical">
+    <meta property="og:description" content="Get in touch with HealthPlus Medical for general inquiries.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://healthplusmed.ca/">
+    <meta property="og:image" content="https://healthplusmed.ca/assets/social_share.webp">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +108,7 @@
             </div>
             <div style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);padding:var(--space-8);">
                 <h2 style="font-size:var(--text-xl);margin-bottom:var(--space-6);">General Inquiry</h2>
-                <form>
+                <form onsubmit="event.preventDefault(); alert('This form is currently in demonstration mode. No data was transmitted.');">
                     <div style="margin-bottom:var(--space-4);">
                         <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">Name</label>
                         <input type="text" style="width:100%;padding:12px;border:1px solid var(--hp-border);border-radius:var(--radius-md);" required>

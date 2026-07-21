@@ -19,6 +19,11 @@ const indexHtml = '<!DOCTYPE html>\n' +
 '    <title>Medical Services | HealthPlus Medical Calgary</title>\n' +
 '    <meta name="description" content="Comprehensive medical services at HealthPlus Medical. From family medicine and walk-in care to specialized internal medicine and pediatrics.">\n' +
 '    <link rel="canonical" href="https://healthplusmed.ca/services">\n' +
+'    <meta property="og:title" content="Medical Services | HealthPlus Medical Calgary">\n' +
+'    <meta property="og:description" content="Comprehensive medical services at HealthPlus Medical. From family medicine and walk-in care to specialized internal medicine and pediatrics.">\n' +
+'    <meta property="og:type" content="website">\n' +
+'    <meta property="og:url" content="https://healthplusmed.ca/services">\n' +
+'    <meta property="og:image" content="https://healthplusmed.ca/assets/social_share.webp">\n' +
 '    \n' +
 '    <link rel="preconnect" href="https://fonts.googleapis.com">\n' +
 '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
@@ -109,7 +114,12 @@ services.forEach(service => {
 '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
 '    <title>' + service.seoTitle + '</title>\n' +
 '    <meta name="description" content="' + service.seoDescription + '">\n' +
-'    <link rel="canonical" href="' + service.canonicalUrl + '">\n' +
+'    <link rel="canonical" href="https://healthplusmed.ca/services/' + service.slug + '">\n' +
+'    <meta property="og:title" content="' + service.seoTitle + '">\n' +
+'    <meta property="og:description" content="' + service.seoDescription + '">\n' +
+'    <meta property="og:type" content="website">\n' +
+'    <meta property="og:url" content="https://healthplusmed.ca/services/' + service.slug + '">\n' +
+'    <meta property="og:image" content="https://healthplusmed.ca/assets/social_share.webp">\n' +
 '    \n' +
 '    <link rel="preconnect" href="https://fonts.googleapis.com">\n' +
 '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +

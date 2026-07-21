@@ -23,6 +23,12 @@ function getHeader(depth, title, description, schemaStr = '') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title}</title>
     <meta name="description" content="${description}">
+    <link rel="canonical" href="https://healthplusmed.ca/">
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${description}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://healthplusmed.ca/">
+    <meta property="og:image" content="https://healthplusmed.ca/assets/social_share.webp">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,7 +186,7 @@ contactHtml += `
             </div>
             <div style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);padding:var(--space-8);">
                 <h2 style="font-size:var(--text-xl);margin-bottom:var(--space-6);">General Inquiry</h2>
-                <form>
+                <form onsubmit="event.preventDefault(); alert('This form is currently in demonstration mode. No data was transmitted.');">
                     <div style="margin-bottom:var(--space-4);">
                         <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">Name</label>
                         <input type="text" style="width:100%;padding:12px;border:1px solid var(--hp-border);border-radius:var(--radius-md);" required>
@@ -223,7 +229,7 @@ bookHtml += `
     <section class="section">
         <div class="container" style="max-width:600px;margin:0 auto;">
             <div style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);padding:var(--space-8);">
-                <form>
+                <form onsubmit="event.preventDefault(); alert('This form is currently in demonstration mode. No data was transmitted.');">
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-bottom:var(--space-4);">
                         <div>
                             <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">First Name *</label>
@@ -351,4 +357,22 @@ teamMembers.forEach(member => {
     fs.writeFileSync(path.join(pagesDir, 'team', `${member.slug}.html`), profileHtml, 'utf8');
 });
 
-console.log('Successfully generated Core Page shells and Team Profiles.');
+// 6. 404 Error Page (404.html in root)
+let notFoundHtml = getHeader(1, "Page Not Found | HealthPlus Medical", "The page you are looking for cannot be found.");
+notFoundHtml += `
+    <section class="hp-hero" style="min-height: 60vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-surface);">
+        <div class="container text-center">
+            <h1 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-size:3rem;">404</h1>
+            <h2 style="color:var(--hp-primary);margin-bottom:var(--space-6);">Page Not Found</h2>
+            <p class="lead" style="color:var(--hp-text-muted);max-width:600px;margin:0 auto var(--space-8);">We can't seem to find the page you're looking for. It may have been moved or no longer exists.</p>
+            <div style="display:flex;gap:var(--space-4);justify-content:center;">
+                <a href="/index.html" class="btn btn-primary">Return Home</a>
+                <a href="/pages/contact.html" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+`;
+notFoundHtml += getFooter(1);
+fs.writeFileSync(path.join(rootDir, '404.html'), notFoundHtml, 'utf8');
+
+console.log('Successfully generated Core Page shells, Team Profiles, and 404 page.');
