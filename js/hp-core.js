@@ -22,6 +22,49 @@
         });
     }
 
+    // ==========================================
+    // Modals
+    // ==========================================
+    
+    window.openModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.style.display = 'flex';
+            // trigger reflow
+            void modal.offsetWidth;
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    window.closeModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('is-open');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300); // matches transition
+        }
+    };
+
+    // Close modal on outside click
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('hp-modal')) {
+            window.closeModal(e.target.id);
+        }
+    });
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModal = document.querySelector('.hp-modal.is-open');
+            if (openModal) {
+                window.closeModal(openModal.id);
+            }
+        }
+    });
+
     /* ─── Scroll Reveal (IntersectionObserver) ─── */
     const revealEls = document.querySelectorAll('.reveal');
     if (revealEls.length) {

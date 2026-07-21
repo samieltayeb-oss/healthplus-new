@@ -507,6 +507,55 @@ h6 { font-size: var(--text-xl);  font-weight: 600; }
 }
 
 /* ==========================================================================
+   MODALS
+   ========================================================================== */
+
+.hp-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hp-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hp-modal.is-open .hp-modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.hp-modal-content {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--hp-border) transparent;
+}
+
+.hp-modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.hp-modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.hp-modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--hp-border);
+    border-radius: var(--radius-full);
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.team-card .btn-outline:hover {
+    background: var(--hp-primary);
+    color: #fff !important;
+}
+
+/* ==========================================================================
    7. FORMS
    ========================================================================== */
 .form-group {
