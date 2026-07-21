@@ -281,29 +281,29 @@ services.forEach(service => {
 '</header>\n' +
 '\n' +
 '<main>\n' +
-'    <section class="hp-hero" style="background: linear-gradient(135deg, var(--hp-primary-dark) 0%, var(--hp-primary) 100%); padding-top: 130px; padding-bottom: 60px;">\n' +
-'        <div class="container" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); align-items: center;">\n' +
+'    <section class="hp-hero" style="position:relative; min-height:380px; display:flex; align-items:center; padding-top:105px; padding-bottom:45px; overflow:hidden;">\n' +
+'        <!-- FULL BLEED CINEMATIC PHOTOGRAPHY BACKGROUND WITH GRADIENT OVERLAY -->\n' +
+'        <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;">\n' +
+'            <img src="../../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width:100%; height:100%; object-fit:cover; object-position:center;" onerror="this.parentElement.style.background=\'linear-gradient(135deg,var(--hp-primary-dark) 0%,var(--hp-primary) 100%)\';">\n' +
+'            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(90deg, rgba(13,61,56,0.96) 0%, rgba(13,61,56,0.85) 45%, rgba(13,61,56,0.55) 100%);"></div>\n' +
+'        </div>\n' +
+'        <div class="container" style="position:relative; z-index:1; display:grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); align-items: center;">\n' +
 '            <div>\n' +
-'                <ul class="breadcrumbs" style="list-style:none;padding:0;margin:0 0 var(--space-4);display:flex;gap:var(--space-2);color:var(--hp-primary-light);font-size:var(--text-sm);">\n' +
+'                <ul class="breadcrumbs" style="list-style:none;padding:0;margin:0 0 var(--space-3);display:flex;gap:var(--space-2);color:var(--hp-primary-light);font-size:var(--text-xs);">\n' +
 '                    <li><a href="../../index.html" style="color:inherit;text-decoration:none;">Home</a> /</li>\n' +
 '                    <li><a href="index.html" style="color:inherit;text-decoration:none;">Services</a> /</li>\n' +
 '                    <li>' + service.title + '</li>\n' +
 '                </ul>\n' +
-'                <span style="display:inline-block; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); color:#fff; padding:6px 16px; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:var(--space-3);">' + (service.category || 'Specialized Healthcare') + '</span>\n' +
-'                <h1 style="color:#fff; margin:var(--space-2) 0 var(--space-4); font-size: var(--text-4xl); font-family: var(--font-heading); font-weight: 700;">' + service.title + '</h1>\n' +
-'                <p class="lead" style="color:rgba(255,255,255,0.9); max-width:620px; font-size: var(--text-lg); line-height: 1.6; margin-bottom: var(--space-6);">' + service.shortDescription + '</p>\n' +
-'                <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">\n' +
-'                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>\n' +
+'                <span style="display:inline-block; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); color:#fff; padding:4px 14px; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:var(--space-2);">' + (service.category || 'Specialized Healthcare') + '</span>\n' +
+'                <h1 style="color:#fff; margin:var(--space-2) 0; font-size: var(--text-4xl); font-family: var(--font-heading); font-weight: 700; line-height: 1.15;">' + service.title + '</h1>\n' +
+'                <p class="lead" style="color:rgba(255,255,255,0.9); font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--space-5); max-width: 580px;">' + service.shortDescription + '</p>\n' +
+'                <div style="display:flex; gap:var(--space-3); flex-wrap:wrap;">\n' +
+'                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Appointment</a>\n' +
 '                    <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>\n' +
 '                </div>\n' +
 '            </div>\n' +
-'            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-2xl); padding: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.25); text-align: center;">\n' +
-'                <div style="border-radius: var(--radius-xl); overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;">\n' +
-'                    <img src="../../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width: 100%; height: auto; max-height: 380px; object-fit: contain; display: block;" onerror="this.src=\'../../assets/images/global/healthplus-placeholder.svg\'">\n' +
-'                </div>\n' +
-'                <div style="padding: 10px 8px 4px; color: rgba(255,255,255,0.85); font-size: var(--text-xs); font-weight: 500;">\n' +
-'                    HealthPlus Medical Specialty — ' + service.title + '\n' +
-'                </div>\n' +
+'            <div>\n' +
+'                ' + getServiceMotionWidget(service.slug, service.title) + '\n' +
 '            </div>\n' +
 '        </div>\n' +
 '    </section>\n' +
