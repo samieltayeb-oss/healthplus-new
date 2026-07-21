@@ -44,7 +44,7 @@ const indexHtml = '<!DOCTYPE html>\n' +
 '                <li><a href="../faq.html" class="nav-link">FAQ</a></li>\n' +
 '                <li><a href="../contact.html" class="nav-link">Contact</a></li>\n' +
 '            </ul>\n' +
-'            <a href="../book.html" class="btn btn-primary nav-cta">Book Appointment</a>\n' +
+'            <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Appointment</a>\n' +
 '            <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>\n' +
 '        </div>\n' +
 '    </nav>\n' +
@@ -148,7 +148,7 @@ services.forEach(service => {
 '                <li><a href="../faq.html" class="nav-link">FAQ</a></li>\n' +
 '                <li><a href="../contact.html" class="nav-link">Contact</a></li>\n' +
 '            </ul>\n' +
-'            <a href="../book.html" class="btn btn-primary nav-cta">Book Appointment</a>\n' +
+'            <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Appointment</a>\n' +
 '            <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>\n' +
 '        </div>\n' +
 '    </nav>\n' +
@@ -200,7 +200,7 @@ services.forEach(service => {
 '                <div style="background:var(--hp-primary-ultra);border-radius:var(--radius-xl);padding:var(--space-6);text-align:center;">\n' +
 '                    <h3 style="color:var(--hp-primary-dark);margin-bottom:var(--space-3);">Ready to book?</h3>\n' +
 '                    <p style="color:var(--hp-text);font-size:var(--text-sm);margin-bottom:var(--space-4);">Schedule your appointment easily online or over the phone.</p>\n' +
-'                    <a href="../book.html" class="btn btn-primary" style="width:100%;justify-content:center;">Book Now</a>\n' +
+'                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;">Book Now</a>\n' +
 '                </div>\n' +
 '            </aside>\n' +
 '        </div>\n' +

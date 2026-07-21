@@ -49,7 +49,7 @@ function getHeader(depth, title, description, schemaStr = '') {
                 <li><a href="${rootPrefix}pages/faq.html" class="nav-link">FAQ</a></li>
                 <li><a href="${rootPrefix}pages/contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <a href="${rootPrefix}pages/book.html" class="btn btn-primary nav-cta">Book Appointment</a>
+            <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Appointment</a>
             <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
@@ -311,7 +311,7 @@ teamMembers.forEach(member => {
                 <div style="background:var(--hp-primary-ultra);border-radius:var(--radius-xl);padding:var(--space-6);text-align:center;">
                     <h3 style="color:var(--hp-primary-dark);margin-bottom:var(--space-3);">Book an Appointment</h3>
                     <p style="color:var(--hp-text);font-size:var(--text-sm);margin-bottom:var(--space-4);">Request a consultation with Dr. ${member.lastName}.</p>
-                    <a href="../../pages/book.html" class="btn btn-primary" style="width:100%;justify-content:center;">Book Now</a>
+                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;">Book Now</a>
                 </div>
             </aside>
             
