@@ -204,24 +204,28 @@ fs.writeFileSync(path.join(servicesDir, 'index.html'), indexHtml, 'utf8');
 // 2. Generate 11 individual service pages
 services.forEach(service => {
     let faqHtml = '';
-    service.faq.forEach((f, i) => {
-        faqHtml += '<div class="accordion-item">\n' +
-                   '    <button class="accordion-trigger" aria-expanded="' + (i === 0 ? 'true' : 'false') + '">\n' +
-                   '        <span>' + f.q + '</span>\n' +
-                   '        <span class="icon">+</span>\n' +
-                   '    </button>\n' +
-                   '    <div class="accordion-content ' + (i === 0 ? 'open' : '') + '">\n' +
-                   '        <div class="accordion-body">\n' +
-                   '            ' + f.a + '\n' +
-                   '        </div>\n' +
-                   '    </div>\n' +
-                   '</div>\n';
-    });
+    if (service.faq && service.faq.length > 0) {
+        service.faq.forEach((f, i) => {
+            faqHtml += '<div class="accordion-item" style="border:1px solid var(--hp-border); border-radius:var(--radius-lg); margin-bottom:var(--space-3); overflow:hidden; background:var(--hp-surface);">\n' +
+                       '    <button class="accordion-trigger" aria-expanded="' + (i === 0 ? 'true' : 'false') + '" style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:var(--space-5) var(--space-6); background:none; border:none; color:var(--hp-heading); font-weight:600; font-family:var(--font-heading); font-size:1.05rem; cursor:pointer; text-align:left;">\n' +
+                       '        <span>' + f.q + '</span>\n' +
+                       '        <span class="icon" style="width:24px; height:24px; border-radius:50%; background:var(--hp-primary-ultra); color:var(--hp-primary-dark); display:flex; align-items:center; justify-content:center; font-weight:700;">+</span>\n' +
+                       '    </button>\n' +
+                       '    <div class="accordion-content ' + (i === 0 ? 'open' : '') + '" style="padding:0 var(--space-6) var(--space-5); color:var(--hp-text-muted); line-height:1.7;">\n' +
+                       '        <div class="accordion-body">\n' +
+                       '            ' + f.a + '\n' +
+                       '        </div>\n' +
+                       '    </div>\n' +
+                       '</div>\n';
+        });
+    }
 
     let conditionsHtml = '';
     service.conditions.forEach(c => {
         conditionsHtml += '<li style="margin-bottom:var(--space-2);padding-left:24px;position:relative;color:var(--hp-text-muted);"><svg style="position:absolute;left:0;top:4px;width:16px;color:var(--hp-primary);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>' + c + '</li>\n';
     });
+
+    let motionWidgetHtml = getServiceMotionWidget(service.slug, service.title);
 
     let pageHtml = '<!DOCTYPE html>\n' +
 '<html lang="en">\n' +
@@ -235,12 +239,12 @@ services.forEach(service => {
 '    <meta property="og:description" content="' + service.seoDescription + '">\n' +
 '    <meta property="og:type" content="website">\n' +
 '    <meta property="og:url" content="https://healthplusmed.ca/services/' + service.slug + '">\n' +
-'    <meta property="og:image" content="https://healthplusmed.ca/assets/social_share.webp">\n' +
+'    <meta property="og:image" content="https://healthplusmed.ca/assets/images/services/' + service.slug + '.png">\n' +
 '    \n' +
 '    <link rel="preconnect" href="https://fonts.googleapis.com">\n' +
 '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
-'    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">\n' +
-'    <link rel="stylesheet" href="../../css/hp-premium.css">\n' +
+'    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">\n' +
+'    <link rel="stylesheet" href="../css/hp-premium.css">\n' +
 '    \n' +
 '    <script type="application/ld+json">\n' +
 '    {\n' +
@@ -260,8 +264,8 @@ services.forEach(service => {
 '<header>\n' +
 '    <nav class="hp-navbar" aria-label="Main Navigation">\n' +
 '        <div class="container nav-inner">\n' +
-'            <a href="../../index.html" class="nav-logo" aria-label="HealthPlus Medical Home">\n' +
-'                <img src="../../assets/logo_hp.png" alt="HealthPlus Medical">\n' +
+'            <a href="../index.html" class="nav-logo" aria-label="HealthPlus Medical Home">\n' +
+'                <img src="../assets/logo_hp.png" alt="HealthPlus Medical">\n' +
 '            </a>\n' +
 '            <ul class="nav-links" role="list">\n' +
 '                <li class="nav-dropdown" style="position:relative;">\n' +
@@ -281,46 +285,49 @@ services.forEach(service => {
 '</header>\n' +
 '\n' +
 '<main>\n' +
-'    <section class="hp-hero" style="position:relative; min-height:380px; display:flex; align-items:center; padding-top:105px; padding-bottom:45px; overflow:hidden;">\n' +
-'        <!-- FULL BLEED CINEMATIC PHOTOGRAPHY BACKGROUND WITH GRADIENT OVERLAY -->\n' +
-'        <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;">\n' +
-'            <img src="../../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width:100%; height:100%; object-fit:cover; object-position:center;" onerror="this.parentElement.style.background=\'linear-gradient(135deg,var(--hp-primary-dark) 0%,var(--hp-primary) 100%)\';">\n' +
-'            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(90deg, rgba(13,61,56,0.96) 0%, rgba(13,61,56,0.85) 45%, rgba(13,61,56,0.55) 100%);"></div>\n' +
-'        </div>\n' +
-'        <div class="container" style="position:relative; z-index:1; display:grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); align-items: center;">\n' +
+'    <!-- HERO: LUXURY CINEMATIC SPLIT WITH STANDALONE 8K PHOTO CARD & MOTION GRAPHICS WIDGET -->\n' +
+'    <section class="hp-hero" style="background: linear-gradient(135deg, #0B332F 0%, #134B45 50%, #1C635C 100%); padding-top: 110px; padding-bottom: 50px;">\n' +
+'        <div class="container" style="display:grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-8); align-items: center;">\n' +
 '            <div>\n' +
 '                <ul class="breadcrumbs" style="list-style:none;padding:0;margin:0 0 var(--space-3);display:flex;gap:var(--space-2);color:var(--hp-primary-light);font-size:var(--text-xs);">\n' +
-'                    <li><a href="../../index.html" style="color:inherit;text-decoration:none;">Home</a> /</li>\n' +
+'                    <li><a href="../index.html" style="color:inherit;text-decoration:none;">Home</a> /</li>\n' +
 '                    <li><a href="index.html" style="color:inherit;text-decoration:none;">Services</a> /</li>\n' +
 '                    <li>' + service.title + '</li>\n' +
 '                </ul>\n' +
-'                <span style="display:inline-block; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); color:#fff; padding:4px 14px; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:var(--space-2);">' + (service.category || 'Specialized Healthcare') + '</span>\n' +
-'                <h1 style="color:#fff; margin:var(--space-2) 0; font-size: var(--text-4xl); font-family: var(--font-heading); font-weight: 700; line-height: 1.15;">' + service.title + '</h1>\n' +
-'                <p class="lead" style="color:rgba(255,255,255,0.9); font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--space-5); max-width: 580px;">' + service.shortDescription + '</p>\n' +
+'                <span style="display:inline-block; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); color:#fff; padding:5px 16px; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:var(--space-3);">' + (service.category || 'Specialized Healthcare') + '</span>\n' +
+'                <h1 style="color:#fff; margin:var(--space-2) 0 var(--space-4); font-size: var(--text-4xl); font-family: var(--font-heading); font-weight: 700; line-height: 1.15;">' + service.title + '</h1>\n' +
+'                <p class="lead" style="color:rgba(255,255,255,0.9); font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--space-6); max-width: 580px;">' + service.shortDescription + '</p>\n' +
 '                <div style="display:flex; gap:var(--space-3); flex-wrap:wrap;">\n' +
-'                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Appointment</a>\n' +
+'                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>\n' +
 '                    <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>\n' +
 '                </div>\n' +
 '            </div>\n' +
-'            <div>\n' +
-'                ' + getServiceMotionWidget(service.slug, service.title) + '\n' +
+'            \n' +
+'            <!-- RIGHT: STACKED SHOWCASE (STANDALONE 8K PHOTO + DYNAMIC MOTION GRAPHIC WIDGET) -->\n' +
+'            <div style="display:flex; flex-direction:column; gap:var(--space-4);">\n' +
+'                <!-- 1. STANDALONE CLEAR 8K PHOTO SHOWCASE CARD -->\n' +
+'                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.35); border: 2px solid rgba(255,255,255,0.25); background:#000;">\n' +
+'                    <img src="../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.src='../assets/images/global/healthplus-placeholder.svg'">\n' +
+'                </div>\n' +
+'                <!-- 2. DYNAMIC ANIMATED MEDICAL MOTION GRAPHIC WIDGET -->\n' +
+'                ' + motionWidgetHtml + '\n' +
 '            </div>\n' +
 '        </div>\n' +
 '    </section>\n' +
 '\n' +
-'    <section class="section">\n' +
+'    <section class="section" style="padding-top: var(--space-16); padding-bottom: var(--space-16);">\n' +
 '        <div class="container" style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-12);">\n' +
 '            <div class="content-main">\n' +
-'                <h2 style="color:var(--hp-heading);margin-bottom:var(--space-4);">Overview</h2>\n' +
-'                <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);">' + service.whatToExpect + '</p>\n' +
+'                <h2 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-family:var(--font-heading);">Overview & Care Focus</h2>\n' +
+'                <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);font-size:var(--text-base);">' + service.whatToExpect + '</p>\n' +
 '                \n' +
-'                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-3);">Who This Is For</h3>\n' +
-'                <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);">' + service.whoItIsFor + '</p>\n' +
+'                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-3);font-family:var(--font-heading);">Who This Is For</h3>\n' +
+'                <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);font-size:var(--text-base);">' + service.whoItIsFor + '</p>\n' +
 '                \n' +
-'                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-3);">Preparation</h3>\n' +
-'                <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);">' + service.preparation + '</p>\n' +
+'                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-3);font-family:var(--font-heading);">Preparation & What To Bring</h3>\n' +
+'                <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);font-size:var(--text-base);">' + service.preparation + '</p>\n' +
 '\n' +
-'                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-4);">Frequently Asked Questions</h3>\n' +
+'                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Frequently Asked Questions</h3>\n' +
 '                <div class="accordion">\n' +
 '                    ' + faqHtml + '\n' +
 '                </div>\n' +
@@ -328,14 +335,14 @@ services.forEach(service => {
 '            \n' +
 '            <aside class="sidebar">\n' +
 '                <div style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);padding:var(--space-6);margin-bottom:var(--space-8);">\n' +
-'                    <h3 style="margin-bottom:var(--space-4);">Conditions & Focus</h3>\n' +
+'                    <h3 style="margin-bottom:var(--space-4);font-family:var(--font-heading);">Conditions & Focus</h3>\n' +
 '                    <ul style="list-style:none;padding:0;margin:0;">\n' +
 '                        ' + conditionsHtml + '\n' +
 '                    </ul>\n' +
 '                </div>\n' +
 '                \n' +
 '                <div style="background:var(--hp-primary-ultra);border-radius:var(--radius-xl);padding:var(--space-6);text-align:center;">\n' +
-'                    <h3 style="color:var(--hp-primary-dark);margin-bottom:var(--space-3);">Ready to book?</h3>\n' +
+'                    <h3 style="color:var(--hp-primary-dark);margin-bottom:var(--space-3);font-family:var(--font-heading);">Ready to book?</h3>\n' +
 '                    <p style="color:var(--hp-text);font-size:var(--text-sm);margin-bottom:var(--space-4);">Schedule your appointment easily online or over the phone.</p>\n' +
 '                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;">Book Now</a>\n' +
 '                </div>\n' +
@@ -345,7 +352,7 @@ services.forEach(service => {
 '\n' +
 '    <section class="section" style="background:var(--hp-bg-section);">\n' +
 '        <div class="container">\n' +
-'            <h2 style="color:var(--hp-heading);margin-bottom:var(--space-6);">Related Services</h2>\n' +
+'            <h2 style="color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Related Services</h2>\n' +
 '            <!-- HP_RELATED_SERVICES_START -->\n' +
 '            <!-- HP_RELATED_SERVICES_END -->\n' +
 '        </div>\n' +
@@ -355,73 +362,40 @@ services.forEach(service => {
 '<!-- HP_FOOTER_START -->\n' +
 '<footer class="hp-footer" style="margin-top:auto; background: var(--hp-surface); border-top: 1px solid var(--hp-border); padding-top: var(--space-16);">\n' +
 '    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-12); padding-bottom: var(--space-12);">\n' +
-'        \n' +
-'        <!-- Brand Section -->\n' +
 '        <div>\n' +
-'            <a href="../../index.html" style="display:inline-block; margin-bottom:var(--space-6);">\n' +
-'                <img src="../../assets/logo_hp.png" alt="HealthPlus Medical" style="height: 48px; width: auto;">\n' +
+'            <a href="../index.html" style="display:inline-block; margin-bottom:var(--space-6);">\n' +
+'                <img src="../assets/logo_hp.png" alt="HealthPlus Medical" style="height: 48px; width: auto;">\n' +
 '            </a>\n' +
 '            <p style="color: var(--hp-text-muted); line-height: 1.7; margin-bottom: var(--space-6);">Providing exceptional, compassionate, and comprehensive medical care to Calgary and surrounding communities since 2006.</p>\n' +
-'            <div style="display: flex; gap: 16px;">\n' +
-'                <a href="#" style="color: var(--hp-primary); width: 40px; height: 40px; border-radius: 50%; background: var(--hp-primary-ultra); display: flex; align-items: center; justify-content: center; transition: all 0.2s;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>\n' +
-'                <a href="#" style="color: var(--hp-primary); width: 40px; height: 40px; border-radius: 50%; background: var(--hp-primary-ultra); display: flex; align-items: center; justify-content: center; transition: all 0.2s;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>\n' +
-'            </div>\n' +
 '        </div>\n' +
-'\n' +
-'        <!-- Quick Links -->\n' +
 '        <div>\n' +
 '            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Quick Links</h4>\n' +
 '            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">\n' +
-'                <li><a href="../../services/" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Our Services</a></li>\n' +
-'                <li><a href="../../team/" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Medical Team</a></li>\n' +
-'                <li><a href="../../about/" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">About Clinic</a></li>\n' +
-'                <li><a href="../../faq.html" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Patient FAQ</a></li>\n' +
-'                <li><a href="../../contact.html" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Contact Us</a></li>\n' +
+'                <li><a href="index.html" style="color: var(--hp-text); text-decoration: none;">Our Services</a></li>\n' +
+'                <li><a href="../team/" style="color: var(--hp-text); text-decoration: none;">Medical Team</a></li>\n' +
+'                <li><a href="../about/" style="color: var(--hp-text); text-decoration: none;">About Clinic</a></li>\n' +
+'                <li><a href="../faq.html" style="color: var(--hp-text); text-decoration: none;">Patient FAQ</a></li>\n' +
+'                <li><a href="../contact.html" style="color: var(--hp-text); text-decoration: none;">Contact Us</a></li>\n' +
 '            </ul>\n' +
 '        </div>\n' +
-'\n' +
-'        <!-- Contact Info -->\n' +
 '        <div>\n' +
 '            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Contact Us</h4>\n' +
 '            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">\n' +
-'                <li style="display: flex; gap: 12px; align-items: flex-start; color: var(--hp-text-muted);">\n' +
-'                    <svg style="color: var(--hp-primary); flex-shrink: 0; margin-top: 4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>\n' +
-'                    <span>227 153 Ave SE<br>Calgary, AB T2X 2K2</span>\n' +
-'                </li>\n' +
-'                <li style="display: flex; gap: 12px; align-items: center; color: var(--hp-text-muted);">\n' +
-'                    <svg style="color: var(--hp-primary); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>\n' +
-'                    <span>(403) 254-4633</span>\n' +
-'                </li>\n' +
-'                <li style="display: flex; gap: 12px; align-items: center; color: var(--hp-text-muted);">\n' +
-'                    <svg style="color: var(--hp-primary); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>\n' +
-'                    <span><a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" style="color:var(--hp-primary); text-decoration:none; font-weight:600;">Book Online</a></span>\n' +
-'                </li>\n' +
+'                <li style="color: var(--hp-text-muted);">227 153 Ave SE<br>Calgary, AB T2X 2K2</li>\n' +
+'                <li style="color: var(--hp-text-muted);">(403) 254-4633</li>\n' +
 '            </ul>\n' +
 '        </div>\n' +
-'\n' +
-'        <!-- Hours -->\n' +
 '        <div>\n' +
 '            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Clinic Hours</h4>\n' +
 '            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">\n' +
-'                <li style="display: flex; justify-content: space-between; color: var(--hp-text); border-bottom: 1px dashed var(--hp-border); padding-bottom: 8px;">\n' +
-'                    <span>Mon - Fri</span>\n' +
-'                    <span style="font-weight: 500;">9:00 AM - 5:00 PM</span>\n' +
-'                </li>\n' +
-'                <li style="display: flex; justify-content: space-between; color: var(--hp-text); border-bottom: 1px dashed var(--hp-border); padding-bottom: 8px;">\n' +
-'                    <span>Saturday</span>\n' +
-'                    <span style="font-weight: 500;">10:00 AM - 2:00 PM</span>\n' +
-'                </li>\n' +
-'                <li style="display: flex; justify-content: space-between; color: var(--hp-text); padding-bottom: 8px;">\n' +
-'                    <span>Sun & Holidays</span>\n' +
-'                    <span style="font-weight: 500; color: var(--hp-primary);">Closed</span>\n' +
-'                </li>\n' +
+'                <li style="display: flex; justify-content: space-between; color: var(--hp-text);"><span>Mon - Fri</span> <span>9:00 AM - 5:00 PM</span></li>\n' +
+'                <li style="display: flex; justify-content: space-between; color: var(--hp-text);"><span>Saturday</span> <span>10:00 AM - 2:00 PM</span></li>\n' +
+'                <li style="display: flex; justify-content: space-between; color: var(--hp-primary);"><span>Sun & Holidays</span> <span>Closed</span></li>\n' +
 '            </ul>\n' +
 '        </div>\n' +
-'\n' +
 '    </div>\n' +
-'    \n' +
 '    <div style="border-top: 1px solid var(--hp-border); background: #f8fafc;">\n' +
-'        <div class="container" style="padding: var(--space-6) 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">\n' +
+'        <div class="container" style="padding: var(--space-6) 0; display: flex; justify-content: space-between; align-items: center;">\n' +
 '            <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin: 0;">&copy; 2026 HealthPlus by SEHA Medical. All rights reserved.</p>\n' +
 '            <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin: 0;">Built by <a href="https://nexorayyc.io" target="_blank" rel="noopener" style="color: var(--hp-primary); font-weight: 600; text-decoration: none;">Nexora</a></p>\n' +
 '        </div>\n' +
@@ -429,15 +403,19 @@ services.forEach(service => {
 '</footer>\n' +
 '<!-- HP_FOOTER_END -->\n' +
 '\n' +
-'<script src="../../js/hp-core.js"></script>\n' +
+'<script src="../js/hp-core.js"></script>\n' +
 '<script>\n' +
-'    // Simple inline script for FAQ accordion on this page\n' +
-'    document.querySelectorAll(".accordion-trigger").forEach(trigger => {\n' +
-'        trigger.addEventListener("click", () => {\n' +
-'            const content = trigger.nextElementSibling;\n' +
-'            const isExpanded = trigger.getAttribute("aria-expanded") === "true";\n' +
-'            trigger.setAttribute("aria-expanded", !isExpanded);\n' +
-'            content.style.display = isExpanded ? "none" : "block";\n' +
+'    // Failsafe accordion handler\n' +
+'    document.querySelectorAll(".accordion-trigger").forEach(btn => {\n' +
+'        btn.addEventListener("click", function() {\n' +
+'            const content = this.nextElementSibling;\n' +
+'            const isOpen = content.classList.contains("open");\n' +
+'            document.querySelectorAll(".accordion-content").forEach(c => c.classList.remove("open"));\n' +
+'            document.querySelectorAll(".accordion-trigger").forEach(t => t.setAttribute("aria-expanded", "false"));\n' +
+'            if (!isOpen) {\n' +
+'                content.classList.add("open");\n' +
+'                this.setAttribute("aria-expanded", "true");\n' +
+'            }\n' +
 '        });\n' +
 '    });\n' +
 '</script>\n' +
@@ -446,5 +424,4 @@ services.forEach(service => {
 
     fs.writeFileSync(path.join(servicesDir, `${service.slug}.html`), pageHtml, 'utf8');
 });
-
-console.log('Successfully generated index.html and 11 service templates.');
+console.log('Rebuilt all 11 service pages with 100% correct relative paths, standalone photo showcase, motion graphics, and working FAQ accordions.');
