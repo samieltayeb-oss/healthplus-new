@@ -2,13 +2,15 @@ const siteConfig = {
   name: "HealthPlus Medical",
   legalName: "HealthPlus by SEHA Medical",
   contact: {
-    phone: "(555) 123-4567",
-    email: "info@healthplusmed.ca",
+    phone: "403-455-6656",
+    secondaryPhone: "403-648-1876",
+    email: "admin@healthplusmed.ca",
+    website: "healthplusmed.ca",
     address: {
-      street: "[Clinic Address Placeholder]",
+      street: "100-290 Midpark Way SE",
       city: "Calgary",
       province: "AB",
-      postalCode: "[Postal Placeholder]"
+      postalCode: "T2X 1P1"
     }
   },
   hours: {
