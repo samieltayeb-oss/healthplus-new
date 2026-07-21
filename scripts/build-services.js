@@ -5,19 +5,19 @@ const siteConfig = require('../config/site.js');
 const teamMembers = require('../config/team.js');
 
 const rootDir = path.join(__dirname, '..');
-const pagesDir = path.join(rootDir, 'pages', 'services');
-const corePagesDir = path.join(rootDir, 'pages');
+const pagesDir = path.join(rootDir, 'services');
+const corePagesDir = rootDir;
 
 // Component Generators
 function generateNavDropdownLinks(depth = 0) {
-    const prefix = depth === 0 ? 'pages/services/' : depth === 1 ? '' : '../';
+    const prefix = depth === 0 ? 'services/' : depth === 1 ? '' : '../';
     
     let html = `\n<ul class="dropdown-menu">\n`;
     services.forEach(service => {
         html += `  <li><a href="${prefix}${service.slug}.html">${service.title}</a></li>\n`;
     });
     html += `  <li><hr class="dropdown-divider"></li>\n`;
-    html += `  <li><a href="${depth === 0 ? 'pages/services/index.html' : 'index.html'}"><strong>View All Services</strong></a></li>\n`;
+    html += `  <li><a href="${depth === 0 ? 'services/index.html' : 'index.html'}"><strong>View All Services</strong></a></li>\n`;
     html += `</ul>\n`;
     return html;
 }
@@ -34,7 +34,7 @@ function generateHomepageFeaturedCards() {
         </div>
         <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2); color: var(--hp-heading);">${s.title}</h3>
         <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-5); line-height: 1.6;">${s.shortDescription}</p>
-        <a href="pages/services/${s.slug}.html" aria-label="Learn more about ${s.title}" style="display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--hp-primary); text-decoration: none;">
+        <a href="services/${s.slug}.html" aria-label="Learn more about ${s.title}" style="display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--hp-primary); text-decoration: none;">
             Learn More 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 16px; height: 16px;"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
         </a>
@@ -43,7 +43,7 @@ function generateHomepageFeaturedCards() {
     
     html += `</div>\n`;
     html += `<div style="text-align: center; margin-top: var(--space-8);">
-        <a href="pages/services/index.html" class="btn btn-outline" style="display: inline-block; padding: 12px 24px; border: 2px solid var(--hp-primary); border-radius: var(--radius-full); color: var(--hp-primary); font-weight: 600; text-decoration: none;">View All Services</a>
+        <a href="services/index.html" class="btn btn-outline" style="display: inline-block; padding: 12px 24px; border: 2px solid var(--hp-primary); border-radius: var(--radius-full); color: var(--hp-primary); font-weight: 600; text-decoration: none;">View All Services</a>
     </div>\n`;
     
     return html;
@@ -209,8 +209,23 @@ services.forEach(service => {
     injectContent(pagePath, { start: 'HP_RELATED_SERVICES_START', end: 'HP_RELATED_SERVICES_END' }, generateRelatedServices, service.slug);
 });
 
-// 6. Inject Core Pages
+// 6. Inject Core Pages Nav Dropdown
+const coreHtmlFiles = ['contact.html', 'book.html', '404.html', path.join('about', 'index.html'), path.join('team', 'index.html')];
+teamMembers.forEach(member => {
+    coreHtmlFiles.push(path.join('team', `${member.slug}.html`));
+});
+
+coreHtmlFiles.forEach(file => {
+    const filePath = path.join(corePagesDir, file);
+    if (fs.existsSync(filePath)) {
+        injectContent(filePath, { start: 'HP_SERVICES_NAV_START', end: 'HP_SERVICES_NAV_END' }, generateNavDropdownLinks, 1);
+    }
+});
+
+// 7. Inject Contact Info & Team Directory into specific pages
 injectContent(path.join(corePagesDir, 'contact.html'), { start: 'HP_CONTACT_INFO_START', end: 'HP_CONTACT_INFO_END' }, generateContactInfo);
-injectContent(path.join(corePagesDir, 'team', 'index.html'), { start: 'HP_TEAM_DIRECTORY_START', end: 'HP_TEAM_DIRECTORY_END' }, generateTeamDirectory);
+if (fs.existsSync(path.join(corePagesDir, 'team', 'index.html'))) {
+    injectContent(path.join(corePagesDir, 'team', 'index.html'), { start: 'HP_TEAM_DIRECTORY_START', end: 'HP_TEAM_DIRECTORY_END' }, generateTeamDirectory);
+}
 
 console.log('--- Build Complete ---');
