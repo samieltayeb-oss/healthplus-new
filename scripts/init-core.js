@@ -105,11 +105,17 @@ aboutHtml += `
                 <h2 style="color:var(--hp-primary); font-size: var(--text-3xl); margin-bottom: var(--space-6);">Reinventing Healthcare</h2>
                 <p style="font-size: var(--text-lg); color: var(--hp-text); margin-bottom: var(--space-6);">After an extended closure and under a new management team, we have reinvented ourselves by building a modern facility with integrated allied medical services to provide exceptional healthcare to you and your families.</p>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-top: var(--space-6);">
-                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Women’s Health</span>
-                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Minor Surgery</span>
-                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Urgent Care</span>
-                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Physiotherapy</span>
-                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Pain Management</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Family Medicine</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Walk-In Clinic</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Internal Medicine</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Mental Health</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">MVA Care</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Obstetrics & Gynecology</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Pediatric Care</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Sports Medicine</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Virtual Care</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Women's Health</span>
+                    <span style="background: var(--hp-bg-section); padding: 8px 16px; border-radius: var(--radius-full); font-weight: 600; color: var(--hp-heading);">Concussion Care</span>
                 </div>
             </div>
             
