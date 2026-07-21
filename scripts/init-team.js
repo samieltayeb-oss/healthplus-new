@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '..');
-const teamHtmlPath = path.join(rootDir, 'pages', 'team', 'index.html');
+const teamHtmlPath = path.join(rootDir, 'team', 'index.html');
 const assetsTeamDir = path.join(rootDir, 'assets', 'healthplus team');
 
 function generateCardsAndModals(category) {

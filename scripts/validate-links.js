@@ -3,7 +3,7 @@ const path = require('path');
 const services = require('../config/services.js');
 
 const rootDir = path.join(__dirname, '..');
-const pagesDir = path.join(rootDir, 'pages', 'services');
+const pagesDir = path.join(rootDir, 'services');
 
 console.log('--- Validating HealthPlus Services Architecture ---');
 
@@ -60,7 +60,7 @@ if (!fs.existsSync(path.join(pagesDir, 'index.html'))) {
 // Check Core Pages exist
 const corePages = ['about/index.html', 'team/index.html', 'contact.html', 'book.html'];
 corePages.forEach(page => {
-    if (!fs.existsSync(path.join(rootDir, 'pages', page))) {
+    if (!fs.existsSync(path.join(rootDir, page))) {
         console.error(`ERROR: Core page missing: ${page}`);
         errors++;
     }
@@ -69,7 +69,7 @@ corePages.forEach(page => {
 // Check Team Profiles exist
 const teamMembers = require('../config/team.js');
 teamMembers.forEach(member => {
-    if (!fs.existsSync(path.join(rootDir, 'pages', 'team', `${member.slug}.html`))) {
+    if (!fs.existsSync(path.join(rootDir, 'team', `${member.slug}.html`))) {
         console.error(`ERROR: Team profile missing: ${member.slug}`);
         errors++;
     }

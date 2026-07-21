@@ -4,7 +4,7 @@ const siteConfig = require('../config/site.js');
 const teamMembers = require('../config/team.js');
 
 const rootDir = path.join(__dirname, '..');
-const pagesDir = path.join(rootDir, 'pages');
+const pagesDir = rootDir;
 
 const directories = ['about', 'team'];
 directories.forEach(dir => {
@@ -13,7 +13,7 @@ directories.forEach(dir => {
 });
 
 function getHeader(depth, title, description, schemaStr = '') {
-    const prefix = depth === 0 ? 'pages/' : depth === 1 ? '' : '../';
+    const prefix = depth === 0 ? '' : depth === 1 ? '../' : '../../';
     const rootPrefix = depth === 0 ? '' : depth === 1 ? '../' : '../../';
     
     return `<!DOCTYPE html>
@@ -46,14 +46,14 @@ function getHeader(depth, title, description, schemaStr = '') {
             </a>
             <ul class="nav-links" role="list">
                 <li class="nav-dropdown" style="position:relative;">
-                    <a href="${rootPrefix}pages/services/index.html" class="nav-link" aria-haspopup="true">Services</a>
+                    <a href="${rootPrefix}services/index.html" class="nav-link" aria-haspopup="true">Services</a>
                     <!-- HP_SERVICES_NAV_START -->
                     <!-- HP_SERVICES_NAV_END -->
                 </li>
-                <li><a href="${rootPrefix}pages/team/index.html" class="nav-link">Our Team</a></li>
-                <li><a href="${rootPrefix}pages/about/index.html" class="nav-link">About</a></li>
-                <li><a href="${rootPrefix}pages/faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="${rootPrefix}pages/contact.html" class="nav-link">Contact</a></li>
+                <li><a href="${rootPrefix}team/index.html" class="nav-link">Our Team</a></li>
+                <li><a href="${rootPrefix}about/index.html" class="nav-link">About</a></li>
+                <li><a href="${rootPrefix}faq.html" class="nav-link">FAQ</a></li>
+                <li><a href="${rootPrefix}contact.html" class="nav-link">Contact</a></li>
             </ul>
             <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Appointment</a>
             <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -89,7 +89,7 @@ const aboutSchema = `
   }
 }
 </script>`;
-let aboutHtml = getHeader(2, "About Us | HealthPlus Medical", "Learn about HealthPlus Medical's mission, vision, and values.", aboutSchema);
+let aboutHtml = getHeader(1, "About Us | HealthPlus Medical", "Learn about HealthPlus Medical's mission, vision, and values.", aboutSchema);
 aboutHtml += `
     <section class="hp-hero" style="min-height: 40vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-primary-ultra);">
         <div class="container text-center">
@@ -122,7 +122,7 @@ aboutHtml += `
         </div>
     </section>
 `;
-aboutHtml += getFooter(2);
+aboutHtml += getFooter(1);
 fs.writeFileSync(path.join(pagesDir, 'about', 'index.html'), aboutHtml, 'utf8');
 
 // 2. Team Directory (pages/team/index.html)
@@ -134,23 +134,45 @@ const teamSchema = `
   "name": "Our Medical Team"
 }
 </script>`;
-let teamHtml = getHeader(2, "Our Team | HealthPlus Medical", "Meet the experienced physicians and staff at HealthPlus Medical.", teamSchema);
+let teamHtml = getHeader(1, "Our Team | HealthPlus Medical", "Meet the experienced physicians and staff at HealthPlus Medical.", teamSchema);
 teamHtml += `
-    <section class="hp-hero" style="min-height: 40vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-surface);">
-        <div class="container text-center">
-            <span class="eyebrow" style="color:var(--hp-primary);">Dedicated Professionals</span>
-            <h1 style="color:var(--hp-heading);margin:var(--space-4) 0;">Meet Our Medical Team</h1>
-            <p class="lead" style="color:var(--hp-text-muted);max-width:700px;margin:0 auto;">Experienced, compassionate physicians dedicated to your long-term health.</p>
-        </div>
-    </section>
     <section class="section">
-        <div class="container">
-            <!-- HP_TEAM_DIRECTORY_START -->
-            <!-- HP_TEAM_DIRECTORY_END -->
+        <div class="container text-center" style="max-width: 800px;">
+            <p class="subtitle" style="color:var(--hp-secondary);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:var(--space-2);">Dedicated Professionals</p>
+            <h1 class="display-title" style="color:var(--hp-primary);margin-bottom:var(--space-4);">Meet Our Medical Team</h1>
+            <p class="lead-text" style="color:var(--hp-text-muted);">Experienced, compassionate physicians dedicated to your long-term health.</p>
         </div>
     </section>
+
+    <!-- PHYSICIANS SECTION -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container text-center">
+            <h2 style="color:var(--hp-primary);margin-bottom:var(--space-8);">Family Physicians</h2>
+            <div class="team-grid">
+                <!-- HP_TEAM_PHYSICIANS_START -->
+                <!-- HP_TEAM_PHYSICIANS_END -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALISTS SECTION -->
+    <section class="section" style="background:var(--hp-bg-section);">
+        <div class="container text-center">
+            <h2 style="color:var(--hp-primary);margin-bottom:var(--space-8);">Specialists</h2>
+            <div class="team-grid">
+                <!-- HP_TEAM_SPECIALISTS_START -->
+                <!-- HP_TEAM_SPECIALISTS_END -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALS CONTAINER -->
+    <div id="hp-modals-container">
+        <!-- HP_TEAM_MODALS_START -->
+        <!-- HP_TEAM_MODALS_END -->
+    </div>
 `;
-teamHtml += getFooter(2);
+teamHtml += getFooter(1);
 fs.writeFileSync(path.join(pagesDir, 'team', 'index.html'), teamHtml, 'utf8');
 
 // 3. Contact Page (pages/contact.html)
@@ -165,7 +187,7 @@ const contactSchema = `
   }
 }
 </script>`;
-let contactHtml = getHeader(1, "Contact Us | HealthPlus Medical", "Get in touch with HealthPlus Medical for general inquiries.", contactSchema);
+let contactHtml = getHeader(0, "Contact Us | HealthPlus Medical", "Get in touch with HealthPlus Medical for general inquiries.", contactSchema);
 contactHtml += `
     <section class="hp-hero" style="min-height: 30vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-primary-ultra);">
         <div class="container text-center">
@@ -206,7 +228,7 @@ contactHtml += `
         </div>
     </section>
 `;
-contactHtml += getFooter(1);
+contactHtml += getFooter(0);
 fs.writeFileSync(path.join(pagesDir, 'contact.html'), contactHtml, 'utf8');
 
 // 4. Book Appointment Page (pages/book.html)
@@ -218,7 +240,7 @@ const bookSchema = `
   "name": "Request an Appointment"
 }
 </script>`;
-let bookHtml = getHeader(1, "Request Appointment | HealthPlus Medical", "Request a non-emergency appointment with HealthPlus Medical.", bookSchema);
+let bookHtml = getHeader(0, "Request Appointment | HealthPlus Medical", "Request a non-emergency appointment with HealthPlus Medical.", bookSchema);
 bookHtml += `
     <section class="hp-hero" style="min-height: 30vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-surface);">
         <div class="container text-center">
@@ -277,7 +299,7 @@ bookHtml += `
         </div>
     </section>
 `;
-bookHtml += getFooter(1);
+bookHtml += getFooter(0);
 fs.writeFileSync(path.join(pagesDir, 'book.html'), bookHtml, 'utf8');
 
 // 5. Doctor Profile Templates (pages/team/[slug].html)
@@ -296,7 +318,7 @@ teamMembers.forEach(member => {
 </script>`;
     }
 
-    let profileHtml = getHeader(2, member.seoTitle, member.seoDescription, profileSchema);
+    let profileHtml = getHeader(1, member.seoTitle, member.seoDescription, profileSchema);
     profileHtml += `
     <section class="hp-hero" style="min-height: 20vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-surface);">
         <div class="container">
@@ -353,12 +375,12 @@ teamMembers.forEach(member => {
         </div>
     </section>
 `;
-    profileHtml += getFooter(2);
+    profileHtml += getFooter(1);
     fs.writeFileSync(path.join(pagesDir, 'team', `${member.slug}.html`), profileHtml, 'utf8');
 });
 
 // 6. 404 Error Page (404.html in root)
-let notFoundHtml = getHeader(1, "Page Not Found | HealthPlus Medical", "The page you are looking for cannot be found.");
+let notFoundHtml = getHeader(0, "Page Not Found | HealthPlus Medical", "The page you are looking for cannot be found.");
 notFoundHtml += `
     <section class="hp-hero" style="min-height: 60vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-surface);">
         <div class="container text-center">
@@ -367,12 +389,12 @@ notFoundHtml += `
             <p class="lead" style="color:var(--hp-text-muted);max-width:600px;margin:0 auto var(--space-8);">We can't seem to find the page you're looking for. It may have been moved or no longer exists.</p>
             <div style="display:flex;gap:var(--space-4);justify-content:center;">
                 <a href="/index.html" class="btn btn-primary">Return Home</a>
-                <a href="/pages/contact.html" class="btn btn-secondary">Contact Us</a>
+                <a href="/contact.html" class="btn btn-secondary">Contact Us</a>
             </div>
         </div>
     </section>
 `;
-notFoundHtml += getFooter(1);
+notFoundHtml += getFooter(0);
 fs.writeFileSync(path.join(rootDir, '404.html'), notFoundHtml, 'utf8');
 
 console.log('Successfully generated Core Page shells, Team Profiles, and 404 page.');

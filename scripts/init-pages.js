@@ -3,7 +3,7 @@ const path = require('path');
 const services = require('../config/services.js');
 
 const rootDir = path.join(__dirname, '..');
-const pagesDir = path.join(rootDir, 'pages');
+const pagesDir = rootDir;
 const servicesDir = path.join(pagesDir, 'services');
 
 if (!fs.existsSync(servicesDir)) {

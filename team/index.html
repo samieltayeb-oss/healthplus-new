@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/hp-premium.css">
+    <link rel="stylesheet" href="../css/hp-premium.css">
     
 <script type="application/ld+json">
 {
@@ -30,19 +30,19 @@
 <header>
     <nav class="hp-navbar" aria-label="Main Navigation">
         <div class="container nav-inner">
-            <a href="../../index.html" class="nav-logo" aria-label="HealthPlus Medical Home">
-                <img src="../../assets/logo_hp.png" alt="HealthPlus Medical">
+            <a href="../index.html" class="nav-logo" aria-label="HealthPlus Medical Home">
+                <img src="../assets/logo_hp.png" alt="HealthPlus Medical">
             </a>
             <ul class="nav-links" role="list">
                 <li class="nav-dropdown" style="position:relative;">
-                    <a href="../../pages/services/index.html" class="nav-link" aria-haspopup="true">Services</a>
+                    <a href="../services/index.html" class="nav-link" aria-haspopup="true">Services</a>
                     <!-- HP_SERVICES_NAV_START -->
                     <!-- HP_SERVICES_NAV_END -->
                 </li>
-                <li><a href="../../pages/team/index.html" class="nav-link">Our Team</a></li>
-                <li><a href="../../pages/about/index.html" class="nav-link">About</a></li>
-                <li><a href="../../pages/faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="../../pages/contact.html" class="nav-link">Contact</a></li>
+                <li><a href="../team/index.html" class="nav-link">Our Team</a></li>
+                <li><a href="../about/index.html" class="nav-link">About</a></li>
+                <li><a href="../faq.html" class="nav-link">FAQ</a></li>
+                <li><a href="../contact.html" class="nav-link">Contact</a></li>
             </ul>
             <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">Book Appointment</a>
             <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -51,17 +51,20 @@
 </header>
 <main>
 
-    <section class="hp-hero" style="min-height: 40vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-surface);">
-        <div class="container text-center">
-            <span class="eyebrow" style="color:var(--hp-primary);">Dedicated Professionals</span>
-            <h1 style="color:var(--hp-heading);margin:var(--space-4) 0;">Meet Our Medical Team</h1>
-            <p class="lead" style="color:var(--hp-text-muted);max-width:700px;margin:0 auto;">Experienced, compassionate physicians dedicated to your long-term health.</p>
+    <section class="section">
+        <div class="container text-center" style="max-width: 800px;">
+            <p class="subtitle" style="color:var(--hp-secondary);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:var(--space-2);">Dedicated Professionals</p>
+            <h1 class="display-title" style="color:var(--hp-primary);margin-bottom:var(--space-4);">Meet Our Medical Team</h1>
+            <p class="lead-text" style="color:var(--hp-text-muted);">Experienced, compassionate physicians dedicated to your long-term health.</p>
         </div>
     </section>
-    <section class="section">
-        <div class="container">
-            <h2 style="color:var(--hp-heading);margin-bottom:var(--space-6);">Our Family Physicians</h2>
-            <!-- HP_TEAM_PHYSICIANS_START -->
+
+    <!-- PHYSICIANS SECTION -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container text-center">
+            <h2 style="color:var(--hp-primary);margin-bottom:var(--space-8);">Family Physicians</h2>
+            <div class="team-grid">
+                <!-- HP_TEAM_PHYSICIANS_START -->
 <div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
 
         <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
@@ -252,9 +255,16 @@
         </div>
 </div>
 <!-- HP_TEAM_PHYSICIANS_END -->
-            
-            <h2 style="color:var(--hp-heading);margin:var(--space-12) 0 var(--space-6);">Our Specialists</h2>
-            <!-- HP_TEAM_SPECIALISTS_START -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALISTS SECTION -->
+    <section class="section" style="background:var(--hp-bg-section);">
+        <div class="container text-center">
+            <h2 style="color:var(--hp-primary);margin-bottom:var(--space-8);">Specialists</h2>
+            <div class="team-grid">
+                <!-- HP_TEAM_SPECIALISTS_START -->
 <div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
 
         <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
@@ -343,8 +353,13 @@
         </div>
 </div>
 <!-- HP_TEAM_SPECIALISTS_END -->
-            
-            <!-- HP_TEAM_MODALS_START -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALS CONTAINER -->
+    <div id="hp-modals-container">
+        <!-- HP_TEAM_MODALS_START -->
 
         <div id="modal-dr_aous_al_shehabi" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
             <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);opacity:0;transition:all 0.3s ease-out;">
@@ -765,14 +780,13 @@
             </div>
         </div>
 <!-- HP_TEAM_MODALS_END -->
-        </div>
-    </section>
+    </div>
 </main>
 <footer class="hp-footer" style="margin-top:auto;">
     <div class="container text-center" style="padding:var(--space-10) 0;">
         <p>&copy; 2026 HealthPlus by SEHA Medical. All rights reserved.</p>
     </div>
 </footer>
-<script src="../../js/hp-core.js"></script>
+<script src="../js/hp-core.js"></script>
 </body>
 </html>
