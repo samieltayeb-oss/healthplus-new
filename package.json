@@ -9,5 +9,8 @@
     "validate": "node scripts/validate-links.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sharp": "^0.35.3"
+  }
 }

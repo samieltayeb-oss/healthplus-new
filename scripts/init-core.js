@@ -219,7 +219,7 @@ const teamSchema = `
 let teamHtml = getHeader(1, "Our Team | HealthPlus Medical", "Meet the experienced physicians and staff at HealthPlus Medical.", teamSchema);
 teamHtml += `
     <section class="hp-hero" style="position:relative; padding-top: 120px; padding-bottom: 60px; background:var(--hp-primary-ultra); overflow:hidden;">
-        <img src="../assets/images/global/healthplus-placeholder.svg" alt="" width="1920" height="1080" decoding="async" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; opacity:0.15;">
+        <img src="../assets/images/core/team-hero.png" alt="" width="1920" height="1080" decoding="async" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; opacity:0.25;">
         <div class="container text-center" style="position:relative; z-index:1; max-width: 800px;">
             <p class="subtitle" style="color:var(--hp-secondary);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:var(--space-2);">Dedicated Professionals</p>
             <h1 class="display-title" style="color:var(--hp-primary);margin-bottom:var(--space-4);">Meet Our Medical Team</h1>
