@@ -27,15 +27,6 @@ module.exports = [
     "category": "Specialists"
   },
   {
-    "id": "dr-3",
-    "slug": "dr-3",
-    "firstName": "Dr",
-    "lastName": "Ayman Habiba",
-    "role": "Specialist",
-    "photo": "assets/images/team/placeholder.webp",
-    "category": "Specialists"
-  },
-  {
     "id": "dr-4",
     "slug": "dr-4",
     "firstName": "Dr",
