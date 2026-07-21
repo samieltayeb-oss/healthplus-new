@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Appointment | HealthPlus Medical</title>
+    <meta name="description" content="Request a non-emergency appointment with HealthPlus Medical.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/hp-premium.css">
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Request an Appointment"
+}
+</script>
+</head>
+<body class="hp-body">
+
+<header>
+    <nav class="hp-navbar" aria-label="Main Navigation">
+        <div class="container nav-inner">
+            <a href="../index.html" class="nav-logo" aria-label="HealthPlus Medical Home">
+                <img src="../assets/logo_hp.png" alt="HealthPlus Medical">
+            </a>
+            <ul class="nav-links" role="list">
+                <li class="nav-dropdown" style="position:relative;">
+                    <a href="../pages/services/index.html" class="nav-link" aria-haspopup="true">Services</a>
+                    <!-- HP_SERVICES_NAV_START -->
+                    <!-- HP_SERVICES_NAV_END -->
+                </li>
+                <li><a href="../pages/team/index.html" class="nav-link">Our Team</a></li>
+                <li><a href="../pages/about/index.html" class="nav-link">About</a></li>
+                <li><a href="../pages/faq.html" class="nav-link">FAQ</a></li>
+                <li><a href="../pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="../pages/book.html" class="btn btn-primary nav-cta">Book Appointment</a>
+            <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+</header>
+<main>
+
+    <section class="hp-hero" style="min-height: 30vh; display: flex; align-items: center; padding-top: 120px; background:var(--hp-surface);">
+        <div class="container text-center">
+            <h1 style="color:var(--hp-heading);margin:var(--space-4) 0;">Request an Appointment</h1>
+            <p class="lead" style="color:var(--hp-text-muted);max-width:700px;margin:0 auto;">Complete the form below to request a time. This is a request flow, not a guaranteed booking.</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container" style="max-width:600px;margin:0 auto;">
+            <div style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);padding:var(--space-8);">
+                <form>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-bottom:var(--space-4);">
+                        <div>
+                            <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">First Name *</label>
+                            <input type="text" style="width:100%;padding:12px;border:1px solid var(--hp-border);border-radius:var(--radius-md);" required>
+                        </div>
+                        <div>
+                            <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">Last Name *</label>
+                            <input type="text" style="width:100%;padding:12px;border:1px solid var(--hp-border);border-radius:var(--radius-md);" required>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom:var(--space-4);">
+                        <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">Phone Number *</label>
+                        <input type="tel" style="width:100%;padding:12px;border:1px solid var(--hp-border);border-radius:var(--radius-md);" required>
+                    </div>
+                    <div style="margin-bottom:var(--space-4);">
+                        <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">Email Address *</label>
+                        <input type="email" style="width:100%;padding:12px;border:1px solid var(--hp-border);border-radius:var(--radius-md);" required>
+                    </div>
+
+                    <div style="margin-bottom:var(--space-4);">
+                        <label style="display:block;margin-bottom:var(--space-2);font-weight:500;">Preferred Service</label>
+                        <select style="width:100%;padding:12px;border:1px solid var(--hp-border);border-radius:var(--radius-md);">
+                            <option>General Consultation</option>
+                            <option>Family Medicine</option>
+                            <option>Walk-In Clinic</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom:var(--space-6);">
+                        <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:var(--text-sm);">
+                            <input type="checkbox" required>
+                            I understand this is a request and I will not include private medical information.
+                        </label>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;" onclick="alert('Form submission is disabled until backend integration.')">Submit Request</button>
+                </form>
+            </div>
+            
+            <div style="background:var(--hp-surface);border:1px solid #ffcdd2;border-left:4px solid #f44336;padding:var(--space-5);border-radius:var(--radius-md);margin-top:var(--space-8);">
+                <p style="color:var(--hp-text);font-size:var(--text-sm);margin:0;font-weight:600;">For a medical emergency, call 911 or go to the nearest emergency department immediately.</p>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="hp-footer" style="margin-top:auto;">
+    <div class="container text-center" style="padding:var(--space-10) 0;">
+        <p>&copy; 2026 HealthPlus by SEHA Medical. All rights reserved.</p>
+    </div>
+</footer>
+<script src="../js/hp-core.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "healthplus-medical-v2",
+  "version": "1.0.0",
+  "description": "Static site generation scripts for HealthPlus Medical V2",
+  "main": "scripts/build-services.js",
+  "scripts": {
+    "build:services": "node scripts/build-services.js",
+    "build": "npm run build:services",
+    "validate": "node scripts/validate-links.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
