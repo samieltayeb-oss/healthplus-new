@@ -87,37 +87,36 @@
                     <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>
                     <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>
                 </div>
-            <div>
-                
-        <div style="position:relative; width:100%; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45); border: 2px solid rgba(255,255,255,0.25); background:#0B2824;">
-            <!-- 1. FULL STANDALONE 8K PHOTO -->
-            <img src="../assets/images/services/sports-medicine.png" alt="Sports Medicine" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.src='../assets/images/global/healthplus-placeholder.svg'">
-            
-            <!-- 2. HIGH-TECH INTEGRATED GLASSMORPHISM MEDICAL HUD OVERLAY -->
-            <div style="position:absolute; bottom:16px; left:16px; right:16px; background:rgba(11,40,36,0.85); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.25); border-radius:var(--radius-xl); padding:12px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <span style="width:10px; height:10px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; display:inline-block; animation: pulse 1.5s infinite;"></span>
-                    <div>
-                        <div style="color:#fff; font-size:13px; font-weight:700; font-family:sans-serif; line-height:1.2;">Specialist Care</div>
-                        <div style="color:#73C9BE; font-size:11px; font-weight:600; font-family:sans-serif;">Board Certified</div>
-                    </div>
-                </div>
-                
-                <!-- MINI ANIMATED MOTION GRAPHIC -->
-                <div style="width:120px; height:32px; display:flex; align-items:center;">
-                    <svg viewBox="0 0 160 40" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="80" cy="20" r="12" fill="none" stroke="rgba(115,201,190,0.3)" stroke-width="2"/>
-                <circle cx="80" cy="20" r="8" fill="none" stroke="#73C9BE" stroke-width="2" stroke-dasharray="6 3">
-                    <animateTransform attributeName="transform" type="rotate" from="0 80 20" to="360 80 20" dur="5s" repeatCount="indefinite"/>
-                </circle>
-            </svg>
-                </div>
-                
-                <div style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.2); padding:5px 12px; border-radius:var(--radius-full); color:#fff; font-size:11px; font-weight:600; letter-spacing:0.5px; white-space:nowrap;">
-                    AHCIP Covered
-                </div>
             </div>
+            <!-- RIGHT: STANDALONE 8K PHOTO ABOVE + SEPARATED MOTION CARD BELOW -->
+            <div style="display:flex; flex-direction:column; gap:var(--space-5);">
+                <!-- STANDALONE 8K PHOTO CARD: full image, no overlay, no cropping -->
+                <div style="border-radius:16px; overflow:hidden; box-shadow:0 25px 55px rgba(0,0,0,0.5); border:2px solid rgba(255,255,255,0.22);">
+                    <img src="../assets/images/services/sports-medicine.png" alt="Sports Medicine" style="width:100%; height:auto; display:block;" onerror="this.src='../assets/images/global/healthplus-placeholder.svg'" loading="eager">
+                </div>
+                <!-- SEPARATE ANIMATED MOTION GRAPHIC CARD (not touching the image) -->
+                <div style='background:rgba(11,40,36,0.95); border:1px solid rgba(115,201,190,0.35); border-radius:16px; padding:20px 20px 16px; box-shadow:0 24px 48px rgba(0,0,0,0.45); backdrop-filter:blur(12px);'>
+        <div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;'>
+            <span style='display:inline-flex; align-items:center; gap:8px; color:#10b981; font-weight:700; font-size:11px; font-family:sans-serif; text-transform:uppercase; letter-spacing:0.5px;'>
+                <span style='width:9px;height:9px;background:#10b981;border-radius:50%;box-shadow:0 0 10px #10b981;animation:pulse 1.5s infinite;display:inline-block;flex-shrink:0;'></span>
+                ATHLETIC RECOVERY DASHBOARD
+            </span>
+            <span style='color:#73C9BE; font-size:10px; font-weight:700; font-family:sans-serif; letter-spacing:0.3px;'>RETURN-TO-SPORT PROTOCOL</span>
         </div>
+        <div style='background:#071E1C; border-radius:12px; overflow:hidden; border:1px solid rgba(115,201,190,0.15); margin-bottom:14px;'>
+            <svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M 20 85 A 175 175 0 0 1 380 85' fill='none' stroke='rgba(115,201,190,0.2)' stroke-width='8' stroke-linecap='round'/>
+                <path d='M 20 85 A 175 175 0 0 1 290 28' fill='none' stroke='#10b981' stroke-width='8' stroke-linecap='round' stroke-dasharray='330' stroke-dashoffset='330'>
+                    <animate attributeName='stroke-dashoffset' values='330;0;330' dur='3.5s' repeatCount='indefinite'/>
+                </path>
+                <text x='200' y='72' text-anchor='middle' fill='#fff' font-size='22' font-weight='800' font-family='sans-serif'>87%</text>
+                <text x='200' y='90' text-anchor='middle' fill='#73C9BE' font-size='10' font-weight='600' font-family='sans-serif'>RECOVERY SCORE</text>
+            </svg>
+        </div>
+        <div style='display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:8px;'>
+            <div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Return to Sport</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Guided Protocol</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Injury Rehab</div><div style='color:#10b981;font-weight:700;font-size:12px;margin-top:2px;'>Evidence-Based</div></div>
+        </div>
+    </div>
             </div>
         </div>
     </section>

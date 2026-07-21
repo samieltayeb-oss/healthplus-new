@@ -1,92 +1,207 @@
 
 function getServiceMotionHUD(slug, title) {
-    let svgMini = '';
-    let badgeLabel = '';
-    let badgeValue = '';
+    let animSvg = '';
+    let statusLabel = '';
+    let statusValue = '';
+    let metaItems = '';
     
     switch(slug) {
         case 'concussion-care':
-            badgeLabel = 'Neurological Scan';
-            badgeValue = 'Brainwave Active';
-            svgMini = `<svg viewBox="0 0 160 40" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0 20 Q 30 5 60 20 T 120 20 T 160 20" fill="none" stroke="#73C9BE" stroke-width="2.5">
-                    <animate attributeName="d" dur="2s" repeatCount="indefinite" values="M 0 20 Q 30 5 60 20 T 120 20 T 160 20; M 0 20 Q 30 35 60 20 T 120 20 T 160 20; M 0 20 Q 30 5 60 20 T 120 20 T 160 20"/>
+            statusLabel = 'NEUROLOGICAL SCAN MONITOR';
+            statusValue = 'COMPLETE CONCUSSIONS™ CERTIFIED';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <defs><pattern id='cgrid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='rgba(115,201,190,0.08)' stroke-width='1'/></pattern></defs>
+                <rect width='400' height='100' fill='url(#cgrid)'/>
+                <path d='M 0 50 L 60 50 L 78 15 L 96 85 L 114 5 L 132 95 L 150 50 L 400 50' fill='none' stroke='#73C9BE' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>
+                    <animate attributeName='stroke-dasharray' values='0,700;700,0;0,700' dur='3s' repeatCount='indefinite'/>
                 </path>
-                <circle cx="60" cy="20" r="4" fill="#10b981">
-                    <animate attributeName="r" values="3;6;3" dur="1.5s" repeatCount="indefinite"/>
-                </circle>
+                <circle cx='114' cy='5' r='6' fill='#10b981'><animate attributeName='r' values='3;9;3' dur='1.5s' repeatCount='indefinite'/></circle>
+                <circle cx='132' cy='95' r='5' fill='#73C9BE'><animate attributeName='r' values='2;7;2' dur='1.2s' repeatCount='indefinite'/></circle>
             </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Protocol</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Evidence-Based</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>App Sync</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>Tracker Live</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>`;
             break;
 
         case 'walk-in-clinic':
-            badgeLabel = 'Live Queue Status';
-            badgeValue = '< 15 Min Wait';
-            svgMini = `<svg viewBox="0 0 160 40" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="80" cy="20" r="14" fill="none" stroke="rgba(115,201,190,0.3)" stroke-width="2"/>
-                <circle cx="80" cy="20" r="14" fill="none" stroke="#73C9BE" stroke-width="2.5" stroke-dasharray="88" stroke-dashoffset="22">
-                    <animateTransform attributeName="transform" type="rotate" from="0 80 20" to="360 80 20" dur="4s" repeatCount="indefinite"/>
+            statusLabel = 'LIVE WALK-IN AVAILABILITY';
+            statusValue = 'NO APPOINTMENT NEEDED';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <circle cx='200' cy='50' r='42' fill='none' stroke='rgba(115,201,190,0.2)' stroke-width='3'/>
+                <circle cx='200' cy='50' r='42' fill='none' stroke='#10b981' stroke-width='4' stroke-dasharray='264' stroke-dashoffset='66' stroke-linecap='round'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 200 50' to='360 200 50' dur='5s' repeatCount='indefinite'/>
                 </circle>
-                <text x="80" y="24" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" font-family="sans-serif">OPEN</text>
+                <circle cx='200' cy='50' r='28' fill='none' stroke='rgba(115,201,190,0.15)' stroke-width='2'/>
+                <text x='200' y='44' text-anchor='middle' fill='rgba(255,255,255,0.7)' font-size='11' font-family='sans-serif'>ESTIMATED WAIT</text>
+                <text x='200' y='63' text-anchor='middle' fill='#10b981' font-size='17' font-weight='800' font-family='sans-serif'>&lt; 15 min</text>
             </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Physician</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>On-Site Now</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Access</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>Same-Day Care</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>`;
             break;
 
         case 'family-medicine':
-            badgeLabel = 'Family Wellness';
-            badgeValue = 'Vital Pulse Sync';
-            svgMini = `<svg viewBox="0 0 160 40" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0 20 L 40 20 L 50 5 L 60 35 L 70 10 L 80 25 L 90 20 L 160 20" fill="none" stroke="#73C9BE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <animate attributeName="stroke-dasharray" values="0,300;300,0" dur="2s" repeatCount="indefinite"/>
+            statusLabel = 'FAMILY VITAL PULSE MONITOR';
+            statusValue = 'ACCEPTING NEW PATIENTS';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M 0 50 L 80 50 L 100 15 L 120 85 L 140 10 L 160 90 L 180 50 L 400 50' fill='none' stroke='#73C9BE' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'>
+                    <animate attributeName='stroke-dasharray' values='0,700;700,0;0,700' dur='2.2s' repeatCount='indefinite'/>
+                </path>
+                <circle cx='140' cy='10' r='5' fill='#10b981'><animate attributeName='opacity' values='1;0;1' dur='0.8s' repeatCount='indefinite'/></circle>
+            </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Care</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Lifelong Health</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>100% AHCIP</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>New Patients</div><div style='color:#10b981;font-weight:700;font-size:12px;margin-top:2px;'>Now Open</div></div>`;
+            break;
+
+        case 'mental-health':
+            statusLabel = 'MENTAL WELLNESS TRACKER';
+            statusValue = 'CONFIDENTIAL CARE';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M 0 50 Q 50 10 100 50 T 200 50 T 300 50 T 400 50' fill='none' stroke='rgba(115,201,190,0.3)' stroke-width='2'/>
+                <path d='M 0 50 Q 50 90 100 50 T 200 50 T 300 50 T 400 50' fill='none' stroke='#73C9BE' stroke-width='3.5'>
+                    <animate attributeName='d' dur='3s' repeatCount='indefinite' values='M 0 50 Q 50 90 100 50 T 200 50 T 300 50 T 400 50;M 0 50 Q 50 10 100 50 T 200 50 T 300 50 T 400 50;M 0 50 Q 50 90 100 50 T 200 50 T 300 50 T 400 50'/>
                 </path>
             </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Approach</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Holistic Therapy</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Privacy</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>Fully Private</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>`;
+            break;
+
+        case 'sports-medicine':
+            statusLabel = 'ATHLETIC RECOVERY DASHBOARD';
+            statusValue = 'RETURN-TO-SPORT PROTOCOL';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M 20 85 A 175 175 0 0 1 380 85' fill='none' stroke='rgba(115,201,190,0.2)' stroke-width='8' stroke-linecap='round'/>
+                <path d='M 20 85 A 175 175 0 0 1 290 28' fill='none' stroke='#10b981' stroke-width='8' stroke-linecap='round' stroke-dasharray='330' stroke-dashoffset='330'>
+                    <animate attributeName='stroke-dashoffset' values='330;0;330' dur='3.5s' repeatCount='indefinite'/>
+                </path>
+                <text x='200' y='72' text-anchor='middle' fill='#fff' font-size='22' font-weight='800' font-family='sans-serif'>87%</text>
+                <text x='200' y='90' text-anchor='middle' fill='#73C9BE' font-size='10' font-weight='600' font-family='sans-serif'>RECOVERY SCORE</text>
+            </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Return to Sport</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Guided Protocol</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Injury Rehab</div><div style='color:#10b981;font-weight:700;font-size:12px;margin-top:2px;'>Evidence-Based</div></div>`;
+            break;
+
+        case 'mva-care':
+            statusLabel = 'MVA INJURY ASSESSMENT HUB';
+            statusValue = 'WCB & INSURANCE SUPPORTED';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <circle cx='75' cy='50' r='38' fill='none' stroke='rgba(115,201,190,0.2)' stroke-width='2'/>
+                <circle cx='75' cy='50' r='38' fill='none' stroke='#73C9BE' stroke-width='3' stroke-dasharray='238' stroke-dashoffset='60'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 75 50' to='360 75 50' dur='6s' repeatCount='indefinite'/>
+                </circle>
+                <circle cx='75' cy='50' r='12' fill='#10b981'><animate attributeName='r' values='7;14;7' dur='2s' repeatCount='indefinite'/></circle>
+                <line x1='140' y1='28' x2='390' y2='28' stroke='rgba(115,201,190,0.35)' stroke-width='1'/>
+                <line x1='140' y1='50' x2='390' y2='50' stroke='rgba(115,201,190,0.6)' stroke-width='2'/>
+                <line x1='140' y1='72' x2='330' y2='72' stroke='rgba(115,201,190,0.25)' stroke-width='1'/>
+                <text x='155' y='46' fill='rgba(255,255,255,0.65)' font-size='11' font-family='sans-serif'>Documentation</text>
+                <text x='155' y='66' fill='#73C9BE' font-size='14' font-weight='700' font-family='sans-serif'>Assessment Active</text>
+            </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Insurance</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>All Providers</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>WCB</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>Accepted</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>`;
             break;
 
         case 'obstetrics-gynecology':
-            badgeLabel = 'Prenatal Monitor';
-            badgeValue = 'Heartbeat: 140 BPM';
-            svgMini = `<svg viewBox="0 0 160 40" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0 20 Q 40 0 80 20 T 160 20" fill="none" stroke="#73C9BE" stroke-width="2"/>
-                <circle cx="80" cy="20" r="5" fill="#fff">
-                    <animate attributeName="r" values="3;8;3" dur="1s" repeatCount="indefinite"/>
-                </circle>
+            statusLabel = 'PRENATAL HEALTH MONITOR';
+            statusValue = 'OBSTETRICS & GYNECOLOGY';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M 0 50 Q 100 0 200 50 T 400 50' fill='none' stroke='rgba(115,201,190,0.3)' stroke-width='2'/>
+                <path d='M 0 50 Q 100 100 200 50 T 400 50' fill='none' stroke='#73C9BE' stroke-width='3.5'>
+                    <animate attributeName='d' dur='2s' repeatCount='indefinite' values='M 0 50 Q 100 100 200 50 T 400 50;M 0 50 Q 100 0 200 50 T 400 50;M 0 50 Q 100 100 200 50 T 400 50'/>
+                </path>
+                <circle cx='200' cy='50' r='9' fill='#fff'><animate attributeName='r' values='5;14;5' dur='1s' repeatCount='indefinite'/></circle>
+                <circle cx='200' cy='50' r='4' fill='#10b981'/>
             </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Prenatal</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Full OB Care</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Gynecology</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Annual Exam</div></div>`;
+            break;
+
+        case 'pediatric-care':
+            statusLabel = 'PEDIATRIC WELLNESS HUB';
+            statusValue = 'CHILD-CENTERED CARE';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <circle cx='100' cy='50' r='32' fill='none' stroke='#73C9BE' stroke-width='2' stroke-dasharray='8 4'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 100 50' to='360 100 50' dur='8s' repeatCount='indefinite'/>
+                </circle>
+                <circle cx='200' cy='50' r='22' fill='none' stroke='#10b981' stroke-width='2' stroke-dasharray='6 3'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 200 50' to='-360 200 50' dur='5s' repeatCount='indefinite'/>
+                </circle>
+                <circle cx='300' cy='50' r='28' fill='none' stroke='#73C9BE' stroke-width='2' stroke-dasharray='10 5'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 300 50' to='360 300 50' dur='10s' repeatCount='indefinite'/>
+                </circle>
+                <circle cx='100' cy='50' r='6' fill='#73C9BE'><animate attributeName='r' values='4;9;4' dur='2s' repeatCount='indefinite'/></circle>
+                <circle cx='200' cy='50' r='5' fill='#10b981'><animate attributeName='r' values='3;8;3' dur='1.5s' repeatCount='indefinite'/></circle>
+                <circle cx='300' cy='50' r='6' fill='#73C9BE'><animate attributeName='r' values='4;10;4' dur='2.5s' repeatCount='indefinite'/></circle>
+            </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Ages Served</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>0 – 17 Years</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Immunizations</div><div style='color:#10b981;font-weight:700;font-size:12px;margin-top:2px;'>On Schedule</div></div>`;
+            break;
+
+        case 'virtual-care':
+            statusLabel = 'VIRTUAL CLINIC PORTAL';
+            statusValue = 'SECURE TELEHEALTH SESSION';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <rect x='20' y='8' width='360' height='84' rx='10' fill='none' stroke='rgba(115,201,190,0.25)' stroke-width='2'/>
+                <line x1='20' y1='28' x2='380' y2='28' stroke='rgba(115,201,190,0.15)' stroke-width='1'/>
+                <circle cx='36' cy='18' r='4' fill='#10b981'><animate attributeName='opacity' values='1;0.2;1' dur='1.4s' repeatCount='indefinite'/></circle>
+                <circle cx='50' cy='18' r='4' fill='#73C9BE'/>
+                <circle cx='64' cy='18' r='4' fill='rgba(255,255,255,0.25)'/>
+                <text x='200' y='57' text-anchor='middle' fill='#fff' font-size='14' font-weight='700' font-family='sans-serif'>&#9679; VIDEO CONSULT ACTIVE</text>
+                <text x='200' y='76' text-anchor='middle' fill='#73C9BE' font-size='10' font-family='sans-serif'>Secure · Encrypted · Confidential</text>
+            </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Platform</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Any Device</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Security</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>End-to-End</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>`;
+            break;
+
+        case 'internal-medicine':
+            statusLabel = 'INTERNAL DIAGNOSTICS HUB';
+            statusValue = 'SPECIALIST REFERRAL NETWORK';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <circle cx='200' cy='50' r='42' fill='none' stroke='rgba(115,201,190,0.12)' stroke-width='2'/>
+                <circle cx='200' cy='50' r='30' fill='none' stroke='rgba(115,201,190,0.2)' stroke-width='2'/>
+                <circle cx='200' cy='50' r='18' fill='none' stroke='#73C9BE' stroke-width='2' stroke-dasharray='6 3'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 200 50' to='360 200 50' dur='4s' repeatCount='indefinite'/>
+                </circle>
+                <line x1='200' y1='50' x2='200' y2='12' stroke='#10b981' stroke-width='2.5' stroke-linecap='round'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 200 50' to='360 200 50' dur='3s' repeatCount='indefinite'/>
+                </line>
+                <line x1='200' y1='50' x2='232' y2='50' stroke='#73C9BE' stroke-width='1.5' stroke-linecap='round'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 200 50' to='360 200 50' dur='12s' repeatCount='indefinite'/>
+                </line>
+                <circle cx='200' cy='50' r='5' fill='#fff'/>
+            </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Diagnostics</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Full Panel</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Referrals</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>Specialist Network</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>`;
+            break;
+
+        case 'womens-health':
+            statusLabel = "WOMEN'S HEALTH MONITOR";
+            statusValue = 'COMPREHENSIVE CARE';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M 0 50 Q 50 20 100 50 T 200 50 T 300 50 T 400 50' fill='none' stroke='rgba(115,201,190,0.3)' stroke-width='2'/>
+                <path d='M 0 50 Q 50 80 100 50 T 200 50 T 300 50 T 400 50' fill='none' stroke='#73C9BE' stroke-width='3.5'>
+                    <animate attributeName='d' dur='2.5s' repeatCount='indefinite' values='M 0 50 Q 50 80 100 50 T 200 50 T 300 50 T 400 50;M 0 50 Q 50 20 100 50 T 200 50 T 300 50 T 400 50;M 0 50 Q 50 80 100 50 T 200 50 T 300 50 T 400 50'/>
+                </path>
+                <circle cx='100' cy='50' r='7' fill='#10b981'><animate attributeName='cy' values='50;20;80;50' dur='2.5s' repeatCount='indefinite'/></circle>
+            </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Speciality</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Full Women's Care</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Preventive</div><div style='color:#10b981;font-weight:700;font-size:12px;margin-top:2px;'>Annual Exam</div></div>`;
             break;
 
         default:
-            badgeLabel = 'Specialist Care';
-            badgeValue = 'Board Certified';
-            svgMini = `<svg viewBox="0 0 160 40" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="80" cy="20" r="12" fill="none" stroke="rgba(115,201,190,0.3)" stroke-width="2"/>
-                <circle cx="80" cy="20" r="8" fill="none" stroke="#73C9BE" stroke-width="2" stroke-dasharray="6 3">
-                    <animateTransform attributeName="transform" type="rotate" from="0 80 20" to="360 80 20" dur="5s" repeatCount="indefinite"/>
+            statusLabel = 'CLINICAL DIAGNOSTIC SCANNER';
+            statusValue = 'BOARD CERTIFIED SPECIALISTS';
+            animSvg = `<svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <circle cx='200' cy='50' r='40' fill='none' stroke='rgba(115,201,190,0.18)' stroke-width='2'/>
+                <circle cx='200' cy='50' r='28' fill='none' stroke='#73C9BE' stroke-width='2.5' stroke-dasharray='12 5'>
+                    <animateTransform attributeName='transform' type='rotate' from='0 200 50' to='360 200 50' dur='5s' repeatCount='indefinite'/>
                 </circle>
+                <circle cx='200' cy='50' r='13' fill='#10b981'><animate attributeName='r' values='8;16;8' dur='2s' repeatCount='indefinite'/></circle>
             </svg>`;
+            metaItems = `<div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Specialty</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Advanced Care</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>`;
     }
 
-    return `
-        <div style="position:relative; width:100%; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45); border: 2px solid rgba(255,255,255,0.25); background:#0B2824;">
-            <!-- 1. FULL STANDALONE 8K PHOTO -->
-            <img src="../assets/images/services/${slug}.png" alt="${title}" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.src='../assets/images/global/healthplus-placeholder.svg'">
-            
-            <!-- 2. HIGH-TECH INTEGRATED GLASSMORPHISM MEDICAL HUD OVERLAY -->
-            <div style="position:absolute; bottom:16px; left:16px; right:16px; background:rgba(11,40,36,0.85); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.25); border-radius:var(--radius-xl); padding:12px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <span style="width:10px; height:10px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; display:inline-block; animation: pulse 1.5s infinite;"></span>
-                    <div>
-                        <div style="color:#fff; font-size:13px; font-weight:700; font-family:sans-serif; line-height:1.2;">${badgeLabel}</div>
-                        <div style="color:#73C9BE; font-size:11px; font-weight:600; font-family:sans-serif;">${badgeValue}</div>
-                    </div>
-                </div>
-                
-                <!-- MINI ANIMATED MOTION GRAPHIC -->
-                <div style="width:120px; height:32px; display:flex; align-items:center;">
-                    ${svgMini}
-                </div>
-                
-                <div style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.2); padding:5px 12px; border-radius:var(--radius-full); color:#fff; font-size:11px; font-weight:600; letter-spacing:0.5px; white-space:nowrap;">
-                    AHCIP Covered
-                </div>
-            </div>
-        </div>`;
+    return `<div style='background:rgba(11,40,36,0.95); border:1px solid rgba(115,201,190,0.35); border-radius:16px; padding:20px 20px 16px; box-shadow:0 24px 48px rgba(0,0,0,0.45); backdrop-filter:blur(12px);'>
+        <div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;'>
+            <span style='display:inline-flex; align-items:center; gap:8px; color:#10b981; font-weight:700; font-size:11px; font-family:sans-serif; text-transform:uppercase; letter-spacing:0.5px;'>
+                <span style='width:9px;height:9px;background:#10b981;border-radius:50%;box-shadow:0 0 10px #10b981;animation:pulse 1.5s infinite;display:inline-block;flex-shrink:0;'></span>
+                ${statusLabel}
+            </span>
+            <span style='color:#73C9BE; font-size:10px; font-weight:700; font-family:sans-serif; letter-spacing:0.3px;'>${statusValue}</span>
+        </div>
+        <div style='background:#071E1C; border-radius:12px; overflow:hidden; border:1px solid rgba(115,201,190,0.15); margin-bottom:14px;'>
+            ${animSvg}
+        </div>
+        <div style='display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:8px;'>
+            ${metaItems}
+        </div>
+    </div>`;
 }
 
 const fs = require('fs');
@@ -279,14 +394,15 @@ services.forEach(service => {
 '                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>\n' +
 '                    <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>\n' +
 '                </div>\n' +
-'            <!-- RIGHT: STACKED SHOWCASE (1. STANDALONE 8K PHOTO + 2. SEPARATED MOTION GRAPHICS CARD) -->\n' +
-'            <div style="display:flex; flex-direction:column; gap:var(--space-6);">\n' +
-'                <!-- 1. STANDALONE CLEAR 8K PHOTO CARD -->\n' +
-'                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45); border: 2px solid rgba(255,255,255,0.25); background:#000;">\n' +
-'                    <img src="../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.src=\'../assets/images/global/healthplus-placeholder.svg\'">\n' +
+'            </div>\n' +
+'            <!-- RIGHT: STANDALONE 8K PHOTO ABOVE + SEPARATED MOTION CARD BELOW -->\n' +
+'            <div style="display:flex; flex-direction:column; gap:var(--space-5);">\n' +
+'                <!-- STANDALONE 8K PHOTO CARD: full image, no overlay, no cropping -->\n' +
+'                <div style="border-radius:16px; overflow:hidden; box-shadow:0 25px 55px rgba(0,0,0,0.5); border:2px solid rgba(255,255,255,0.22);">\n' +
+'                    <img src="../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width:100%; height:auto; display:block;" onerror="this.src=\'../assets/images/global/healthplus-placeholder.svg\'" loading="eager">\n' +
 '                </div>\n' +
-'                <!-- 2. SEPARATED ANIMATED MOTION GRAPHICS CARD -->\n' +
-'                ' + getCustomMotionGraphic(service.slug, service.title) + '\n' +
+'                <!-- SEPARATE ANIMATED MOTION GRAPHIC CARD (not touching the image) -->\n' +
+'                ' + getServiceMotionHUD(service.slug, service.title) + '\n' +
 '            </div>\n' +
 '        </div>\n' +
 '    </section>\n' +

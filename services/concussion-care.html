@@ -87,39 +87,37 @@
                     <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>
                     <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>
                 </div>
-            <div>
-                
-        <div style="position:relative; width:100%; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45); border: 2px solid rgba(255,255,255,0.25); background:#0B2824;">
-            <!-- 1. FULL STANDALONE 8K PHOTO -->
-            <img src="../assets/images/services/concussion-care.png" alt="Concussion Care" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.src='../assets/images/global/healthplus-placeholder.svg'">
-            
-            <!-- 2. HIGH-TECH INTEGRATED GLASSMORPHISM MEDICAL HUD OVERLAY -->
-            <div style="position:absolute; bottom:16px; left:16px; right:16px; background:rgba(11,40,36,0.85); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.25); border-radius:var(--radius-xl); padding:12px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <span style="width:10px; height:10px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; display:inline-block; animation: pulse 1.5s infinite;"></span>
-                    <div>
-                        <div style="color:#fff; font-size:13px; font-weight:700; font-family:sans-serif; line-height:1.2;">Neurological Scan</div>
-                        <div style="color:#73C9BE; font-size:11px; font-weight:600; font-family:sans-serif;">Brainwave Active</div>
-                    </div>
-                </div>
-                
-                <!-- MINI ANIMATED MOTION GRAPHIC -->
-                <div style="width:120px; height:32px; display:flex; align-items:center;">
-                    <svg viewBox="0 0 160 40" style="width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0 20 Q 30 5 60 20 T 120 20 T 160 20" fill="none" stroke="#73C9BE" stroke-width="2.5">
-                    <animate attributeName="d" dur="2s" repeatCount="indefinite" values="M 0 20 Q 30 5 60 20 T 120 20 T 160 20; M 0 20 Q 30 35 60 20 T 120 20 T 160 20; M 0 20 Q 30 5 60 20 T 120 20 T 160 20"/>
-                </path>
-                <circle cx="60" cy="20" r="4" fill="#10b981">
-                    <animate attributeName="r" values="3;6;3" dur="1.5s" repeatCount="indefinite"/>
-                </circle>
-            </svg>
-                </div>
-                
-                <div style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.2); padding:5px 12px; border-radius:var(--radius-full); color:#fff; font-size:11px; font-weight:600; letter-spacing:0.5px; white-space:nowrap;">
-                    AHCIP Covered
-                </div>
             </div>
+            <!-- RIGHT: STANDALONE 8K PHOTO ABOVE + SEPARATED MOTION CARD BELOW -->
+            <div style="display:flex; flex-direction:column; gap:var(--space-5);">
+                <!-- STANDALONE 8K PHOTO CARD: full image, no overlay, no cropping -->
+                <div style="border-radius:16px; overflow:hidden; box-shadow:0 25px 55px rgba(0,0,0,0.5); border:2px solid rgba(255,255,255,0.22);">
+                    <img src="../assets/images/services/concussion-care.png" alt="Concussion Care" style="width:100%; height:auto; display:block;" onerror="this.src='../assets/images/global/healthplus-placeholder.svg'" loading="eager">
+                </div>
+                <!-- SEPARATE ANIMATED MOTION GRAPHIC CARD (not touching the image) -->
+                <div style='background:rgba(11,40,36,0.95); border:1px solid rgba(115,201,190,0.35); border-radius:16px; padding:20px 20px 16px; box-shadow:0 24px 48px rgba(0,0,0,0.45); backdrop-filter:blur(12px);'>
+        <div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;'>
+            <span style='display:inline-flex; align-items:center; gap:8px; color:#10b981; font-weight:700; font-size:11px; font-family:sans-serif; text-transform:uppercase; letter-spacing:0.5px;'>
+                <span style='width:9px;height:9px;background:#10b981;border-radius:50%;box-shadow:0 0 10px #10b981;animation:pulse 1.5s infinite;display:inline-block;flex-shrink:0;'></span>
+                NEUROLOGICAL SCAN MONITOR
+            </span>
+            <span style='color:#73C9BE; font-size:10px; font-weight:700; font-family:sans-serif; letter-spacing:0.3px;'>COMPLETE CONCUSSIONS™ CERTIFIED</span>
         </div>
+        <div style='background:#071E1C; border-radius:12px; overflow:hidden; border:1px solid rgba(115,201,190,0.15); margin-bottom:14px;'>
+            <svg viewBox='0 0 400 100' style='width:100%;height:auto;display:block;' xmlns='http://www.w3.org/2000/svg'>
+                <defs><pattern id='cgrid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='rgba(115,201,190,0.08)' stroke-width='1'/></pattern></defs>
+                <rect width='400' height='100' fill='url(#cgrid)'/>
+                <path d='M 0 50 L 60 50 L 78 15 L 96 85 L 114 5 L 132 95 L 150 50 L 400 50' fill='none' stroke='#73C9BE' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>
+                    <animate attributeName='stroke-dasharray' values='0,700;700,0;0,700' dur='3s' repeatCount='indefinite'/>
+                </path>
+                <circle cx='114' cy='5' r='6' fill='#10b981'><animate attributeName='r' values='3;9;3' dur='1.5s' repeatCount='indefinite'/></circle>
+                <circle cx='132' cy='95' r='5' fill='#73C9BE'><animate attributeName='r' values='2;7;2' dur='1.2s' repeatCount='indefinite'/></circle>
+            </svg>
+        </div>
+        <div style='display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:8px;'>
+            <div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Protocol</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>Evidence-Based</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>App Sync</div><div style='color:#73C9BE;font-weight:700;font-size:12px;margin-top:2px;'>Tracker Live</div></div><div style='background:rgba(255,255,255,0.07);padding:10px;border-radius:8px;text-align:center;'><div style='color:rgba(255,255,255,0.55);font-size:10px;text-transform:uppercase;letter-spacing:0.5px;'>Coverage</div><div style='color:#fff;font-weight:700;font-size:12px;margin-top:2px;'>AHCIP Covered</div></div>
+        </div>
+    </div>
             </div>
         </div>
     </section>
@@ -127,7 +125,7 @@
     <section class="section" style="padding-top: var(--space-16); padding-bottom: var(--space-16);">
         <div class="container" style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-12);">
             <div class="content-main">
-                <h2 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-family:var(--font-heading);">Overview & Care Focus</h2>
+                <div class="concussion-complete-care" style="margin-bottom:var(--space-12);"><div style="background:linear-gradient(135deg, #071E1C 0%, #0D3D38 100%); color:#fff; padding:var(--space-8); border-radius:var(--radius-2xl); margin-bottom:var(--space-8); border:1px solid rgba(115,201,190,0.3);">    <span style="color:#73C9BE; font-weight:700; font-size:var(--text-xs); text-transform:uppercase; letter-spacing:1px;">Complete Concussions™ Certified Clinic</span>    <h3 style="color:#fff; font-size:var(--text-2xl); font-family:var(--font-heading); margin:var(--space-2) 0 var(--space-4);">Evidence-Based Concussion Management Program</h3>    <p style="color:rgba(255,255,255,0.9); line-height:1.7; margin-bottom:var(--space-6);">HealthPlus is proud to offer the Complete Concussions Program at our clinic. As a certified location, we provide a full evidence-based concussion management program—helping our patients and athletes safely return to learn, work, and play.</p>    <div style="display:flex; gap:var(--space-4); flex-wrap:wrap; align-items:center;">        <a href="https://apps.apple.com/ca/app/concussion-tracker/id1166290027" target="_blank" rel="noopener" style="display:inline-block;"><img src="../assets/services/concussion/CONCUSSION TRACKER APP/App-Store-Icon-AppStore.png" alt="Download Concussion Tracker on App Store" style="height:44px;"></a>        <a href="https://play.google.com/store/apps/details?id=com.completeconcussions.concussiontracker&hl=en_CA" target="_blank" rel="noopener" style="display:inline-block;"><img src="../assets/services/concussion/CONCUSSION TRACKER APP/App-Store-Icon-GooglePlay.png" alt="Get Concussion Tracker on Google Play" style="height:44px;"></a>    </div></div><h3 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-family:var(--font-heading);">Concussion Recovery & Treatment Strategy</h3><p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-6);">Following a concussion injury, it is recommended that you seek the care of a healthcare professional with training and experience in concussion as soon as possible. The earlier you seek quality concussion care, the better your recovery will be.</p><div style="margin-bottom:var(--space-8); border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--hp-border); box-shadow:0 10px 30px rgba(0,0,0,0.05);">    <img src="../assets/services/concussion/CONCUSSION TREATMENT INFOGRAPHIC/1920x1280-CompleteConcussions-Treatment-Infographic.png" alt="Concussion Treatment Infographic" style="width:100%; height:auto; display:block;"></div><div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6); margin-bottom:var(--space-8);">    <div style="background:var(--hp-surface); padding:var(--space-6); border-radius:var(--radius-xl); border:1px solid var(--hp-border);">        <h4 style="color:var(--hp-heading); margin-bottom:var(--space-3); font-family:var(--font-heading);">Comprehensive Care Protocol</h4>        <p style="color:var(--hp-text-muted); line-height:1.6; font-size:var(--text-sm);">Generally, a period of relative "symptom-limited" physical and cognitive rest is recommended for the first 24-48 hours after injury. After this rest period, a gradual increase in mental and physical activity is recommended under the supervision of a licensed practitioner.</p>    </div>    <div style="background:var(--hp-surface); padding:var(--space-6); border-radius:var(--radius-xl); border:1px solid var(--hp-border);">        <h4 style="color:var(--hp-heading); margin-bottom:var(--space-3); font-family:var(--font-heading);">Multimodal Pre-season Baseline Testing</h4>        <p style="color:var(--hp-text-muted); line-height:1.6; font-size:var(--text-sm);">Pre-season testing measures your balance, reaction time, memory, and visual tracking. If you sustain a concussion during the season, we compare your recovery against your personal healthy baseline.</p>    </div></div><div style="background:rgba(115,201,190,0.12); border-left:4px solid var(--hp-primary); padding:var(--space-6); border-radius:var(--radius-lg); margin-bottom:var(--space-8);">    <h4 style="color:var(--hp-primary-dark); margin-bottom:var(--space-2); font-family:var(--font-heading);">Alberta Health Care Insurance Plan (AHCIP) Coverage</h4>    <p style="color:var(--hp-text); margin:0; font-size:var(--text-sm); line-height:1.6;">Medically necessary physician consultations and diagnostic evaluations are fully covered under AHCIP. Optional baseline testing and third-party athletic reports will always be transparently discussed prior to assessment.</p></div></div><h2 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-family:var(--font-heading);">Overview & Care Focus</h2>
                 <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);font-size:var(--text-base);">Your doctor will perform a neurological exam, assess your cognitive and physical symptoms, and provide a stepwise recovery plan to protect your brain while it heals.</p>
                 
                 <h3 style="color:var(--hp-heading);margin-bottom:var(--space-3);font-family:var(--font-heading);">Who This Is For</h3>
