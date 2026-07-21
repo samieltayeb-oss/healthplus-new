@@ -47,7 +47,7 @@ function generateCardsAndModals(category) {
         cardsHtml += `
         <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
             <div style="aspect-ratio:4/3;background:#e2e8f0;overflow:hidden;">
-                <img src="${imgPath}" alt="${name}" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+                <img src="${imgPath}" alt="${name}" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
             </div>
             <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
                 <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">${role}</p>
@@ -70,7 +70,7 @@ function generateCardsAndModals(category) {
                 </button>
                 <div style="display:grid;grid-template-columns:1fr;gap:0;">
                     <div style="aspect-ratio:16/9;background:#e2e8f0;overflow:hidden;">
-                        <img src="${imgPath}" alt="${name}" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+                        <img src="${imgPath}" alt="${name}" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
                     </div>
                     <div style="padding:var(--space-8);">
                         <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">${role}</p>
