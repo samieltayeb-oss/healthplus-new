@@ -304,8 +304,8 @@ services.forEach(service => {
                        '        <span>' + f.q + '</span>\n' +
                        '        <span class="icon" style="width:24px; height:24px; border-radius:50%; background:var(--hp-primary-ultra); color:var(--hp-primary-dark); display:flex; align-items:center; justify-content:center; font-weight:700;">+</span>\n' +
                        '    </button>\n' +
-                       '    <div class="accordion-content ' + (i === 0 ? 'open' : '') + '" style="padding:0 var(--space-6) var(--space-5); color:var(--hp-text-muted); line-height:1.7;">\n' +
-                       '        <div class="accordion-body">\n' +
+                       '    <div class="accordion-content ' + (i === 0 ? 'open' : '') + '">\n' +
+                       '        <div class="accordion-body" style="padding:var(--space-4) var(--space-6) var(--space-5); color:var(--hp-text-muted); line-height:1.7;">\n' +
                        '            ' + f.a + '\n' +
                        '        </div>\n' +
                        '    </div>\n' +
