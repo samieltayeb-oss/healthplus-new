@@ -92,12 +92,15 @@ fs.writeFileSync(path.join(servicesDir, 'index.html'), indexHtml, 'utf8');
 services.forEach(service => {
     let faqHtml = '';
     service.faq.forEach((f, i) => {
-        faqHtml += '<div class="accordion-item" style="border:1px solid var(--hp-border);border-radius:var(--radius-md);margin-bottom:var(--space-3);overflow:hidden;">\n' +
-                   '    <button class="accordion-trigger" aria-expanded="false" style="width:100%;text-align:left;padding:var(--space-4);background:var(--hp-surface);border:none;font-weight:600;color:var(--hp-heading);cursor:pointer;">\n' +
-                   '        ' + f.q + '\n' +
+        faqHtml += '<div class="accordion-item">\n' +
+                   '    <button class="accordion-trigger" aria-expanded="' + (i === 0 ? 'true' : 'false') + '">\n' +
+                   '        <span>' + f.q + '</span>\n' +
+                   '        <span class="icon">+</span>\n' +
                    '    </button>\n' +
-                   '    <div class="accordion-content" style="padding:0 var(--space-4) var(--space-4);color:var(--hp-text-muted);display:none;">\n' +
-                   '        ' + f.a + '\n' +
+                   '    <div class="accordion-content ' + (i === 0 ? 'open' : '') + '">\n' +
+                   '        <div class="accordion-body">\n' +
+                   '            ' + f.a + '\n' +
+                   '        </div>\n' +
                    '    </div>\n' +
                    '</div>\n';
     });
@@ -165,19 +168,30 @@ services.forEach(service => {
 '</header>\n' +
 '\n' +
 '<main>\n' +
-'    <section class="hp-hero" style="min-height: 40vh; display: flex; align-items: center; padding-top: 120px;">\n' +
-'        <div class="hero-bg">\n' +
-'            <img src="../../' + service.heroImage + '" alt="' + service.title + '" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.style.background=\'linear-gradient(135deg,var(--hp-primary-dark) 0%,var(--hp-primary) 100%)\'">\n' +
-'            <div class="hero-overlay"></div>\n' +
-'        </div>\n' +
-'        <div class="container hero-content" style="display:block;">\n' +
-'            <ul class="breadcrumbs" style="list-style:none;padding:0;margin:0 0 var(--space-4);display:flex;gap:var(--space-2);color:var(--hp-primary-light);font-size:var(--text-sm);">\n' +
-'                <li><a href="../../index.html" style="color:inherit;text-decoration:none;">Home</a> /</li>\n' +
-'                <li><a href="index.html" style="color:inherit;text-decoration:none;">Services</a> /</li>\n' +
-'                <li>' + service.title + '</li>\n' +
-'            </ul>\n' +
-'            <h1 style="color:#fff;margin:var(--space-2) 0;">' + service.title + '</h1>\n' +
-'            <p class="lead" style="color:rgba(255,255,255,0.85);max-width:600px;">' + service.shortDescription + '</p>\n' +
+'    <section class="hp-hero" style="background: linear-gradient(135deg, var(--hp-primary-dark) 0%, var(--hp-primary) 100%); padding-top: 130px; padding-bottom: 60px;">\n' +
+'        <div class="container" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-8); align-items: center;">\n' +
+'            <div>\n' +
+'                <ul class="breadcrumbs" style="list-style:none;padding:0;margin:0 0 var(--space-4);display:flex;gap:var(--space-2);color:var(--hp-primary-light);font-size:var(--text-sm);">\n' +
+'                    <li><a href="../../index.html" style="color:inherit;text-decoration:none;">Home</a> /</li>\n' +
+'                    <li><a href="index.html" style="color:inherit;text-decoration:none;">Services</a> /</li>\n' +
+'                    <li>' + service.title + '</li>\n' +
+'                </ul>\n' +
+'                <span style="display:inline-block; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); color:#fff; padding:6px 16px; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:var(--space-3);">' + (service.category || 'Specialized Healthcare') + '</span>\n' +
+'                <h1 style="color:#fff; margin:var(--space-2) 0 var(--space-4); font-size: var(--text-4xl); font-family: var(--font-heading); font-weight: 700;">' + service.title + '</h1>\n' +
+'                <p class="lead" style="color:rgba(255,255,255,0.9); max-width:620px; font-size: var(--text-lg); line-height: 1.6; margin-bottom: var(--space-6);">' + service.shortDescription + '</p>\n' +
+'                <div style="display:flex; gap:var(--space-4); flex-wrap:wrap;">\n' +
+'                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>\n' +
+'                    <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>\n' +
+'                </div>\n' +
+'            </div>\n' +
+'            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-2xl); padding: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.25); text-align: center;">\n' +
+'                <div style="border-radius: var(--radius-xl); overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;">\n' +
+'                    <img src="../../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width: 100%; height: auto; max-height: 380px; object-fit: contain; display: block;" onerror="this.src=\'../../assets/images/global/healthplus-placeholder.svg\'">\n' +
+'                </div>\n' +
+'                <div style="padding: 10px 8px 4px; color: rgba(255,255,255,0.85); font-size: var(--text-xs); font-weight: 500;">\n' +
+'                    HealthPlus Medical Specialty — ' + service.title + '\n' +
+'                </div>\n' +
+'            </div>\n' +
 '        </div>\n' +
 '    </section>\n' +
 '\n' +
