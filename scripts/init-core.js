@@ -439,13 +439,13 @@ teamMembers.forEach(member => {
                     <div>
                         <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-3);">Clinical Interests</h3>
                         <ul style="padding-left:20px;color:var(--hp-text-muted);">
-                            ${member.clinicalInterests.map(i => `<li style="margin-bottom:8px;">${i}</li>`).join('')}
+                            ${(member.clinicalInterests || []).map(i => `<li style="margin-bottom:8px;">${i}</li>`).join('')}
                         </ul>
                     </div>
                     <div>
                         <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-3);">Languages Spoken</h3>
                         <ul style="padding-left:20px;color:var(--hp-text-muted);">
-                            ${member.languages.map(l => `<li style="margin-bottom:8px;">${l}</li>`).join('')}
+                            ${(member.languages || []).map(l => `<li style="margin-bottom:8px;">${l}</li>`).join('')}
                         </ul>
                     </div>
                 </div>
@@ -483,3 +483,154 @@ notFoundHtml += getFooter(0);
 fs.writeFileSync(path.join(rootDir, '404.html'), notFoundHtml, 'utf8');
 
 console.log('Successfully generated Core Page shells, Team Profiles, and 404 page.');
+
+
+// 6. FAQ Page (faq.html)
+const faqSchema = `
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I book an appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can book an appointment online through our JotForm portal, or by calling our clinic directly at (403) 254-4633."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you accept walk-in patients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we accept walk-in patients based on daily availability. However, we highly recommend booking an appointment to guarantee your time slot and minimize waiting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I bring to my first appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Please bring your Alberta Health Care card, a piece of government-issued photo ID, and a list of any current medications you are taking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer virtual or telehealth appointments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer virtual care for certain types of consultations. Please call our clinic to determine if your specific medical concern can be addressed virtually."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there parking available at the clinic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, there is free surface parking available right outside our clinic for all patients."
+      }
+    }
+  ]
+}
+</script>`;
+
+let faqHtml = getHeader(0, 'Patient FAQ - HealthPlus Medical', 'Frequently asked questions about appointments, walk-ins, and patient care at HealthPlus Medical.', faqSchema);
+faqHtml += `
+    <section class="hp-hero" style="min-height: 40vh; display: flex; align-items: center; padding-top: 120px;">
+        <div class="hero-bg">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--hp-primary-dark) 0%,var(--hp-primary) 100%);"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content" style="display:block;">
+            <ul class="breadcrumbs" style="list-style:none;padding:0;margin:0 0 var(--space-4);display:flex;gap:var(--space-2);color:var(--hp-primary-light);font-size:var(--text-sm);">
+                <li><a href="index.html" style="color:inherit;text-decoration:none;">Home</a> /</li>
+                <li>FAQ</li>
+            </ul>
+            <h1 style="color:#fff;margin:var(--space-2) 0;">Frequently Asked Questions</h1>
+            <p class="lead" style="color:rgba(255,255,255,0.85);max-width:600px;">Everything you need to know about booking, visiting, and receiving care at HealthPlus Medical.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            
+            <div class="accordion" style="display:flex; flex-direction:column; gap:var(--space-4);">
+                
+                <div style="border:1px solid var(--hp-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--hp-surface);">
+                    <button class="accordion-trigger" aria-expanded="true" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:var(--space-4) var(--space-6);background:none;border:none;color:var(--hp-heading);font-weight:600;font-family:var(--font-heading);font-size:1.1rem;cursor:pointer;text-align:left;">
+                        <span>How do I book an appointment?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div style="padding:0 var(--space-6) var(--space-6);color:var(--hp-text);line-height:1.7;">
+                        You can book an appointment easily online using our <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" style="color:var(--hp-primary);font-weight:500;">JotForm Booking Portal</a>, or you can call our clinic directly at <strong>(403) 254-4633</strong> to speak with our reception team.
+                    </div>
+                </div>
+
+                <div style="border:1px solid var(--hp-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--hp-surface);">
+                    <button class="accordion-trigger" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:var(--space-4) var(--space-6);background:none;border:none;color:var(--hp-heading);font-weight:600;font-family:var(--font-heading);font-size:1.1rem;cursor:pointer;text-align:left;">
+                        <span>Do you accept walk-in patients?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div style="display:none; padding:0 var(--space-6) var(--space-6);color:var(--hp-text);line-height:1.7;">
+                        Yes, HealthPlus Medical accepts walk-in patients based on daily doctor availability. However, to guarantee your spot and reduce your waiting time, we highly encourage booking an appointment in advance.
+                    </div>
+                </div>
+
+                <div style="border:1px solid var(--hp-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--hp-surface);">
+                    <button class="accordion-trigger" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:var(--space-4) var(--space-6);background:none;border:none;color:var(--hp-heading);font-weight:600;font-family:var(--font-heading);font-size:1.1rem;cursor:pointer;text-align:left;">
+                        <span>What should I bring to my first appointment?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div style="display:none; padding:0 var(--space-6) var(--space-6);color:var(--hp-text);line-height:1.7;">
+                        For your first visit, please ensure you bring your valid <strong>Alberta Health Care card</strong> and a piece of government-issued photo ID. If you are taking any medications, please bring a comprehensive list of them as well.
+                    </div>
+                </div>
+
+                <div style="border:1px solid var(--hp-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--hp-surface);">
+                    <button class="accordion-trigger" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:var(--space-4) var(--space-6);background:none;border:none;color:var(--hp-heading);font-weight:600;font-family:var(--font-heading);font-size:1.1rem;cursor:pointer;text-align:left;">
+                        <span>Do you offer virtual or telehealth appointments?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div style="display:none; padding:0 var(--space-6) var(--space-6);color:var(--hp-text);line-height:1.7;">
+                        Yes, our clinic provides virtual care and phone consultations for certain types of medical issues (e.g., follow-ups, prescription refills, test results). Please contact the clinic to see if your appointment is eligible for telehealth.
+                    </div>
+                </div>
+
+                <div style="border:1px solid var(--hp-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--hp-surface);">
+                    <button class="accordion-trigger" aria-expanded="false" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:var(--space-4) var(--space-6);background:none;border:none;color:var(--hp-heading);font-weight:600;font-family:var(--font-heading);font-size:1.1rem;cursor:pointer;text-align:left;">
+                        <span>Is there parking available at the clinic?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div style="display:none; padding:0 var(--space-6) var(--space-6);color:var(--hp-text);line-height:1.7;">
+                        Yes, free surface parking is available right outside our clinic doors for the convenience of all our patients.
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="margin-top: var(--space-12); text-align: center; padding: var(--space-8); background: var(--hp-primary-ultra); border-radius: var(--radius-xl);">
+                <h3 style="color: var(--hp-primary-dark); margin-bottom: var(--space-2);">Still have questions?</h3>
+                <p style="color: var(--hp-text); margin-bottom: var(--space-6);">Our reception team is happy to help you with any inquiries.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+
+        </div>
+    </section>
+    
+    <script>
+        // Simple accordion logic
+        document.querySelectorAll(".accordion-trigger").forEach(trigger => {
+            trigger.addEventListener("click", () => {
+                const content = trigger.nextElementSibling;
+                const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+                trigger.setAttribute("aria-expanded", !isExpanded);
+                content.style.display = isExpanded ? "none" : "block";
+            });
+        });
+    </script>
+`;
+faqHtml += getFooter(0);
+fs.writeFileSync(path.join(pagesDir, 'faq.html'), faqHtml, 'utf8');
+console.log('Generated faq.html');
