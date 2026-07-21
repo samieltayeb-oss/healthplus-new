@@ -1,3 +1,116 @@
+
+function getServiceMotionWidget(slug, title) {
+    let svgGraphic = '';
+    let badgeLabel = '';
+    let badgeValue = '';
+    
+    switch(slug) {
+        case 'concussion-care':
+            badgeLabel = 'Neurological Status';
+            badgeValue = 'Brainwave Scan Active';
+            svgGraphic = `
+                <svg viewBox="0 0 400 200" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="scanGrad" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="rgba(115,201,190,0)" />
+                            <stop offset="50%" stop-color="rgba(115,201,190,1)" />
+                            <stop offset="100%" stop-color="rgba(115,201,190,0)" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 10 100 Q 60 40 110 100 T 210 100 T 310 100 T 390 100" fill="none" stroke="url(#scanGrad)" stroke-width="3" stroke-linecap="round">
+                        <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M 10 100 Q 60 30 110 100 T 210 100 T 310 100 T 390 100; M 10 100 Q 60 170 110 100 T 210 100 T 310 100 T 390 100; M 10 100 Q 60 30 110 100 T 210 100 T 310 100 T 390 100"/>
+                    </path>
+                    <circle cx="110" cy="100" r="6" fill="#73C9BE">
+                        <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="210" cy="100" r="6" fill="#73C9BE">
+                        <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                </svg>`;
+            break;
+
+        case 'walk-in-clinic':
+            badgeLabel = 'Walk-In Availability';
+            badgeValue = 'Wait Time < 15 Mins';
+            svgGraphic = `
+                <svg viewBox="0 0 400 200" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="200" cy="100" r="70" fill="none" stroke="rgba(115,201,190,0.2)" stroke-width="4"/>
+                    <circle cx="200" cy="100" r="70" fill="none" stroke="#73C9BE" stroke-width="4" stroke-dasharray="440" stroke-dashoffset="110">
+                        <animateTransform attributeName="transform" type="rotate" from="0 200 100" to="360 200 100" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    <text x="200" y="95" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">NOW OPEN</text>
+                    <text x="200" y="120" text-anchor="middle" fill="#73C9BE" font-size="14" font-family="sans-serif">Walk-Ins Welcome</text>
+                </svg>`;
+            break;
+
+        case 'family-medicine':
+            badgeLabel = 'Family Continuity';
+            badgeValue = 'Lifelong Health Care';
+            svgGraphic = `
+                <svg viewBox="0 0 400 200" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 20,100 L 80,100 L 95,60 L 110,140 L 125,40 L 140,160 L 155,100 L 380,100" fill="none" stroke="#73C9BE" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                        <animate attributeName="stroke-dasharray" values="0,600;600,0" dur="2.5s" repeatCount="indefinite"/>
+                    </path>
+                </svg>`;
+            break;
+
+        case 'obstetrics-gynecology':
+            badgeLabel = 'Prenatal & Maternity';
+            badgeValue = 'Fetal Heartbeat: 140 BPM';
+            svgGraphic = `
+                <svg viewBox="0 0 400 200" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 30 100 Q 110 20 190 100 T 350 100" fill="none" stroke="rgba(115,201,190,0.4)" stroke-width="3"/>
+                    <path d="M 30 100 Q 110 180 190 100 T 350 100" fill="none" stroke="#73C9BE" stroke-width="3"/>
+                    <circle cx="190" cy="100" r="7" fill="#fff">
+                        <animate attributeName="r" values="5;11;5" dur="1.2s" repeatCount="indefinite"/>
+                    </circle>
+                </svg>`;
+            break;
+
+        default:
+            badgeLabel = 'Specialized Care';
+            badgeValue = 'Board Certified Practice';
+            svgGraphic = `
+                <svg viewBox="0 0 400 200" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="200" cy="100" r="60" fill="none" stroke="rgba(115,201,190,0.3)" stroke-width="2"/>
+                    <circle cx="200" cy="100" r="40" fill="none" stroke="#73C9BE" stroke-width="3" stroke-dasharray="10 5">
+                        <animateTransform attributeName="transform" type="rotate" from="0 200 100" to="360 200 100" dur="6s" repeatCount="indefinite"/>
+                    </circle>
+                </svg>`;
+    }
+
+    return `
+        <div style="position:relative; width:100%; max-width:480px; margin:0 auto; background:rgba(13,61,56,0.65); backdrop-filter:blur(16px); border:1px solid rgba(115,201,190,0.3); border-radius:var(--radius-2xl); padding:24px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
+            
+            <!-- Floating Animated Live Status Badge -->
+            <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:10px 16px; border-radius:var(--radius-full); margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="width:10px; height:10px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; display:inline-block; animation: pulse 1.5s infinite;"></span>
+                    <span style="color:#fff; font-size:13px; font-weight:600; font-family:sans-serif;">${badgeLabel}</span>
+                </div>
+                <span style="color:#73C9BE; font-size:12px; font-weight:700; font-family:sans-serif;">${badgeValue}</span>
+            </div>
+
+            <!-- Dynamic Medical SVG Motion Graphic -->
+            <div style="background:rgba(0,0,0,0.2); border-radius:var(--radius-xl); padding:16px; border:1px solid rgba(255,255,255,0.08); margin-bottom:20px;">
+                ${svgGraphic}
+            </div>
+
+            <!-- Highlights Chips -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div style="background:rgba(255,255,255,0.06); padding:10px 12px; border-radius:var(--radius-lg); text-align:center;">
+                    <div style="color:rgba(255,255,255,0.6); font-size:11px; text-transform:uppercase;">Coverage</div>
+                    <div style="color:#fff; font-weight:600; font-size:13px;">AHCIP Covered</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.06); padding:10px 12px; border-radius:var(--radius-lg); text-align:center;">
+                    <div style="color:rgba(255,255,255,0.6); font-size:11px; text-transform:uppercase;">Access</div>
+                    <div style="color:#73C9BE; font-weight:600; font-size:13px;">Same-Day Booking</div>
+                </div>
+            </div>
+
+        </div>`;
+}
+
 const fs = require('fs');
 const path = require('path');
 const services = require('../config/services.js');
