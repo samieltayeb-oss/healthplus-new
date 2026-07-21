@@ -64,7 +64,7 @@ function generateCardsAndModals(category) {
 
         modalsHtml += `
         <div id="${modalId}" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
-            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);opacity:0;transition:all 0.3s ease-out;">
+            <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
                 <button onclick="closeModal('${modalId}')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;transition:background 0.2s;" aria-label="Close modal">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>

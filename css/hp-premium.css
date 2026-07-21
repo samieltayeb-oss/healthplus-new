@@ -1255,3 +1255,20 @@ h6 { font-size: var(--text-xl);  font-weight: 600; }
     .ken-burns { animation: none; }
     .text-gradient { animation: none; }
 }
+
+/* ==========================================================================
+   20. MODALS
+   ========================================================================== */
+.hp-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.hp-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+.hp-modal.is-open .hp-modal-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
