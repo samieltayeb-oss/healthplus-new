@@ -1,5 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    { "source": "/family-medicine", "destination": "/services/family-medicine", "permanent": true },
+    { "source": "/walk-in-clinic", "destination": "/services/walk-in-clinic", "permanent": true },
+    { "source": "/internal-medicine", "destination": "/services/internal-medicine", "permanent": true },
+    { "source": "/mental-health", "destination": "/services/mental-health", "permanent": true },
+    { "source": "/mva-care", "destination": "/services/mva-care", "permanent": true },
+    { "source": "/obstetrics-gynecology", "destination": "/services/obstetrics-gynecology", "permanent": true },
+    { "source": "/pediatric-care", "destination": "/services/pediatric-care", "permanent": true },
+    { "source": "/sports-medicine", "destination": "/services/sports-medicine", "permanent": true },
+    { "source": "/virtual-care", "destination": "/services/virtual-care", "permanent": true },
+    { "source": "/womens-health", "destination": "/services/womens-health", "permanent": true },
+    { "source": "/concussion-care", "destination": "/services/concussion-care", "permanent": true }
+  ]
 }
