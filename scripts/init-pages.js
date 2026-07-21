@@ -279,8 +279,14 @@ services.forEach(service => {
 '                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>\n' +
 '                    <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>\n' +
 '                </div>\n' +
-'            <div>\n' +
-'                ' + getServiceMotionHUD(service.slug, service.title) + '\n' +
+'            <!-- RIGHT: STACKED SHOWCASE (1. STANDALONE 8K PHOTO + 2. SEPARATED MOTION GRAPHICS CARD) -->\n' +
+'            <div style="display:flex; flex-direction:column; gap:var(--space-6);">\n' +
+'                <!-- 1. STANDALONE CLEAR 8K PHOTO CARD -->\n' +
+'                <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45); border: 2px solid rgba(255,255,255,0.25); background:#000;">\n' +
+'                    <img src="../assets/images/services/' + service.slug + '.png" alt="' + service.title + '" style="width: 100%; height: auto; display: block; object-fit: cover;" onerror="this.src=\'../assets/images/global/healthplus-placeholder.svg\'">\n' +
+'                </div>\n' +
+'                <!-- 2. SEPARATED ANIMATED MOTION GRAPHICS CARD -->\n' +
+'                ' + getCustomMotionGraphic(service.slug, service.title) + '\n' +
 '            </div>\n' +
 '        </div>\n' +
 '    </section>\n' +
@@ -394,6 +400,45 @@ services.forEach(service => {
 '</script>\n' +
 '</body>\n' +
 '</html>';
+
+    
+    // Concussion Care Rich Content Overhaul
+    if (service.slug === 'concussion-care') {
+        var concussionRichSections = '<div class="concussion-complete-care" style="margin-bottom:var(--space-12);">' +
+            '<div style="background:linear-gradient(135deg, #071E1C 0%, #0D3D38 100%); color:#fff; padding:var(--space-8); border-radius:var(--radius-2xl); margin-bottom:var(--space-8); border:1px solid rgba(115,201,190,0.3);">' +
+            '    <span style="color:#73C9BE; font-weight:700; font-size:var(--text-xs); text-transform:uppercase; letter-spacing:1px;">Complete Concussions™ Certified Clinic</span>' +
+            '    <h3 style="color:#fff; font-size:var(--text-2xl); font-family:var(--font-heading); margin:var(--space-2) 0 var(--space-4);">Evidence-Based Concussion Management Program</h3>' +
+            '    <p style="color:rgba(255,255,255,0.9); line-height:1.7; margin-bottom:var(--space-6);">HealthPlus is proud to offer the Complete Concussions Program at our clinic. As a certified location, we provide a full evidence-based concussion management program—helping our patients and athletes safely return to learn, work, and play.</p>' +
+            '    <div style="display:flex; gap:var(--space-4); flex-wrap:wrap; align-items:center;">' +
+            '        <a href="https://apps.apple.com/ca/app/concussion-tracker/id1166290027" target="_blank" rel="noopener" style="display:inline-block;"><img src="../assets/services/concussion/CONCUSSION TRACKER APP/App-Store-Icon-AppStore.png" alt="Download Concussion Tracker on App Store" style="height:44px;"></a>' +
+            '        <a href="https://play.google.com/store/apps/details?id=com.completeconcussions.concussiontracker&hl=en_CA" target="_blank" rel="noopener" style="display:inline-block;"><img src="../assets/services/concussion/CONCUSSION TRACKER APP/App-Store-Icon-GooglePlay.png" alt="Get Concussion Tracker on Google Play" style="height:44px;"></a>' +
+            '    </div>' +
+            '</div>' +
+            
+            '<h3 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-family:var(--font-heading);">Concussion Recovery & Treatment Strategy</h3>' +
+            '<p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-6);">Following a concussion injury, it is recommended that you seek the care of a healthcare professional with training and experience in concussion as soon as possible. The earlier you seek quality concussion care, the better your recovery will be.</p>' +
+            '<div style="margin-bottom:var(--space-8); border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--hp-border); box-shadow:0 10px 30px rgba(0,0,0,0.05);">' +
+            '    <img src="../assets/services/concussion/CONCUSSION TREATMENT INFOGRAPHIC/1920x1280-CompleteConcussions-Treatment-Infographic.png" alt="Concussion Treatment Infographic" style="width:100%; height:auto; display:block;">' +
+            '</div>' +
+
+            '<div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6); margin-bottom:var(--space-8);">' +
+            '    <div style="background:var(--hp-surface); padding:var(--space-6); border-radius:var(--radius-xl); border:1px solid var(--hp-border);">' +
+            '        <h4 style="color:var(--hp-heading); margin-bottom:var(--space-3); font-family:var(--font-heading);">Comprehensive Care Protocol</h4>' +
+            '        <p style="color:var(--hp-text-muted); line-height:1.6; font-size:var(--text-sm);">Generally, a period of relative "symptom-limited" physical and cognitive rest is recommended for the first 24-48 hours after injury. After this rest period, a gradual increase in mental and physical activity is recommended under the supervision of a licensed practitioner.</p>' +
+            '    </div>' +
+            '    <div style="background:var(--hp-surface); padding:var(--space-6); border-radius:var(--radius-xl); border:1px solid var(--hp-border);">' +
+            '        <h4 style="color:var(--hp-heading); margin-bottom:var(--space-3); font-family:var(--font-heading);">Multimodal Pre-season Baseline Testing</h4>' +
+            '        <p style="color:var(--hp-text-muted); line-height:1.6; font-size:var(--text-sm);">Pre-season testing measures your balance, reaction time, memory, and visual tracking. If you sustain a concussion during the season, we compare your recovery against your personal healthy baseline.</p>' +
+            '    </div>' +
+            '</div>' +
+
+            '<div style="background:rgba(115,201,190,0.12); border-left:4px solid var(--hp-primary); padding:var(--space-6); border-radius:var(--radius-lg); margin-bottom:var(--space-8);">' +
+            '    <h4 style="color:var(--hp-primary-dark); margin-bottom:var(--space-2); font-family:var(--font-heading);">Alberta Health Care Insurance Plan (AHCIP) Coverage</h4>' +
+            '    <p style="color:var(--hp-text); margin:0; font-size:var(--text-sm); line-height:1.6;">Medically necessary physician consultations and diagnostic evaluations are fully covered under AHCIP. Optional baseline testing and third-party athletic reports will always be transparently discussed prior to assessment.</p>' +
+            '</div></div>';
+            
+        pageHtml = pageHtml.replace('<h2 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-family:var(--font-heading);">Overview & Care Focus</h2>', concussionRichSections + '<h2 style="color:var(--hp-heading);margin-bottom:var(--space-4);font-family:var(--font-heading);">Overview & Care Focus</h2>');
+    }
 
     fs.writeFileSync(path.join(servicesDir, `${service.slug}.html`), pageHtml, 'utf8');
 });
