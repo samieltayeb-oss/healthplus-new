@@ -720,6 +720,41 @@ h6 { font-size: var(--text-xl);  font-weight: 600; }
     line-height: 1.8;
 }
 
+/* ─── Native Details/Summary FAQ ─── */
+.faq-list details {
+    border: 1px solid var(--hp-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-3);
+    background: var(--hp-surface);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+.faq-list details[open] {
+    box-shadow: 0 4px 20px rgba(71,181,168,0.1);
+    border-color: var(--hp-primary);
+}
+.faq-list details summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-5) var(--space-6);
+    color: var(--hp-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: background 0.15s;
+}
+.faq-list details summary::-webkit-details-marker { display: none; }
+.faq-list details summary::marker { display: none; }
+.faq-list details summary:hover { background: var(--hp-bg-section); }
+.faq-list details[open] summary { color: var(--hp-primary-dark); }
+.faq-list details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--hp-primary);
+    color: #fff;
+}
 /* ==========================================================================
    11. TABS
    ========================================================================== */

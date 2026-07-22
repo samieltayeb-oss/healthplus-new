@@ -299,17 +299,13 @@ services.forEach(service => {
     let faqHtml = '';
     if (service.faq && service.faq.length > 0) {
         service.faq.forEach((f, i) => {
-            faqHtml += '<div class="accordion-item" style="border:1px solid var(--hp-border); border-radius:var(--radius-lg); margin-bottom:var(--space-3); overflow:hidden; background:var(--hp-surface);">\n' +
-                       '    <button class="accordion-trigger" aria-expanded="' + (i === 0 ? 'true' : 'false') + '" style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:var(--space-5) var(--space-6); background:none; border:none; color:var(--hp-heading); font-weight:600; font-family:var(--font-heading); font-size:1.05rem; cursor:pointer; text-align:left;">\n' +
+            faqHtml += '<details ' + (i === 0 ? 'open' : '') + ' style="border:1px solid var(--hp-border); border-radius:var(--radius-lg); margin-bottom:var(--space-3); background:var(--hp-surface); overflow:hidden;">\n' +
+                       '    <summary style="display:flex; justify-content:space-between; align-items:center; padding:var(--space-5) var(--space-6); color:var(--hp-heading); font-weight:600; font-family:var(--font-heading); font-size:1.05rem; cursor:pointer; list-style:none; user-select:none;">\n' +
                        '        <span>' + f.q + '</span>\n' +
-                       '        <span class="icon" style="width:24px; height:24px; border-radius:50%; background:var(--hp-primary-ultra); color:var(--hp-primary-dark); display:flex; align-items:center; justify-content:center; font-weight:700;">+</span>\n' +
-                       '    </button>\n' +
-                       '    <div class="accordion-content ' + (i === 0 ? 'open' : '') + '">\n' +
-                       '        <div class="accordion-body" style="padding:var(--space-4) var(--space-6) var(--space-5); color:var(--hp-text-muted); line-height:1.7;">\n' +
-                       '            ' + f.a + '\n' +
-                       '        </div>\n' +
-                       '    </div>\n' +
-                       '</div>\n';
+                       '        <span class="faq-icon" style="width:26px; height:26px; border-radius:50%; background:var(--hp-primary-ultra); color:var(--hp-primary-dark); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; flex-shrink:0; transition:transform 0.25s ease;">+</span>\n' +
+                       '    </summary>\n' +
+                       '    <div style="padding:0 var(--space-6) var(--space-5); color:var(--hp-text-muted); line-height:1.75; font-size:var(--text-sm);">' + f.a + '</div>\n' +
+                       '</details>\n';
         });
     }
 
@@ -418,9 +414,8 @@ services.forEach(service => {
 '                \n' +
 '                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-3);font-family:var(--font-heading);">Preparation & What To Bring</h3>\n' +
 '                <p style="color:var(--hp-text);line-height:1.7;margin-bottom:var(--space-8);font-size:var(--text-base);">' + service.preparation + '</p>\n' +
-'\n' +
 '                <h3 style="color:var(--hp-heading);margin-bottom:var(--space-6);font-family:var(--font-heading);">Frequently Asked Questions</h3>\n' +
-'                <div class="accordion">\n' +
+'                <div class="faq-list">\n' +
 '                    ' + faqHtml + '\n' +
 '                </div>\n' +
 '            </div>\n' +
@@ -500,17 +495,11 @@ services.forEach(service => {
 '\n' +
 '<script src="../js/hp-core.js"></script>\n' +
 '<script>\n' +
-'    // Failsafe accordion handler\n' +
-'    document.querySelectorAll(".accordion-trigger").forEach(btn => {\n' +
-'        btn.addEventListener("click", function() {\n' +
-'            const content = this.nextElementSibling;\n' +
-'            const isOpen = content.classList.contains("open");\n' +
-'            document.querySelectorAll(".accordion-content").forEach(c => c.classList.remove("open"));\n' +
-'            document.querySelectorAll(".accordion-trigger").forEach(t => t.setAttribute("aria-expanded", "false"));\n' +
-'            if (!isOpen) {\n' +
-'                content.classList.add("open");\n' +
-'                this.setAttribute("aria-expanded", "true");\n' +
-'            }\n' +
+'    // Rotate FAQ icon on open/close\n' +
+'    document.querySelectorAll("details").forEach(d => {\n' +
+'        d.addEventListener("toggle", function() {\n' +
+'            const icon = this.querySelector(".faq-icon");\n' +
+'            if (icon) icon.style.transform = this.open ? "rotate(45deg)" : "rotate(0deg)";\n' +
 '        });\n' +
 '    });\n' +
 '</script>\n' +
