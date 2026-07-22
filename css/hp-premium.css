@@ -1261,8 +1261,58 @@ h6 { font-size: var(--text-xl);  font-weight: 600; }
     :root { --text-6xl: 2.5rem; --text-5xl: 2rem; --text-4xl: 1.75rem; }
     .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
     .section { padding: var(--space-16) 0; }
-    .hp-navbar .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    
+    /* Mobile Navigation */
+    .hp-navbar .nav-links { 
+        display: none; 
+    }
+    .hp-navbar .nav-links.nav-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: var(--space-6);
+        box-shadow: var(--hp-shadow-lg);
+        border-bottom: 1px solid var(--hp-border);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    .hp-navbar .nav-links li { width: 100%; }
+    .hp-navbar .nav-links a { display: block; padding: var(--space-3) 0; font-size: var(--text-lg); }
+    .hp-navbar .nav-cta { margin-left: 0; margin-top: var(--space-4); width: 100%; text-align: center; }
+    
+    /* Mobile Dropdown Menu */
+    .nav-dropdown .dropdown-menu {
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        min-width: 100%;
+        padding: 0 0 0 var(--space-4);
+        margin-top: var(--space-2);
+        border-left: 2px solid var(--hp-primary-ultra);
+    }
+    .nav-dropdown .dropdown-menu a {
+        font-size: var(--text-base);
+        padding: var(--space-2) 0;
+    }
+    .nav-dropdown .dropdown-menu a:hover { background: transparent; color: var(--hp-primary); }
+    .nav-dropdown > a::after { display: none; }
+    
+    /* Mobile Hamburger */
+    .nav-hamburger { display: flex; z-index: 101; }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    
     .hp-footer .footer-grid { grid-template-columns: 1fr; }
     .hp-footer .footer-bottom { flex-direction: column; text-align: center; }
     .container { padding: 0 var(--space-4); }

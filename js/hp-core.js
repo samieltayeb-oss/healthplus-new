@@ -16,9 +16,20 @@
     const hamburger = document.querySelector('.nav-hamburger');
     const navLinks  = document.querySelector('.nav-links');
     if (hamburger && navLinks) {
+        // Toggle menu
         hamburger.addEventListener('click', () => {
             const open = navLinks.classList.toggle('nav-open');
             hamburger.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+        
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
         });
     }
 
