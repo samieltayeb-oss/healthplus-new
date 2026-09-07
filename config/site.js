@@ -3,6 +3,7 @@ const siteConfig = {
   legalName: "HealthPlus by SEHA Medical",
   contact: {
     phone: "403-455-6656",
+    fax: "403-648-1876",
     secondaryPhone: "403-648-1876",
     email: "admin@healthplusmed.ca",
     website: "healthplusmed.ca",
@@ -14,10 +15,21 @@ const siteConfig = {
     }
   },
   hours: {
-    weekday: "8:00 AM - 8:00 PM",
-    saturday: "9:00 AM - 4:00 PM",
+    monThu: "9:00 AM - 6:30 PM",
+    friday: "9:00 AM - 4:30 PM",
+    weekday: "Mon - Thu: 9:00 AM - 6:30 PM | Fri: 9:00 AM - 4:30 PM",
+    saturday: "10:00 AM - 2:00 PM",
     sunday: "Closed",
-    statHolidays: "Closed"
+    statHolidays: "Closed",
+    days: {
+      monday: "9:00 AM - 6:30 PM",
+      tuesday: "9:00 AM - 6:30 PM",
+      wednesday: "9:00 AM - 6:30 PM",
+      thursday: "9:00 AM - 6:30 PM",
+      friday: "9:00 AM - 4:30 PM",
+      saturday: "10:00 AM - 2:00 PM",
+      sunday: "Closed"
+    }
   },
   social: {
     facebook: "#",

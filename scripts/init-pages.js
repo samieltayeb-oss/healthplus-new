@@ -359,7 +359,7 @@ const indexHtml = '<!DOCTYPE html>\n' +
 '            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Contact Us</h4>\n' +
 '            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">\n' +
 '                <li style="color: var(--hp-text-muted);">227 153 Ave SE<br>Calgary, AB T2X 2K2</li>\n' +
-'                <li style="color: var(--hp-text-muted);">(403) 254-4633</li>\n' +
+'                <li style="color: var(--hp-text-muted);">(403) 455-6656</li>\n' +
 '            </ul>\n' +
 '        </div>\n' +
 '        <div>\n' +
@@ -480,7 +480,7 @@ services.forEach(service => {
 '                <p class="lead" style="color:rgba(255,255,255,0.9); font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--space-6); max-width: 580px;">' + service.shortDescription + '</p>\n' +
 '                <div style="display:flex; gap:var(--space-3); flex-wrap:wrap;">\n' +
 '                    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Appointment</a>\n' +
-'                    <a href="tel:4032544633" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 254-4633</a>\n' +
+'                    <a href="tel:4034556656" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4); color:#fff;">Call (403) 455-6656</a>\n' +
 '                </div>\n' +
 '            </div>\n' +
 '            <!-- RIGHT: STANDALONE 8K PHOTO ABOVE + SEPARATED MOTION CARD BELOW -->\n' +
@@ -564,7 +564,7 @@ services.forEach(service => {
 '            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Contact Us</h4>\n' +
 '            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">\n' +
 '                <li style="color: var(--hp-text-muted);">227 153 Ave SE<br>Calgary, AB T2X 2K2</li>\n' +
-'                <li style="color: var(--hp-text-muted);">(403) 254-4633</li>\n' +
+'                <li style="color: var(--hp-text-muted);">(403) 455-6656</li>\n' +
 '            </ul>\n' +
 '        </div>\n' +
 '        <div>\n' +

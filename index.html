@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HealthPlus Medical provides comprehensive family, walk-in, and specialized care in Calgary.">
@@ -22,7 +27,7 @@
         "url": "https://healthplusmed.ca",
         "logo": "https://healthplusmed.ca/assets/logo_hp.png",
         "description": "Comprehensive, compassionate, and personalized healthcare for all stages of life.",
-        "telephone": "+1-403-272-6422",
+        "telephone": "+1-403-455-6656",
         "email": "admin@healthplusmed.ca",
         "address": {
             "@type": "PostalAddress",
@@ -45,39 +50,138 @@
 <header>
     <nav class="hp-navbar" aria-label="Main Navigation">
         <div class="container nav-inner">
-            <a href="/" class="nav-logo" aria-label="HealthPlus Medical Home">
+            <a href="index.html" class="nav-logo" aria-label="HealthPlus Medical Home">
                 <img src="assets/logo_hp.png" alt="HealthPlus Medical">
             </a>
-            <ul class="nav-links" role="list">
-                <li class="nav-dropdown" style="position:relative;">
-                    <a href="/services/index.html" class="nav-link" aria-haspopup="true">Services</a>
-                    <!-- HP_SERVICES_NAV_START -->
-<ul class="dropdown-menu">
-  <li><a href="services/family-medicine.html">Family Medicine</a></li>
-  <li><a href="services/walk-in-clinic.html">Walk-In Clinic</a></li>
-  <li><a href="services/internal-medicine.html">Internal Medicine</a></li>
-  <li><a href="services/mental-health.html">Mental Health</a></li>
-  <li><a href="services/mva-care.html">MVA Care</a></li>
-  <li><a href="services/obstetrics-gynecology.html">Obstetrics & Gynecology</a></li>
-  <li><a href="services/pediatric-care.html">Pediatric Care</a></li>
-  <li><a href="services/sports-medicine.html">Sports Medicine</a></li>
-  <li><a href="services/virtual-care.html">Virtual Care</a></li>
-  <li><a href="services/womens-health.html">Women's Health</a></li>
-  <li><a href="services/concussion-care.html">Concussion Care</a></li>
-  <li><hr class="dropdown-divider"></li>
-  <li><a href="services/index.html"><strong>View All Services</strong></a></li>
-</ul>
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links" role="list">
+                    <li class="nav-dropdown">
+                        <a href="services/index.html" class="nav-link" aria-haspopup="true">
+                            <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                            <span>Services</span>
+                            <svg class="nav-chevron" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                        </a>
+                        <!-- HP_SERVICES_NAV_START -->
+<div class="dropdown-menu mega-dropdown">
+  <div class="dropdown-header">
+    <span class="dropdown-kicker">Clinical Specialties & Care</span>
+    <a href="services/index.html" class="dropdown-view-all">All 11 Services →</a>
+  </div>
+  <div class="mega-dropdown-grid">
+    <a href="services/family-medicine.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Family Medicine</span>
+        <span class="service-item-cat">Primary Care</span>
+      </div>
+    </a>
+    <a href="services/walk-in-clinic.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Walk-In Clinic</span>
+        <span class="service-item-cat">Immediate Care</span>
+      </div>
+    </a>
+    <a href="services/internal-medicine.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Internal Medicine</span>
+        <span class="service-item-cat">Specialist Care</span>
+      </div>
+    </a>
+    <a href="services/mental-health.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z' /><path stroke-linecap='round' stroke-linejoin='round' d='M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Mental Health</span>
+        <span class="service-item-cat">Wellness & Support</span>
+      </div>
+    </a>
+    <a href="services/mva-care.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">MVA Care</span>
+        <span class="service-item-cat">Injury & Recovery</span>
+      </div>
+    </a>
+    <a href="services/obstetrics-gynecology.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Obstetrics & Gynecology</span>
+        <span class="service-item-cat">Specialist Care</span>
+      </div>
+    </a>
+    <a href="services/pediatric-care.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Pediatric Care</span>
+        <span class="service-item-cat">Primary Care</span>
+      </div>
+    </a>
+    <a href="services/sports-medicine.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-1.637l4.053 2.026c.451.226.747.68.747 1.18v.794a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25v-.794c0-.5.296-.954.747-1.18L6 11.484m6 1.637v5.25' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Sports Medicine</span>
+        <span class="service-item-cat">Injury & Recovery</span>
+      </div>
+    </a>
+    <a href="services/virtual-care.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Virtual Care</span>
+        <span class="service-item-cat">Access & Convenience</span>
+      </div>
+    </a>
+    <a href="services/womens-health.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Women's Health</span>
+        <span class="service-item-cat">Wellness & Support</span>
+      </div>
+    </a>
+    <a href="services/concussion-care.html" class="dropdown-service-item">
+      <div class="service-item-icon"><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5' /></svg></div>
+      <div class="service-item-content">
+        <span class="service-item-title">Concussion Care</span>
+        <span class="service-item-cat">Injury & Recovery</span>
+      </div>
+    </a>
+  </div>
+  <div class="dropdown-footer">
+    <div class="dropdown-badge-pill">
+      <span class="pulse-dot"></span>
+      <span>Walk-In Clinic & New Patients Welcome</span>
+    </div>
+    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener" class="dropdown-quick-book">Book Online</a>
+  </div>
+</div>
 <!-- HP_SERVICES_NAV_END -->
-                </li>
-                <li><a href="/team/" class="nav-link">Our Team</a></li>
-                <li><a href="/about/" class="nav-link">About</a></li>
-                <li><a href="/faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="/contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                Book Appointment
-            </a>
+                    </li>
+                    <li>
+                        <a href="team/" class="nav-link">
+                            <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                            <span>Our Team</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about/" class="nav-link">
+                            <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="faq.html" class="nav-link">
+                            <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3m.08 3.5h.01"/></svg>
+                            <span>FAQ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link">
+                            <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -88,204 +192,238 @@
 <main>
 
 <!-- ═══════════════════════════════════════════════
-     HERO
+     HERO: CALM, HUMAN-CENTRIC & CONVERSION-FOCUSED
 ═══════════════════════════════════════════════ -->
 <section class="hp-hero" aria-label="Hero">
     <div class="hero-bg">
-        <img src="assets/images/home/home-hero.png" alt="" width="2400" height="1350" decoding="async" loading="eager" fetchpriority="high" class="ken-burns" onerror="this.parentElement.style.background='linear-gradient(135deg,#0D3D38 0%,#3E8F89 100%)'" style="object-fit: cover; object-position: center;">
+        <img src="assets/images/home/home-hero.png?v=2" alt="HealthPlus Medical Team and Clinic" width="2400" height="1350" decoding="async" loading="eager" fetchpriority="high" onerror="this.parentElement.style.background='linear-gradient(135deg,#1b665d 0%,#29857c 35%,#3fa89d 70%,#5ec7ba 100%)'">
         <div class="hero-overlay"></div>
     </div>
 
     <div class="container hero-content">
-        <!-- LEFT: Text + Booking Panel -->
-        <div style="max-width:520px;">
+        <!-- LEFT CONVERSION ZONE (~44% max-width 520px): Clean typography & High-Priority Booking Cards -->
+        <div class="hero-left-column">
             <span class="eyebrow reveal" style="color:var(--hp-primary-light);">Your Partner in Health — Calgary, AB</span>
-            <h1 class="reveal reveal-delay-1" style="color:#fff;margin:var(--space-4) 0;">
+            <h1 class="reveal reveal-delay-1" style="color:#fff;margin:var(--space-4) 0 var(--space-4);line-height:1.12;">
                 Modern Care<br>
                 <em style="color:var(--hp-primary-light);">for Every Family.</em>
             </h1>
-            <p class="lead reveal reveal-delay-2" style="color:rgba(255,255,255,0.82);max-width:480px;">
+
+            <!-- Supporting copy -->
+            <p class="hero-supporting-copy reveal reveal-delay-2">
                 Comprehensive, compassionate, and personalized healthcare for all stages of life — right here in your community.
             </p>
-            <!-- Premium Booking Panel -->
-            <div class="reveal reveal-delay-3" style="margin-top:var(--space-8);max-width:440px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-2xl);overflow:hidden;">
-                <a href="https://healthplusmedical.inputhealth.com/" target="_blank" rel="noopener"
-                   style="display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);text-decoration:none;background:var(--hp-primary);transition:background 0.2s;"
-                   onmouseover="this.style.background='var(--hp-primary-dark)'" onmouseout="this.style.background='var(--hp-primary)'">
-                    <div style="width:44px;height:44px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" style="width:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+
+            <!-- PRIMARY CONVERSION MODULE: 3 Clean, Clear Action Cards -->
+            <div class="hero-actions-container reveal reveal-delay-3">
+                <!-- Action 1: Book Now Online (Dominant Primary CTA) -->
+                <a href="https://healthplusmedical.inputhealth.com/" target="_blank" rel="noopener" class="hero-action-card card-primary" aria-label="Book Now Online - Self-booking Available 24/7">
+                    <div class="action-card-icon icon-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"/></svg>
                     </div>
-                    <div style="flex:1;">
-                        <div style="font-family:var(--font-body);font-weight:700;font-size:var(--text-base);color:#fff;letter-spacing:0.01em;">Book Now</div>
-                        <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.75);margin-top:2px;">Self-booking · Available 24/7</div>
+                    <div class="action-card-text">
+                        <div class="action-card-top">
+                            <span class="action-card-title">BOOK NOW</span>
+                            <span class="action-badge-pill badge-teal">Instant 24/7</span>
+                        </div>
+                        <p class="action-card-desc">Self-booking · Available 24/7</p>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="rgba(255,255,255,0.7)" style="width:16px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    <div class="action-card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </div>
                 </a>
-                <div style="height:1px;background:rgba(255,255,255,0.1);"></div>
-                <a href="https://form.jotform.com/sehamanagementinv/call-back-request-form" target="_blank" rel="noopener"
-                   style="display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);text-decoration:none;transition:background 0.2s;"
-                   onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">
-                    <div style="width:44px;height:44px;background:rgba(115,201,190,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="var(--hp-primary-light)" style="width:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>
+
+                <!-- Action 2: Request a Call-Back (Secondary Frosted Glass) -->
+                <a href="https://form.jotform.com/sehamanagementinv/call-back-request-form" target="_blank" rel="noopener" class="hero-action-card card-glass" aria-label="Request a Call-Back - We'll call you at your convenience">
+                    <div class="action-card-icon icon-emerald">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>
                     </div>
-                    <div style="flex:1;">
-                        <div style="font-family:var(--font-body);font-weight:700;font-size:var(--text-base);color:#fff;letter-spacing:0.01em;">Request a Call-Back</div>
-                        <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.55);margin-top:2px;">We'll call you at your convenience</div>
+                    <div class="action-card-text">
+                        <div class="action-card-top">
+                            <span class="action-card-title">REQUEST A CALL-BACK</span>
+                            <span class="action-badge-pill badge-glass">Phone Care</span>
+                        </div>
+                        <p class="action-card-desc">We'll call you at your convenience</p>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="rgba(255,255,255,0.4)" style="width:16px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    <div class="action-card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    </div>
                 </a>
-                <div style="height:1px;background:rgba(255,255,255,0.1);"></div>
-                <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener"
-                   style="display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);text-decoration:none;transition:background 0.2s;"
-                   onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">
-                    <div style="width:44px;height:44px;background:rgba(115,201,190,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="var(--hp-primary-light)" style="width:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+
+                                <!-- Action 3: Request with Family Physicians (Secondary Frosted Glass) -->
+                <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener" class="hero-action-card card-glass" aria-label="Request with Family Physicians - Book with your dedicated physician">
+                    <div class="action-card-icon icon-mint">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
                     </div>
-                    <div style="flex:1;">
-                        <div style="font-family:var(--font-body);font-weight:700;font-size:var(--text-base);color:#fff;letter-spacing:0.01em;">Request with Family Physicians</div>
-                        <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.55);margin-top:2px;">Book with your dedicated physician</div>
+                    <div class="action-card-text">
+                        <div class="action-card-top">
+                            <span class="action-card-title">REQUEST WITH FAMILY PHYSICIANS</span>
+                            <span class="action-badge-pill badge-gold">New Patients</span>
+                        </div>
+                        <p class="action-card-desc">Book with your dedicated physician</p>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="rgba(255,255,255,0.4)" style="width:16px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    <div class="action-card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                    </div>
                 </a>
             </div>
         </div>
 
-        <!-- RIGHT: Animated ECG -->
-        <div class="hero-ecg-col" aria-hidden="true">
-            <!-- BPM Badge -->
-            <div class="ecg-bpm-badge">
-                <div class="ecg-pulse-dot"></div>
-                <div>
-                    <div class="ecg-bpm-number">72 <span>BPM</span></div>
-                    <div class="ecg-bpm-label">Normal Sinus Rhythm</div>
+        <!-- RIGHT PHOTOGRAPHY ZONE (~56%): Unobstructed view of Doctor & Family in clean clinic -->
+        <div class="hero-right-spacer" aria-hidden="true"></div>
+    </div>
+
+    <!-- Floating stats bar (Elevated Crystal Glass Island) -->
+    <div class="hero-floating-stats" aria-label="Clinic Quick Facts">
+        <div class="container">
+            <div class="stats-grid">
+                <!-- Stat 1: Patients Served -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number" data-target="35000" data-suffix="+">35,000+</div>
+                        <div class="stat-label">Patients Served</div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- ECG Canvas -->
-            <div class="ecg-wrap">
-                <svg class="ecg-svg" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Subtle grid -->
-                    <defs>
-                        <pattern id="ecgGrid" width="28" height="28" patternUnits="userSpaceOnUse">
-                            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(115,201,190,0.08)" stroke-width="0.5"/>
-                        </pattern>
-                        <filter id="ecgGlow">
-                            <feGaussianBlur stdDeviation="3" result="blur"/>
-                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
-                        <linearGradient id="ecgFade" x1="0" x2="1" y1="0" y2="0">
-                            <stop offset="0%" stop-color="rgba(115,201,190,0)" />
-                            <stop offset="20%" stop-color="rgba(115,201,190,0.9)" />
-                            <stop offset="80%" stop-color="rgba(115,201,190,0.9)" />
-                            <stop offset="100%" stop-color="rgba(115,201,190,0)" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="700" height="220" fill="url(#ecgGrid)"/>
-
-                    <!-- ECG line (realistic PQRST waveform repeated) -->
-                    <path class="ecg-line" filter="url(#ecgGlow)"
-                        d="M 0,110
-                           L 30,110 35,108 40,112 45,110
-                           L 58,110 62,60 65,165 68,110
-                           L 75,110 80,95 85,110
-                           L 115,110
-                           L 145,110 150,108 155,112 160,110
-                           L 173,110 177,60 180,165 183,110
-                           L 190,110 195,95 200,110
-                           L 230,110
-                           L 260,110 265,108 270,112 275,110
-                           L 288,110 292,60 295,165 298,110
-                           L 305,110 310,95 315,110
-                           L 345,110
-                           L 375,110 380,108 385,112 390,110
-                           L 403,110 407,60 410,165 413,110
-                           L 420,110 425,95 430,110
-                           L 460,110
-                           L 490,110 495,108 500,112 505,110
-                           L 518,110 522,60 525,165 528,110
-                           L 535,110 540,95 545,110
-                           L 575,110
-                           L 605,110 610,108 615,112 620,110
-                           L 633,110 637,60 640,165 643,110
-                           L 650,110 655,95 660,110
-                           L 700,110"
-                        fill="none"
-                        stroke="url(#ecgFade)"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"/>
-
-                    <!-- Animated sweeping dot -->
-                    <circle class="ecg-dot" r="5" fill="#73C9BE" filter="url(#ecgGlow)">
-                        <animateMotion dur="2.8s" repeatCount="indefinite" rotate="auto"
-                            path="M 0,110
-                                  L 30,110 35,108 40,112 45,110
-                                  L 58,110 62,60 65,165 68,110
-                                  L 75,110 80,95 85,110
-                                  L 115,110
-                                  L 145,110 150,108 155,112 160,110
-                                  L 173,110 177,60 180,165 183,110
-                                  L 190,110 195,95 200,110
-                                  L 230,110
-                                  L 260,110 265,108 270,112 275,110
-                                  L 288,110 292,60 295,165 298,110
-                                  L 305,110 310,95 315,110
-                                  L 345,110
-                                  L 375,110 380,108 385,112 390,110
-                                  L 403,110 407,60 410,165 413,110
-                                  L 420,110 425,95 430,110
-                                  L 460,110
-                                  L 490,110 495,108 500,112 505,110
-                                  L 518,110 522,60 525,165 528,110
-                                  L 535,110 540,95 545,110
-                                  L 575,110
-                                  L 605,110 610,108 615,112 620,110
-                                  L 633,110 637,60 640,165 643,110
-                                  L 650,110 655,95 660,110
-                                  L 700,110"/>
-                    </circle>
-                </svg>
-            </div>
-
-            <!-- Stat chips -->
-            <div class="ecg-stats">
-                <div class="ecg-stat-chip">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--hp-primary-light)" style="width:14px;"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
-                    <span>Public Clinic</span>
+                <!-- Stat 2: Physicians -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number" data-target="15" data-suffix="+">15+</div>
+                        <div class="stat-label">Dedicated Physicians</div>
+                    </div>
                 </div>
-                <div class="ecg-stat-chip">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--hp-primary-light)" style="width:14px;"><path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.079 3.953-5.159 3.953-9.327 0-4.03-3.32-7.5-7.25-7.5S5 4.47 5 8.5c0 4.168 2.009 7.248 3.953 9.327a19.585 19.585 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
-                    <span>Calgary, AB</span>
+
+                <!-- Stat 3: Medical Services -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number" data-target="11" data-suffix="">11</div>
+                        <div class="stat-label">Clinical Specialties</div>
+                    </div>
                 </div>
-                <div class="ecg-stat-chip">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--hp-primary-light)" style="width:14px;"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd"/></svg>
-                    <span>Mon–Sat</span>
+
+                <!-- Stat 4: Google Reviews -->
+                <div class="stat-item stat-item-last">
+                    <div class="stat-icon-wrap icon-gold" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-number">3.9 <span class="stat-stars">★★★★★</span></div>
+                        <div class="stat-label">Google Rating · 200+ Reviews</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Floating stats bar -->
-    <div style="position:absolute;bottom:0;left:0;right:0;z-index:2;">
-        <div class="container">
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);background:rgba(13,61,56,0.88);backdrop-filter:blur(16px);border-radius:var(--radius-xl) var(--radius-xl) 0 0;border:1px solid rgba(115,201,190,0.18);border-bottom:none;">
-                <div style="padding:var(--space-5);text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
-                    <div style="font-family:var(--font-heading);font-size:var(--text-3xl);font-weight:700;color:var(--hp-primary-light);" data-target="3000" data-suffix="+">0+</div>
-                    <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.55);margin-top:3px;font-weight:500;">Patients Served</div>
+<section id="clinic-activity" class="section" style="background:var(--hp-surface-subtle); padding:var(--space-16) 0; border-bottom:1px solid var(--hp-border);">
+    <div class="container">
+        <div style="text-align:center; max-width:640px; margin:0 auto var(--space-12);">
+            <span class="eyebrow" style="color:var(--hp-primary);">Live Clinic Activity</span>
+            <h2 style="color:var(--hp-heading); margin-top:var(--space-2); font-family:var(--font-heading);">Patient Volume & Visiting Hours</h2>
+            <p style="color:var(--hp-text-muted); margin-top:var(--space-3); font-size:var(--text-sm);">Check our real-time clinic hours, estimated wait times, and verified patient reviews before your visit.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:var(--space-8); align-items:stretch;">
+            
+            <!-- Left Card: Google Verified Business Details -->
+            <div style="background:var(--hp-surface); border:1px solid var(--hp-border); border-radius:var(--radius-2xl); padding:var(--space-8); box-shadow:var(--shadow-sm); display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:var(--space-6);">
+                        <div style="display:flex; gap:16px; align-items:center;">
+                            <div style="width:48px; height:48px; background:#fff; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; flex-shrink:0; border:1px solid var(--hp-border); box-shadow:var(--shadow-xs);">
+                                <svg width="26" height="26" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-family:var(--font-heading); font-size:1.3rem; font-weight:700; color:var(--hp-heading); margin:0 0 4px 0;">Health Plus Medical</h3>
+                                <div style="font-size:var(--text-xs); color:var(--hp-text-muted);">Family Practice & Walk-In Clinic · Calgary, AB</div>
+                            </div>
+                        </div>
+                        <span style="font-size:11px; background:rgba(115,201,190,0.15); color:var(--hp-primary-dark); padding:4px 10px; border-radius:var(--radius-full); font-weight:600; text-transform:uppercase;">Verified</span>
+                    </div>
+
+                    <!-- Rating Big Callout -->
+                    <div style="display:flex; align-items:center; gap:16px; background:var(--hp-surface-subtle); border:1px solid var(--hp-border); border-radius:var(--radius-xl); padding:var(--space-5) var(--space-6); margin-bottom:var(--space-6);">
+                        <span class="live-google-rating" style="font-size:2.2rem; font-weight:800; color:var(--hp-heading); line-height:1;">3.9</span>
+                        <div>
+                            <div style="color:#f59e0b; font-size:18px; letter-spacing:2px; margin-bottom:4px;">★★★★☆</div>
+                            <a href="https://maps.google.com/?q=Health+Plus+Medical+290+Midpark+Way+SE+%23100+Calgary+AB+T2X+1P1" target="_blank" rel="noopener" class="live-google-reviews" style="font-size:var(--text-sm); color:var(--hp-primary); font-weight:600; text-decoration:none;">204 Google reviews →</a>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:var(--space-6);">
+                        <div style="font-size:var(--text-xs); color:var(--hp-text-muted); margin-bottom:4px;">Clinic Address:</div>
+                        <div style="color:var(--hp-heading); font-weight:500; font-size:var(--text-sm);">100-290 Midpark Way SE, Calgary, AB T2X 1P1</div>
+                    </div>
                 </div>
-                <div style="padding:var(--space-5);text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
-                    <div style="font-family:var(--font-heading);font-size:var(--text-3xl);font-weight:700;color:var(--hp-primary-light);" data-target="15" data-suffix="+">0+</div>
-                    <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.55);margin-top:3px;font-weight:500;">Physicians</div>
-                </div>
-                <div style="padding:var(--space-5);text-align:center;border-right:1px solid rgba(255,255,255,0.07);">
-                    <div style="font-family:var(--font-heading);font-size:var(--text-3xl);font-weight:700;color:var(--hp-primary-light);" data-target="10" data-suffix="+">0+</div>
-                    <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.55);margin-top:3px;font-weight:500;">Medical Services</div>
-                </div>
-                <div style="padding:var(--space-5);text-align:center;">
-                    <div style="font-family:var(--font-heading);font-size:var(--text-3xl);font-weight:700;color:var(--hp-primary-light);">4.9 ★</div>
-                    <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.55);margin-top:3px;font-weight:500;">Patient Rating</div>
+
+                <!-- Action Buttons -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                    <a href="https://maps.google.com/?q=Health+Plus+Medical+290+Midpark+Way+SE+%23100+Calgary+AB+T2X+1P1" target="_blank" rel="noopener" class="btn btn-outline" style="display:flex; align-items:center; justify-content:center; gap:6px; font-size:var(--text-xs); padding:10px 14px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Google Maps
+                    </a>
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJm-3P4A2wcVMRq4lXW_m9L3M" target="_blank" rel="noopener" class="btn btn-outline" style="display:flex; align-items:center; justify-content:center; gap:6px; font-size:var(--text-xs); padding:10px 14px;">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        Write a Review
+                    </a>
                 </div>
             </div>
+
+            <!-- Right Card: Popular Times Interactive Bar Chart -->
+            <div style="background:var(--hp-surface); border:1px solid var(--hp-border); border-radius:var(--radius-2xl); padding:var(--space-8); box-shadow:var(--shadow-sm); display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--space-4);">
+                        <h3 style="font-size:1.15rem; font-weight:700; color:var(--hp-heading); margin:0;">Popular Times</h3>
+                        <span style="font-size:var(--text-xs); color:var(--hp-text-muted);">Estimated visit: <strong style="color:var(--hp-heading);">25 min – 1 hr</strong></span>
+                    </div>
+
+                    <!-- Day Selector Tabs with High Contrast Fonts -->
+                    <div style="display:flex; gap:6px; margin-bottom:var(--space-5); overflow-x:auto; padding-bottom:4px;">
+                        <button class="pop-day-tab" data-day="MON" onclick="window.renderPopularDay('MON')" style="flex:1; min-width:40px; padding:7px 0; border:1px solid #cbd5e1; border-radius:var(--radius-md); font-size:12px; font-weight:700; cursor:pointer; background:#f8fafc; color:#1e293b;">MON</button>
+                        <button class="pop-day-tab" data-day="TUE" onclick="window.renderPopularDay('TUE')" style="flex:1; min-width:40px; padding:7px 0; border:1px solid #cbd5e1; border-radius:var(--radius-md); font-size:12px; font-weight:700; cursor:pointer; background:#f8fafc; color:#1e293b;">TUE</button>
+                        <button class="pop-day-tab" data-day="WED" onclick="window.renderPopularDay('WED')" style="flex:1; min-width:40px; padding:7px 0; border:1px solid #cbd5e1; border-radius:var(--radius-md); font-size:12px; font-weight:700; cursor:pointer; background:#f8fafc; color:#1e293b;">WED</button>
+                        <button class="pop-day-tab" data-day="THU" onclick="window.renderPopularDay('THU')" style="flex:1; min-width:40px; padding:7px 0; border:1px solid #cbd5e1; border-radius:var(--radius-md); font-size:12px; font-weight:700; cursor:pointer; background:#f8fafc; color:#1e293b;">THU</button>
+                        <button class="pop-day-tab" data-day="FRI" onclick="window.renderPopularDay('FRI')" style="flex:1; min-width:40px; padding:7px 0; border:1px solid #cbd5e1; border-radius:var(--radius-md); font-size:12px; font-weight:700; cursor:pointer; background:#f8fafc; color:#1e293b;">FRI</button>
+                        <button class="pop-day-tab" data-day="SAT" onclick="window.renderPopularDay('SAT')" style="flex:1; min-width:40px; padding:7px 0; border:1px solid #cbd5e1; border-radius:var(--radius-md); font-size:12px; font-weight:700; cursor:pointer; background:#f8fafc; color:#1e293b;">SAT</button>
+                        <button class="pop-day-tab" data-day="SUN" onclick="window.renderPopularDay('SUN')" style="flex:1; min-width:40px; padding:7px 0; border:1px solid #cbd5e1; border-radius:var(--radius-md); font-size:12px; font-weight:700; cursor:pointer; background:#f8fafc; color:#1e293b;">SUN</button>
+                    </div>
+
+                    <!-- Active Time Peak Indicator -->
+                    <div style="display:flex; align-items:center; gap:8px; font-size:var(--text-xs); color:var(--hp-primary-dark); font-weight:600; margin-bottom:var(--space-4); background:rgba(115,201,190,0.12); padding:8px 12px; border-radius:var(--radius-md);">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span id="pop-peak-text">12 p.m.: Usually as busy as it gets</span>
+                    </div>
+
+                    <!-- Popular Times Hourly Bars -->
+                    <div id="pop-bars-container" style="display:grid; grid-template-columns:repeat(10, 1fr); gap:6px; height:110px; align-items:flex-end; padding-top:10px; border-bottom:1px solid var(--hp-border);">
+                    </div>
+                </div>
+
+                <!-- Visit Duration Footer -->
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:var(--space-5); padding-top:var(--space-4); border-top:1px solid var(--hp-border); font-size:var(--text-xs); color:var(--hp-text-muted);">
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Walk-in wait times may vary based on daily doctor availability.</span>
+                    </div>
+                    <a href="tel:4034556656" style="color:var(--hp-primary); font-weight:600; text-decoration:none; white-space:nowrap;">Call Front Desk →</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -293,7 +431,7 @@
 <!-- ═══════════════════════════════════════════════
      4 PILLARS (CLEAN & FAST)
 ═══════════════════════════════════════════════ -->
-<section class="section-sm" style="padding-top:var(--space-20);">
+<section class="section-sm" style="padding-top:var(--space-16);">
     <div class="container">
         <div class="grid grid-4">
             <a href="/services/" class="card card-glass card-service reveal" style="text-decoration:none;">
@@ -452,82 +590,123 @@
      FOOTER
 ═══════════════════════════════════════════════ -->
 <!-- HP_FOOTER_START -->
-<footer class="hp-footer" style="margin-top:auto; background: var(--hp-surface); border-top: 1px solid var(--hp-border); padding-top: var(--space-16);">
-    <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-12); padding-bottom: var(--space-12);">
+<footer class="hp-footer" style="margin-top:auto; background: linear-gradient(180deg, #092823 0%, #051A17 100%); border-top: 1px solid rgba(115, 201, 190, 0.22); color: #E2E8F0; padding-top: var(--space-16);">
+    <!-- Pre-Footer Quick Action Strip -->
+    <div class="container" style="margin-bottom: var(--space-12); padding-bottom: var(--space-10); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-6); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-2xl); padding: var(--space-6) var(--space-8); backdrop-filter: blur(12px);">
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(115, 201, 190, 0.18); color: #97E2DC; border: 1px solid rgba(151, 226, 220, 0.35); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+                </div>
+                <div>
+                    <h3 style="color: #FFFFFF; font-size: var(--text-lg); margin: 0 0 4px; font-family: var(--font-heading); font-weight: 600;">Accepting New Patients & Walk-Ins</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: var(--text-sm); margin: 0;">Midnapore, Calgary, AB · Family Practice, Specialists & Allied Care</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="tel:4034556656" class="btn btn-outline" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.3); padding: 10px 18px; font-size: var(--text-sm); border-radius: var(--radius-full); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.864-1.051l-3.213-.535a2.25 2.25 0 00-2.237.615l-1.52 1.52a14.122 14.122 0 01-6.578-6.578l1.52-1.52a2.25 2.25 0 00.615-2.237l-.535-3.213C7.716 2.601 7.266 2.25 6.75 2.25H5.378A2.25 2.25 0 003.15 4.312 15.91 15.91 0 002.25 6.75z"/></svg>
+                    <span>403-455-6656</span>
+                </a>
+                <a href="book.html" class="btn btn-primary" style="background: linear-gradient(135deg, #00897B 0%, #0D4E47 100%); color: #FFFFFF; padding: 10px 22px; font-size: var(--text-sm); font-weight: 600; border-radius: var(--radius-full); text-decoration: none; border: 1px solid rgba(151, 226, 220, 0.6); box-shadow: 0 4px 14px rgba(0, 137, 123, 0.35);">
+                    Book Online 24/7 →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main 4-Column Footer Grid -->
+    <div class="container footer-main-grid" style="display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap: var(--space-10); padding-bottom: var(--space-12);">
         
-        <!-- Brand Section -->
+        <!-- Column 1: Brand Section -->
         <div>
-            <a href="index.html" style="display:inline-block; margin-bottom:var(--space-6);">
-                <img src="assets/logo_hp.png" alt="HealthPlus Medical" style="height: 48px; width: auto;">
+            <a href="index.html" style="display:inline-block; margin-bottom:var(--space-5);">
+                <img src="assets/logo_hp.png" alt="HealthPlus Medical" style="height: 52px; width: auto; max-width: 240px; object-fit: contain; filter: brightness(0) invert(1);">
             </a>
-            <p style="color: var(--hp-text-muted); line-height: 1.7; margin-bottom: var(--space-6);">Providing exceptional, compassionate, and comprehensive medical care to Calgary and surrounding communities since 2006.</p>
-            <div style="display: flex; gap: 16px;">
-                <a href="#" style="color: var(--hp-primary); width: 40px; height: 40px; border-radius: 50%; background: var(--hp-primary-ultra); display: flex; align-items: center; justify-content: center; transition: all 0.2s;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                <a href="#" style="color: var(--hp-primary); width: 40px; height: 40px; border-radius: 50%; background: var(--hp-primary-ultra); display: flex; align-items: center; justify-content: center; transition: all 0.2s;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <p style="color: rgba(255, 255, 255, 0.72); line-height: 1.7; font-size: var(--text-sm); margin-bottom: var(--space-5);">Providing exceptional, compassionate, and comprehensive medical care to Calgary and surrounding communities since 2006.</p>
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-full); padding: 5px 12px; font-size: 11.5px; color: #97E2DC;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                <span>Accredited Medical Clinic</span>
             </div>
         </div>
 
-        <!-- Quick Links -->
+        <!-- Column 2: Clinical Services -->
         <div>
-            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Quick Links</h4>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                <li><a href="services/" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Our Services</a></li>
-                <li><a href="team/" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Medical Team</a></li>
-                <li><a href="about/" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">About Clinic</a></li>
-                <li><a href="faq.html" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Patient FAQ</a></li>
-                <li><a href="contact.html" style="color: var(--hp-text); text-decoration: none; transition: color 0.2s;">Contact Us</a></li>
+            <h4 style="color: #FFFFFF; margin-bottom: var(--space-5); font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.2px;">Clinical Care</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+                <li><a href="services/family-medicine.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Family Medicine</a></li>
+                <li><a href="services/walk-in-clinic.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Walk-In Clinic</a></li>
+                <li><a href="services/internal-medicine.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Internal Medicine</a></li>
+                <li><a href="services/pediatric-care.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Pediatric Care</a></li>
+                <li><a href="services/mental-health.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Mental Health</a></li>
+                <li><a href="services/womens-health.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Women's Health & OB/GYN</a></li>
+                <li><a href="services/" style="color: #97E2DC; text-decoration: none; font-size: var(--text-sm); font-weight: 600; margin-top: 4px; display: inline-block;">All 11 Specialties →</a></li>
             </ul>
         </div>
 
-        <!-- Contact Info -->
+        <!-- Column 3: Patient Hub -->
         <div>
-            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Contact Us</h4>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
-                <li style="display: flex; gap: 12px; align-items: flex-start; color: var(--hp-text-muted);">
-                    <svg style="color: var(--hp-primary); flex-shrink: 0; margin-top: 4px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    <span>227 153 Ave SE<br>Calgary, AB T2X 2K2</span>
-                </li>
-                <li style="display: flex; gap: 12px; align-items: center; color: var(--hp-text-muted);">
-                    <svg style="color: var(--hp-primary); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>(403) 254-4633</span>
-                </li>
-                <li style="display: flex; gap: 12px; align-items: center; color: var(--hp-text-muted);">
-                    <svg style="color: var(--hp-primary); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    <span><a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" style="color:var(--hp-primary); text-decoration:none; font-weight:600;">Book Online</a></span>
-                </li>
+            <h4 style="color: #FFFFFF; margin-bottom: var(--space-5); font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.2px;">Patient Hub</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px;">
+                <li><a href="team/" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Our Medical Team</a></li>
+                <li><a href="about/" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">About HealthPlus</a></li>
+                <li><a href="faq.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Patient FAQ</a></li>
+                <li><a href="https://form.jotform.com/sehamanagementinv/call-back-request-form" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Request Call-Back</a></li>
+                <li><a href="contact.html" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Contact & Map</a></li>
+                <li><a href="https://search.google.com/local/writereview?placeid=ChIJm-3P4A2wcVMRq4lXW_m9L3M" target="_blank" rel="noopener" style="color: #FCD34D; text-decoration: none; font-size: var(--text-sm); font-weight: 500; margin-top: 4px; display: inline-block;">★ Leave a Review</a></li>
             </ul>
         </div>
 
-        <!-- Hours -->
+        <!-- Column 4: Hours & Location Glass Card -->
         <div>
-            <h4 style="color: var(--hp-heading); margin-bottom: var(--space-6); font-family: var(--font-heading); font-weight: 600;">Clinic Hours</h4>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                <li style="display: flex; justify-content: space-between; color: var(--hp-text); border-bottom: 1px dashed var(--hp-border); padding-bottom: 8px;">
-                    <span>Mon - Fri</span>
-                    <span style="font-weight: 500;">9:00 AM - 5:00 PM</span>
-                </li>
-                <li style="display: flex; justify-content: space-between; color: var(--hp-text); border-bottom: 1px dashed var(--hp-border); padding-bottom: 8px;">
-                    <span>Saturday</span>
-                    <span style="font-weight: 500;">10:00 AM - 2:00 PM</span>
-                </li>
-                <li style="display: flex; justify-content: space-between; color: var(--hp-text); padding-bottom: 8px;">
-                    <span>Sun & Holidays</span>
-                    <span style="font-weight: 500; color: var(--hp-primary);">Closed</span>
-                </li>
-            </ul>
+            <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-xl); padding: var(--space-6); backdrop-filter: blur(12px);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
+                    <h4 style="color: #FFFFFF; margin: 0; font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600;">Clinic Hours</h4>
+                    <span style="font-size: 11px; background: rgba(16, 185, 129, 0.15); color: #A7F3D0; border: 1px solid rgba(16, 185, 129, 0.3); padding: 3px 8px; border-radius: var(--radius-full); font-weight: 600;">Mon–Sat</span>
+                </div>
+                
+                <ul style="list-style: none; padding: 0; margin: 0 0 var(--space-5); display: flex; flex-direction: column; gap: 9px; font-size: var(--text-xs);">
+                    <li style="display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding-bottom: 7px;">
+                        <span>Mon – Thu</span>
+                        <span style="font-weight: 600; color: #FFFFFF;">9:00 AM - 6:30 PM</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding-bottom: 7px;">
+                        <span>Friday</span>
+                        <span style="font-weight: 600; color: #FFFFFF;">9:00 AM - 4:30 PM</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding-bottom: 7px;">
+                        <span>Saturday</span>
+                        <span style="font-weight: 600; color: #FFFFFF;">10:00 AM - 2:00 PM</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.85); padding-top: 2px;">
+                        <span>Sun & Holidays</span>
+                        <span style="font-weight: 600; color: #F87171;">Closed</span>
+                    </li>
+                </ul>
+
+                <div style="font-size: var(--text-xs); color: rgba(255, 255, 255, 0.65); line-height: 1.5; margin-bottom: var(--space-4);">
+                    📍 100-290 Midpark Way SE, Calgary, AB T2X 1P1
+                </div>
+
+                <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener" class="btn btn-sm btn-primary" style="display: block; text-align: center; background: linear-gradient(135deg, #00897B 0%, #0D4E47 100%); color: #FFFFFF; padding: 8px 14px; font-size: var(--text-xs); font-weight: 600; border-radius: var(--radius-full); text-decoration: none; border: 1px solid rgba(151, 226, 220, 0.5);">
+                    Request Appointment Online
+                </a>
+            </div>
         </div>
 
     </div>
     
-    <div style="border-top: 1px solid var(--hp-border); background: #f8fafc;">
+    <!-- Footer Bottom Bar -->
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); background: rgba(0, 0, 0, 0.25);">
         <div class="container" style="padding: var(--space-6) 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-4);">
-            <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin: 0;">&copy; 2026 HealthPlus by SEHA Medical. All rights reserved.</p>
-            <p style="color: var(--hp-text-muted); font-size: var(--text-sm); margin: 0;">Built by <a href="https://nexorayyc.io" target="_blank" rel="noopener" style="color: var(--hp-primary); font-weight: 600; text-decoration: none;">Nexora</a></p>
+            <p style="color: rgba(255, 255, 255, 0.55); font-size: var(--text-xs); margin: 0;">&copy; 2026 HealthPlus by SEHA Medical. All rights reserved. Midnapore, Calgary, Alberta.</p>
+            <p style="color: rgba(255, 255, 255, 0.55); font-size: var(--text-xs); margin: 0;">Built with care by <a href="https://nexorayyc.io" target="_blank" rel="noopener" style="color: #97E2DC; font-weight: 600; text-decoration: none;">Nexora</a></p>
         </div>
     </div>
 </footer>
 <!-- HP_FOOTER_END -->
 
 <script src="js/hp-core.js"></script>
+<script src="js/hp-google-profile.js"></script>
 </body>
 </html>

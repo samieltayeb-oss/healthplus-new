@@ -14,19 +14,20 @@
 
     /* ─── Mobile Nav Toggle ─── */
     const hamburger = document.querySelector('.nav-hamburger');
+    const navbarEl = document.querySelector('.hp-navbar');
     const navLinks  = document.querySelector('.nav-links');
-    if (hamburger && navLinks) {
-        // Toggle menu
+    if (hamburger && navbarEl) {
         hamburger.addEventListener('click', () => {
-            const open = navLinks.classList.toggle('nav-open');
+            const open = navbarEl.classList.toggle('menu-open');
+            if (navLinks) navLinks.classList.toggle('nav-open', open);
             hamburger.setAttribute('aria-expanded', open);
             document.body.style.overflow = open ? 'hidden' : '';
         });
         
-        // Close menu on link click
-        navLinks.querySelectorAll('a').forEach(link => {
+        navbarEl.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('nav-open');
+                navbarEl.classList.remove('menu-open');
+                if (navLinks) navLinks.classList.remove('nav-open');
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             });

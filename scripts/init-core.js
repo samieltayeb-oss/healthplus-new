@@ -106,7 +106,7 @@ function getFooter(depth) {
                 </li>
                 <li style="display: flex; gap: 12px; align-items: center; color: var(--hp-text-muted);">
                     <svg style="color: var(--hp-primary); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>(403) 254-4633</span>
+                    <span>(403) 455-6656</span>
                 </li>
                 <li style="display: flex; gap: 12px; align-items: center; color: var(--hp-text-muted);">
                     <svg style="color: var(--hp-primary); flex-shrink: 0;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
@@ -496,7 +496,7 @@ const faqSchema = `
       "name": "How do I book an appointment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can book an appointment online through our JotForm portal, or by calling our clinic directly at (403) 254-4633."
+        "text": "You can book an appointment online through our JotForm portal, or by calling our clinic directly at (403) 455-6656."
       }
     },
     {
@@ -563,7 +563,7 @@ faqHtml += `
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div style="padding:0 var(--space-6) var(--space-6);color:var(--hp-text);line-height:1.7;">
-                        You can book an appointment easily online using our <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" style="color:var(--hp-primary);font-weight:500;">JotForm Booking Portal</a>, or you can call our clinic directly at <strong>(403) 254-4633</strong> to speak with our reception team.
+                        You can book an appointment easily online using our <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" style="color:var(--hp-primary);font-weight:500;">JotForm Booking Portal</a>, or you can call our clinic directly at <strong>(403) 455-6656</strong> to speak with our reception team.
                     </div>
                 </div>
 

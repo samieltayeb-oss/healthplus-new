@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="14" fill="#0D3D38"/>
+    <!-- Medical Cross with Pulse Wave -->
+    <path d="M 26,12 H 38 V 26 H 52 V 38 H 38 V 52 H 26 V 38 H 12 V 26 H 26 Z" fill="#00897B"/>
+    <path d="M 12,32 H 24 L 28,22 L 33,44 L 38,18 L 42,38 L 45,32 H 52" fill="none" stroke="#73C9BE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
