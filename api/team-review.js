@@ -18,7 +18,6 @@ function isAuthorizedPassword(candidate) {
     const clean = String(candidate).trim();
     if (VALID_PASSWORDS.has(clean)) return true;
     if (VALID_PASSWORDS.has(clean.toLowerCase())) return true;
-    // Check without trailing punctuation
     const stripped = clean.replace(/[!?.#$]+$/, '');
     if (VALID_PASSWORDS.has(stripped) || VALID_PASSWORDS.has(stripped.toLowerCase())) return true;
     return false;
@@ -39,68 +38,114 @@ function getDbFallbackPath() {
     return path.join(__dirname, '..', 'config', '.team-review-db.json');
 }
 
-// In-memory cache as additional resilience on warm serverless lambdas
 let memoryCache = null;
 
-async function kvGet(key) {
-    const url = process.env.KV_REST_API_URL;
-    const token = process.env.KV_REST_API_TOKEN;
-    
-    if (url && token) {
+// Multi-tier Cloud Persistence
+async function dbGet() {
+    // 1. Primary: GitHub Gist Cloud Store (Under client's samieltayeb-oss account)
+    const gistId = process.env.TEAM_DB_GIST_ID;
+    const ghToken = process.env.TEAM_DB_GH_TOKEN;
+    if (gistId && ghToken) {
         try {
-            const res = await fetch(`${url}/get/${key}`, {
-                headers: { Authorization: `Bearer ${token}` }
+            const res = await fetch(`https://api.github.com/gists/${gistId}`, {
+                headers: {
+                    Authorization: `token ${ghToken}`,
+                    'User-Agent': 'HealthPlus-Team-Portal',
+                    Accept: 'application/vnd.github.v3+json'
+                }
             });
-            const data = await res.json();
-            return data.result ? JSON.parse(data.result) : null;
+            if (res.ok) {
+                const data = await res.json();
+                const fileObj = data.files && (data.files['db_init.json'] || Object.values(data.files)[0]);
+                if (fileObj && fileObj.content) {
+                    const parsed = JSON.parse(fileObj.content);
+                    memoryCache = parsed;
+                    return parsed;
+                }
+            }
         } catch (e) {
-            console.error('KV get error:', e);
+            console.error('Gist DB get error:', e);
         }
     }
-    
-    if (memoryCache) return memoryCache;
 
+    // 2. Secondary: Vercel KV if linked
+    const kvUrl = process.env.KV_REST_API_URL;
+    const kvToken = process.env.KV_REST_API_TOKEN;
+    if (kvUrl && kvToken) {
+        try {
+            const res = await fetch(`${kvUrl}/get/hp_team_identifications`, {
+                headers: { Authorization: `Bearer ${kvToken}` }
+            });
+            const data = await res.json();
+            if (data.result) return JSON.parse(data.result);
+        } catch (e) {}
+    }
+
+    // 3. Fallback
+    if (memoryCache) return memoryCache;
     const localPath = getDbFallbackPath();
     if (fs.existsSync(localPath)) {
         try {
             return JSON.parse(fs.readFileSync(localPath, 'utf-8'));
         } catch (e) {}
     }
-    return null;
+    return {};
 }
 
-async function kvSet(key, value) {
+async function dbSet(value) {
     memoryCache = value;
-    const url = process.env.KV_REST_API_URL;
-    const token = process.env.KV_REST_API_TOKEN;
-    
-    if (url && token) {
+
+    // 1. Primary: Save to GitHub Gist Cloud Store
+    const gistId = process.env.TEAM_DB_GIST_ID;
+    const ghToken = process.env.TEAM_DB_GH_TOKEN;
+    if (gistId && ghToken) {
         try {
-            await fetch(`${url}/set/${key}`, {
-                method: 'POST',
-                headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify(JSON.stringify(value))
+            await fetch(`https://api.github.com/gists/${gistId}`, {
+                method: 'PATCH',
+                headers: {
+                    Authorization: `token ${ghToken}`,
+                    'User-Agent': 'HealthPlus-Team-Portal',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/vnd.github.v3+json'
+                },
+                body: JSON.stringify({
+                    files: {
+                        'db_init.json': {
+                            content: JSON.stringify(value, null, 2)
+                        }
+                    }
+                })
             });
-            return;
         } catch (e) {
-            console.error('KV set error:', e);
+            console.error('Gist DB save error:', e);
         }
     }
-    
+
+    // 2. Secondary: Save to Vercel KV if linked
+    const kvUrl = process.env.KV_REST_API_URL;
+    const kvToken = process.env.KV_REST_API_TOKEN;
+    if (kvUrl && kvToken) {
+        try {
+            await fetch(`${kvUrl}/set/hp_team_identifications`, {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${kvToken}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify(JSON.stringify(value))
+            });
+        } catch (e) {}
+    }
+
+    // 3. Local/tmp fallback
     try {
         const localPath = getDbFallbackPath();
         const dir = path.dirname(localPath);
         if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
         fs.writeFileSync(localPath, JSON.stringify(value, null, 2));
-    } catch (e) {
-        console.error('Local DB write error:', e);
-    }
+    } catch (e) {}
 }
 
 module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
 
-    // Parse body safely if string
     let body = req.body;
     if (typeof body === 'string') {
         try {
@@ -139,9 +184,8 @@ module.exports = async (req, res) => {
                 manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
             }
 
-            const dbData = (await kvGet('hp_team_identifications')) || {};
+            const dbData = (await dbGet()) || {};
             
-            // Merge manifest with DB state
             const merged = manifest.map(photo => {
                 const state = dbData[photo.photo_id] || {};
                 return {
@@ -164,7 +208,7 @@ module.exports = async (req, res) => {
             const { photo_id, data } = body;
             if (!photo_id) return res.status(400).json({ error: 'Missing photo_id' });
 
-            const dbData = (await kvGet('hp_team_identifications')) || {};
+            const dbData = (await dbGet()) || {};
             
             dbData[photo_id] = {
                 ...dbData[photo_id],
@@ -172,7 +216,7 @@ module.exports = async (req, res) => {
                 updated_at: new Date().toISOString()
             };
 
-            await kvSet('hp_team_identifications', dbData);
+            await dbSet(dbData);
             return res.status(200).json({ success: true, updated: dbData[photo_id] });
         } catch (err) {
             console.error(err);
