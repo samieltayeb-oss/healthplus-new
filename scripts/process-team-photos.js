@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
@@ -46,7 +46,7 @@ async function processPhotos() {
         }
 
         index++;
-        const photoId = `HP-TEAM-${String(index).padStart(3, '0')}`;
+        const photoId = `HP-TEAM-FINAL-${String(index).padStart(3, '0')}`;
         const targetFilename = `${photoId}.webp`;
         const targetPath = path.join(TARGET_DIR, targetFilename);
 

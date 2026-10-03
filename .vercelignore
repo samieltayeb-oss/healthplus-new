@@ -1,0 +1,6 @@
+team/here
+team/here/**
+*.NEF
+*.nef
+node_modules
+.git
