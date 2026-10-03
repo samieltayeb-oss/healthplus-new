@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <title>Team Identification Summary</title>
+    <link rel="stylesheet" href="/css/hp-premium.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body { background-color: #F8FAFC; color: var(--hp-navy); margin: 0; }
+        
+        .admin-header {
+            background: #fff; padding: 20px 40px; border-bottom: 2px solid var(--hp-primary);
+            display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .admin-brand { display: flex; align-items: center; gap: 20px; }
+        .admin-brand img { height: 45px; }
+        .admin-title { font-family: var(--font-heading); color: var(--hp-navy); margin: 0; font-size: 1.5rem; line-height: 1.1; }
+        .admin-subtitle { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--hp-primary-dark); font-weight: 700; }
+        
+        .main-layout { padding: 30px 40px; max-width: 1600px; margin: 0 auto; }
+        
+        .controls-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; background: #fff; padding: 15px 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .export-btns { display: flex; gap: 15px; }
+        .export-btn { padding: 8px 16px; background: var(--hp-navy); color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+        .export-btn:hover { background: var(--hp-primary); }
+
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 13px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--hp-border); }
+        th { background-color: var(--hp-primary-ultra); color: var(--hp-primary-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 11px; }
+        td img { height: 50px; width: 40px; object-fit: cover; border-radius: 4px; }
+        
+        .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+        .status-unidentified { background: #F1F5F9; color: #475569; }
+        .status-identified { background: #FEF08A; color: #854D0E; }
+        .status-needs_review { background: #FED7AA; color: #9A3412; }
+        .status-approved { background: #BBF7D0; color: #166534; }
+
+        .form-input { padding: 6px; border: 1px solid #CBD5E1; border-radius: 4px; font-size: 12px; width: 100%; box-sizing: border-box; }
+        .view-toggle { display: flex; gap: 15px; }
+        .view-toggle a { color: var(--hp-primary); font-weight: 600; text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: 6px; }
+        .view-toggle a:hover { background: var(--hp-primary-ultra); }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header class="admin-header">
+            <div class="admin-brand">
+                <img src="/assets/logo_hp.png" alt="HealthPlus">
+                <div>
+                    <h1 class="admin-title">TEAM IDENTIFICATION</h1>
+                    <div class="admin-subtitle">Management Summary Table</div>
+                </div>
+            </div>
+            <div class="view-toggle">
+                <a href="/internal/team-review">Back to Grid</a>
+                <a href="/internal/team-review/public-preview">Public Preview</a>
+            </div>
+        </header>
+
+        <main class="main-layout" v-if="authenticated">
+            <div class="controls-bar">
+                <div style="font-weight:600; color:var(--hp-slate);">
+                    {{ teamData.length }} Photos | {{ stats.approved }} Approved
+                </div>
+                <div class="export-btns">
+                    <button class="export-btn" @click="exportJSON">Export JSON</button>
+                    <button class="export-btn" @click="exportCSV">Export CSV</button>
+                </div>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Photo ID</th>
+                            <th>Status</th>
+                            <th>Full Name</th>
+                            <th>Role</th>
+                            <th>Confidence</th>
+                            <th>Website</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="person in teamData" :key="person.photo_id">
+                            <td><img :src="person.review_url"></td>
+                            <td style="font-weight:700; color:var(--hp-slate);">{{ person.photo_id }}</td>
+                            <td>
+                                <select class="form-input" v-model="person.status" @change="debouncedSave(person.photo_id)">
+                                    <option value="unidentified">Unidentified</option>
+                                    <option value="identified">Identified</option>
+                                    <option value="needs_review">Needs Review</option>
+                                    <option value="approved">Approved</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-input" v-model="person.full_name" @input="debouncedSave(person.photo_id)"></td>
+                            <td><input type="text" class="form-input" v-model="person.role" @input="debouncedSave(person.photo_id)"></td>
+                            <td>
+                                <select class="form-input" v-model="person.confidence" @change="debouncedSave(person.photo_id)">
+                                    <option value="UNKNOWN">UNKNOWN</option>
+                                    <option value="LIKELY">LIKELY</option>
+                                    <option value="CONFIRMED">CONFIRMED</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-input" v-model="person.website_permission" @change="debouncedSave(person.photo_id)">
+                                    <option value="UNKNOWN">UNKNOWN</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </td>
+                            <td style="color:#166534; font-weight:600; font-size:11px;">
+                                {{ saveStates[person.photo_id] || '' }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const { createApp, ref, computed, onMounted } = Vue;
+
+        createApp({
+            setup() {
+                const authenticated = ref(false);
+                const teamData = ref([]);
+                const saveStates = ref({});
+                const saveTimeouts = ref({});
+
+                const checkAuth = async () => {
+                    try {
+                        const res = await fetch('/api/team-review');
+                        if (res.ok) {
+                            authenticated.value = true;
+                            const data = await res.json();
+                            teamData.value = data.map(item => ({
+                                ...item,
+                                full_name: item.full_name || '',
+                                role: item.role || '',
+                                confidence: item.confidence || 'UNKNOWN',
+                                website_permission: item.website_permission || 'UNKNOWN',
+                                status: item.status || 'unidentified'
+                            }));
+                        } else {
+                            window.location.href = '/internal/team-review';
+                        }
+                    } catch (e) {
+                        window.location.href = '/internal/team-review';
+                    }
+                };
+
+                const stats = computed(() => {
+                    return { approved: teamData.value.filter(p => p.status === 'approved').length }
+                });
+
+                const savePhoto = async (photo_id) => {
+                    const person = teamData.value.find(p => p.photo_id === photo_id);
+                    if (!person) return;
+
+                    saveStates.value[photo_id] = 'Saving...';
+                    try {
+                        const res = await fetch('/api/team-review', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ action: 'save', photo_id, data: person })
+                        });
+                        if (res.ok) {
+                            saveStates.value[photo_id] = 'Saved \u2713';
+                            setTimeout(() => { if (saveStates.value[photo_id] === 'Saved \u2713') saveStates.value[photo_id] = ''; }, 2000);
+                        }
+                    } catch (e) {}
+                };
+
+                const debouncedSave = (photo_id) => {
+                    if (saveTimeouts.value[photo_id]) clearTimeout(saveTimeouts.value[photo_id]);
+                    saveTimeouts.value[photo_id] = setTimeout(() => savePhoto(photo_id), 800);
+                };
+
+                const exportJSON = () => {
+                    const approved = teamData.value.filter(p => p.status === 'approved');
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(approved, null, 2));
+                    const dl = document.createElement('a');
+                    dl.setAttribute("href", dataStr);
+                    dl.setAttribute("download", "team_identification_export.json");
+                    dl.click();
+                };
+
+                const exportCSV = () => {
+                    const approved = teamData.value.filter(p => p.status === 'approved');
+                    if(approved.length === 0) return alert("No approved records to export.");
+                    const headers = "photo_id,full_name,role,credentials,department,languages,website_permission\n";
+                    const rows = approved.map(p => `"${p.photo_id}","${p.full_name}","${p.role}","${p.credentials || ''}","${p.department || ''}","${p.languages || ''}","${p.website_permission}"`).join("\n");
+                    const csvStr = "data:text/csv;charset=utf-8," + encodeURIComponent(headers + rows);
+                    const dl = document.createElement('a');
+                    dl.setAttribute("href", csvStr);
+                    dl.setAttribute("download", "team_identification_export.csv");
+                    dl.click();
+                };
+
+                onMounted(checkAuth);
+
+                return { authenticated, teamData, stats, saveStates, debouncedSave, exportJSON, exportCSV }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

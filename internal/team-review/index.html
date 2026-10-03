@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <title>HealthPlus Team Identification</title>
+    <link rel="stylesheet" href="/css/hp-premium.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body { background-color: #F8FAFC; color: var(--hp-navy); margin: 0; }
+        
+        .admin-header {
+            background: #fff; padding: 20px 40px; border-bottom: 2px solid var(--hp-primary);
+            display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .admin-brand { display: flex; align-items: center; gap: 20px; }
+        .admin-brand img { height: 45px; }
+        .admin-title { font-family: var(--font-heading); color: var(--hp-navy); margin: 0; font-size: 1.5rem; line-height: 1.1; }
+        .admin-subtitle { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--hp-primary-dark); font-weight: 700; }
+        
+        .auth-container { max-width: 400px; margin: 100px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid var(--hp-primary); }
+        .auth-input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; margin: 20px 0; font-family: var(--font-body); font-size: 16px; text-align: center; }
+        .auth-btn { background: var(--hp-primary); color: #fff; border: none; padding: 12px 24px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer; width: 100%; transition: background 0.2s; }
+        .auth-btn:hover { background: var(--hp-primary-dark); }
+        
+        .main-layout { padding: 30px 40px; max-width: 1600px; margin: 0 auto; }
+        
+        .controls-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; background: #fff; padding: 15px 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .filters { display: flex; gap: 10px; }
+        .filter-btn { padding: 8px 16px; border: 1px solid var(--hp-border); border-radius: 50px; background: #fff; color: var(--hp-slate); font-weight: 600; font-size: 13px; cursor: pointer; }
+        .filter-btn.active { background: var(--hp-primary); color: #fff; border-color: var(--hp-primary); }
+        
+        .stats-bar { display: flex; gap: 20px; font-size: 13px; font-weight: 600; color: var(--hp-slate); }
+        .stats-bar span strong { color: var(--hp-navy); font-size: 15px; }
+
+        /* Grid Mode */
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .photo-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid var(--hp-border); display: flex; flex-direction: column; }
+        .photo-wrapper { position: relative; width: 100%; aspect-ratio: 4/5; background: #eee; cursor: pointer; }
+        .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-id-badge { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+        .photo-status-badge { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+        
+        .status-unidentified { background: #F1F5F9; color: #475569; }
+        .status-identified { background: #FEF08A; color: #854D0E; }
+        .status-needs_review { background: #FED7AA; color: #9A3412; }
+        .status-approved { background: #BBF7D0; color: #166534; }
+
+        .form-area { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--hp-slate); letter-spacing: 0.5px; }
+        .form-input { padding: 10px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: var(--font-body); font-size: 14px; width: 100%; transition: border-color 0.2s; }
+        .form-input:focus { outline: none; border-color: var(--hp-primary); box-shadow: 0 0 0 3px var(--hp-primary-ultra); }
+        
+        .save-bar { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 15px; border-top: 1px solid var(--hp-border); }
+        .save-btn { background: var(--hp-navy); color: #fff; border: none; padding: 8px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .save-btn:hover { background: var(--hp-primary); }
+        .save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .save-status { font-size: 12px; font-weight: 600; }
+        .text-success { color: #166534; }
+        .text-error { color: #991B1B; }
+
+        /* Focus Mode */
+        .focus-mode { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 40px; }
+        .focus-container { background: #fff; border-radius: 16px; display: flex; width: 100%; max-width: 1200px; height: 90vh; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .focus-photo { flex: 1; background: #000; display: flex; align-items: center; justify-content: center; position: relative; }
+        .focus-photo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .focus-form { width: 450px; background: #F8FAFC; display: flex; flex-direction: column; border-left: 1px solid #E2E8F0; }
+        .focus-header { padding: 20px; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .focus-scroll { flex: 1; overflow-y: auto; padding: 25px; display: flex; flex-direction: column; gap: 20px; }
+        .focus-footer { padding: 20px; border-top: 1px solid #E2E8F0; background: #fff; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .nav-btn { background: #fff; border: 1px solid #CBD5E1; padding: 10px 15px; border-radius: 6px; font-weight: 600; cursor: pointer; color: var(--hp-navy); flex: 1; }
+        .nav-btn:hover:not(:disabled) { background: #F1F5F9; }
+        .close-focus { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--hp-slate); line-height: 1; }
+        
+        .view-toggle { display: flex; gap: 15px; }
+        .view-toggle a { color: var(--hp-primary); font-weight: 600; text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: 6px; }
+        .view-toggle a:hover { background: var(--hp-primary-ultra); }
+
+        @media (max-width: 768px) {
+            .admin-header { flex-direction: column; gap: 15px; padding: 15px; }
+            .controls-bar { flex-direction: column; align-items: stretch; }
+            .stats-bar { flex-wrap: wrap; }
+            .photo-grid { grid-template-columns: 1fr; }
+            .focus-container { flex-direction: column; height: 100vh; border-radius: 0; }
+            .focus-mode { padding: 0; }
+            .focus-form { width: 100%; height: 60vh; }
+            .focus-photo { height: 40vh; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <!-- Auth Screen -->
+        <div v-if="!authenticated" class="auth-container">
+            <img src="/assets/logo_hp.png" alt="HealthPlus" style="height: 60px; margin-bottom: 20px;">
+            <h2 class="admin-title">Team Identification</h2>
+            <div class="admin-subtitle">Internal Management Review</div>
+            
+            <form @submit.prevent="login">
+                <input type="password" v-model="password" class="auth-input" placeholder="Enter Management Password" required>
+                <button type="submit" class="auth-btn">
+                    {{ isAuthenticating ? 'Verifying...' : 'Access Portal' }}
+                </button>
+            </form>
+            <p v-if="authError" style="color: #991B1B; font-size: 13px; margin-top: 15px;">{{ authError }}</p>
+        </div>
+
+        <!-- Main App -->
+        <div v-else>
+            <header class="admin-header">
+                <div class="admin-brand">
+                    <img src="/assets/logo_hp.png" alt="HealthPlus">
+                    <div>
+                        <h1 class="admin-title">TEAM IDENTIFICATION</h1>
+                        <div class="admin-subtitle">Internal Management Review &mdash; Not for public distribution</div>
+                    </div>
+                </div>
+                <div class="view-toggle">
+                    <a href="/internal/team-review/summary">Review Summary</a>
+                    <a href="/internal/team-review/public-preview">Public Preview</a>
+                    <a href="#" @click.prevent="logout" style="color: var(--hp-slate);">Logout</a>
+                </div>
+            </header>
+
+            <main class="main-layout">
+                
+                <div class="controls-bar">
+                    <div class="filters">
+                        <button v-for="f in ['all', 'unidentified', 'identified', 'needs_review', 'approved']" 
+                                :key="f"
+                                @click="filter = f"
+                                :class="['filter-btn', { active: filter === f }]">
+                            {{ f.replace('_', ' ').toUpperCase() }}
+                        </button>
+                    </div>
+                    
+                    <div class="stats-bar">
+                        <span><strong>{{ teamData.length }}</strong> Total</span>
+                        <span><strong>{{ stats.identified }}</strong> Identified</span>
+                        <span><strong>{{ stats.unidentified }}</strong> Unidentified</span>
+                        <span><strong>{{ stats.approved }}</strong> Approved</span>
+                    </div>
+                </div>
+
+                <div v-if="loading" style="text-align:center; padding: 50px; font-weight:600; color:var(--hp-slate);">
+                    Loading team photos...
+                </div>
+
+                <div v-else class="photo-grid">
+                    <div v-for="(person, index) in filteredData" :key="person.photo_id" class="photo-card">
+                        
+                        <div class="photo-wrapper" @click="openFocusMode(person.photo_id)">
+                            <img :src="person.review_url || '/assets/images/placeholder.jpg'" loading="lazy">
+                            <span class="photo-id-badge">{{ person.photo_id }}</span>
+                            <span :class="['photo-status-badge', 'status-' + person.status]">
+                                {{ person.status.replace('_', ' ') }}
+                            </span>
+                        </div>
+
+                        <div class="form-area">
+                            <div class="form-group">
+                                <label>Full Name <span style="color:red">*</span></label>
+                                <input type="text" class="form-input" v-model="person.full_name" @input="debouncedSave(person.photo_id)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Role / Title</label>
+                                <input type="text" class="form-input" v-model="person.role" placeholder="e.g. Family Physician" @input="debouncedSave(person.photo_id)">
+                            </div>
+
+                            <div style="display:flex; gap:10px;">
+                                <div class="form-group" style="flex:1;">
+                                    <label>Confidence</label>
+                                    <select class="form-input" v-model="person.confidence" @change="debouncedSave(person.photo_id)">
+                                        <option value="UNKNOWN">UNKNOWN</option>
+                                        <option value="LIKELY">LIKELY</option>
+                                        <option value="CONFIRMED">CONFIRMED</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="flex:1;">
+                                    <label>Website Approved</label>
+                                    <select class="form-input" v-model="person.website_permission" @change="debouncedSave(person.photo_id)">
+                                        <option value="UNKNOWN">UNKNOWN</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Same Person As (Duplicate Link)</label>
+                                <input type="text" class="form-input" v-model="person.same_person_as" placeholder="e.g. HP-TEAM-004" @input="debouncedSave(person.photo_id)">
+                            </div>
+
+                            <div class="save-bar">
+                                <span :class="['save-status', getSaveStatusClass(person.photo_id)]">
+                                    {{ saveStates[person.photo_id] || '' }}
+                                </span>
+                                <button class="save-btn" @click="savePhoto(person.photo_id)">Save</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- FOCUS MODE OVERLAY -->
+                <div v-if="focusModePerson" class="focus-mode" @click.self="closeFocusMode">
+                    <div class="focus-container">
+                        <div class="focus-photo">
+                            <img :src="focusModePerson.review_url">
+                            <span class="photo-id-badge">{{ focusModePerson.photo_id }}</span>
+                        </div>
+                        <div class="focus-form">
+                            <div class="focus-header">
+                                <h3 style="margin:0; font-family:var(--font-heading); color:var(--hp-navy);">Edit Details</h3>
+                                <button class="close-focus" @click="closeFocusMode">&times;</button>
+                            </div>
+                            
+                            <div class="focus-scroll">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-input" v-model="focusModePerson.status" @change="debouncedSave(focusModePerson.photo_id)">
+                                        <option value="unidentified">Unidentified</option>
+                                        <option value="identified">Identified</option>
+                                        <option value="needs_review">Needs Review</option>
+                                        <option value="approved">Approved</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Full Name <span style="color:red">*</span></label>
+                                    <input type="text" class="form-input" v-model="focusModePerson.full_name" @input="debouncedSave(focusModePerson.photo_id)">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Role / Title</label>
+                                    <input type="text" class="form-input" v-model="focusModePerson.role" @input="debouncedSave(focusModePerson.photo_id)">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Credentials (e.g. MD, CCFP)</label>
+                                    <input type="text" class="form-input" v-model="focusModePerson.credentials" @input="debouncedSave(focusModePerson.photo_id)">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Languages Spoken</label>
+                                    <input type="text" class="form-input" v-model="focusModePerson.languages" @input="debouncedSave(focusModePerson.photo_id)">
+                                </div>
+
+                                <div style="display:flex; gap:10px;">
+                                    <div class="form-group" style="flex:1;">
+                                        <label>Confidence</label>
+                                        <select class="form-input" v-model="focusModePerson.confidence" @change="debouncedSave(focusModePerson.photo_id)">
+                                            <option value="UNKNOWN">UNKNOWN</option>
+                                            <option value="LIKELY">LIKELY</option>
+                                            <option value="CONFIRMED">CONFIRMED</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" style="flex:1;">
+                                        <label>Website Approved</label>
+                                        <select class="form-input" v-model="focusModePerson.website_permission" @change="debouncedSave(focusModePerson.photo_id)">
+                                            <option value="UNKNOWN">UNKNOWN</option>
+                                            <option value="YES">YES</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Internal Notes / Questions</label>
+                                    <textarea class="form-input" rows="3" v-model="focusModePerson.notes" @input="debouncedSave(focusModePerson.photo_id)"></textarea>
+                                </div>
+                                
+                                <div style="display:flex; gap:10px; padding-top:15px; border-top:1px solid #E2E8F0;">
+                                    <span :class="['save-status', getSaveStatusClass(focusModePerson.photo_id)]" style="flex:1; align-self:center;">
+                                        {{ saveStates[focusModePerson.photo_id] || '' }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="focus-footer">
+                                <button class="nav-btn" @click="navigateFocus(-1)" :disabled="focusIndex <= 0">&larr; Prev</button>
+                                <button class="save-btn" @click="savePhoto(focusModePerson.photo_id)">Save Explicitly</button>
+                                <button class="nav-btn" @click="navigateFocus(1)" :disabled="focusIndex >= filteredData.length - 1">Next &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, ref, computed, onMounted } = Vue;
+
+        createApp({
+            setup() {
+                const authenticated = ref(false);
+                const password = ref('');
+                const isAuthenticating = ref(false);
+                const authError = ref('');
+                
+                const teamData = ref([]);
+                const loading = ref(false);
+                const filter = ref('all');
+                
+                const saveStates = ref({});
+                const saveTimeouts = ref({});
+
+                const focusIndex = ref(-1);
+
+                const checkAuth = async () => {
+                    // Check if already authenticated by trying to fetch data
+                    try {
+                        const res = await fetch('/api/team-review');
+                        if (res.ok) {
+                            authenticated.value = true;
+                            fetchData();
+                        }
+                    } catch (e) {}
+                };
+
+                const login = async () => {
+                    isAuthenticating.value = true;
+                    authError.value = '';
+                    try {
+                        const res = await fetch('/api/team-review', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ action: 'login', password: password.value })
+                        });
+                        
+                        if (res.ok) {
+                            authenticated.value = true;
+                            fetchData();
+                        } else {
+                            authError.value = 'Incorrect password.';
+                        }
+                    } catch (e) {
+                        authError.value = 'Server connection error.';
+                    }
+                    isAuthenticating.value = false;
+                };
+
+                const logout = async () => {
+                    await fetch('/api/team-review', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'logout' })
+                    });
+                    authenticated.value = false;
+                    password.value = '';
+                };
+
+                const fetchData = async () => {
+                    loading.value = true;
+                    try {
+                        const res = await fetch('/api/team-review');
+                        const data = await res.json();
+                        // Ensure all expected properties exist for reactivity
+                        teamData.value = data.map(item => ({
+                            ...item,
+                            full_name: item.full_name || '',
+                            role: item.role || '',
+                            credentials: item.credentials || '',
+                            languages: item.languages || '',
+                            confidence: item.confidence || 'UNKNOWN',
+                            website_permission: item.website_permission || 'UNKNOWN',
+                            notes: item.notes || '',
+                            same_person_as: item.same_person_as || '',
+                            status: item.status || 'unidentified'
+                        }));
+                    } catch (e) {
+                        console.error("Error fetching team data", e);
+                    }
+                    loading.value = false;
+                };
+
+                const filteredData = computed(() => {
+                    if (filter.value === 'all') return teamData.value;
+                    return teamData.value.filter(p => p.status === filter.value);
+                });
+
+                const stats = computed(() => {
+                    return {
+                        identified: teamData.value.filter(p => p.status === 'identified').length,
+                        unidentified: teamData.value.filter(p => p.status === 'unidentified').length,
+                        approved: teamData.value.filter(p => p.status === 'approved').length,
+                    }
+                });
+
+                // Auto status update logic
+                const updateStatusState = (person) => {
+                    if (person.status === 'approved' || person.status === 'needs_review') return;
+                    
+                    if (person.full_name && person.role && person.confidence === 'CONFIRMED') {
+                        person.status = 'identified';
+                    } else {
+                        person.status = 'unidentified';
+                    }
+                };
+
+                const savePhoto = async (photo_id) => {
+                    const person = teamData.value.find(p => p.photo_id === photo_id);
+                    if (!person) return;
+                    
+                    updateStatusState(person);
+
+                    saveStates.value[photo_id] = 'Saving...';
+                    try {
+                        const res = await fetch('/api/team-review', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ action: 'save', photo_id, data: person })
+                        });
+                        if (res.ok) {
+                            saveStates.value[photo_id] = 'Saved \u2713';
+                            setTimeout(() => { if (saveStates.value[photo_id] === 'Saved \u2713') saveStates.value[photo_id] = ''; }, 3000);
+                        } else {
+                            saveStates.value[photo_id] = 'Error \u2014 Retry';
+                        }
+                    } catch (e) {
+                        saveStates.value[photo_id] = 'Error \u2014 Retry';
+                    }
+                };
+
+                const debouncedSave = (photo_id) => {
+                    if (saveTimeouts.value[photo_id]) clearTimeout(saveTimeouts.value[photo_id]);
+                    saveTimeouts.value[photo_id] = setTimeout(() => savePhoto(photo_id), 1200);
+                };
+
+                const getSaveStatusClass = (photo_id) => {
+                    const st = saveStates.value[photo_id];
+                    if (st === 'Saved \u2713') return 'text-success';
+                    if (st === 'Error \u2014 Retry') return 'text-error';
+                    return '';
+                };
+
+                // Focus Mode
+                const focusModePerson = computed(() => {
+                    if (focusIndex.value >= 0 && focusIndex.value < filteredData.value.length) {
+                        return filteredData.value[focusIndex.value];
+                    }
+                    return null;
+                });
+
+                const openFocusMode = (photo_id) => {
+                    const idx = filteredData.value.findIndex(p => p.photo_id === photo_id);
+                    if (idx !== -1) focusIndex.value = idx;
+                };
+
+                const closeFocusMode = () => {
+                    if (focusModePerson.value) savePhoto(focusModePerson.value.photo_id);
+                    focusIndex.value = -1;
+                };
+
+                const navigateFocus = (dir) => {
+                    if (focusModePerson.value) savePhoto(focusModePerson.value.photo_id);
+                    const newIdx = focusIndex.value + dir;
+                    if (newIdx >= 0 && newIdx < filteredData.value.length) {
+                        focusIndex.value = newIdx;
+                    }
+                };
+
+                onMounted(() => {
+                    checkAuth();
+                });
+
+                return {
+                    authenticated, password, login, logout, isAuthenticating, authError,
+                    teamData, filteredData, loading, filter, stats,
+                    savePhoto, debouncedSave, saveStates, getSaveStatusClass,
+                    focusIndex, focusModePerson, openFocusMode, closeFocusMode, navigateFocus
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

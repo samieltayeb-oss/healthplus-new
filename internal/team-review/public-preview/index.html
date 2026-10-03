@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <title>Public Team Preview</title>
+    <link rel="stylesheet" href="/css/hp-premium.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body { background-color: #fff; color: var(--hp-navy); margin: 0; }
+        .admin-header {
+            background: #F8FAFC; padding: 20px 40px; border-bottom: 2px solid var(--hp-primary);
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px;
+        }
+        .admin-brand img { height: 45px; }
+        .view-toggle a { color: var(--hp-primary); font-weight: 600; text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: 6px; }
+        .view-toggle a:hover { background: var(--hp-primary-ultra); }
+        
+        /* HealthPlus Public Team Grid Simulation */
+        .public-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px; margin-top: 40px; }
+        .public-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .public-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .public-name { font-family: var(--font-heading); font-size: 1.4rem; color: var(--hp-primary-dark); margin: 0 0 5px 0; }
+        .public-role { font-family: var(--font-body); font-size: 0.9rem; color: var(--hp-slate); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+        .public-creds { font-size: 0.8rem; color: var(--hp-muted); margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header class="admin-header">
+            <div class="admin-brand"><img src="/assets/logo_hp.png" alt="HealthPlus"></div>
+            <div style="font-weight:700; color:var(--hp-slate);">Public Website Preview (Approved Only)</div>
+            <div class="view-toggle"><a href="/internal/team-review/summary">Back to Summary</a></div>
+        </header>
+
+        <div class="public-container" v-if="authenticated">
+            <h1 style="font-family:var(--font-heading); text-align:center; font-size:2.5rem; margin-bottom:10px; color:var(--hp-navy);">Our Medical Team</h1>
+            <p style="text-align:center; color:var(--hp-slate); max-width:600px; margin:0 auto;">(This is exactly how the currently approved identifications will appear on the public website)</p>
+            
+            <div class="team-grid">
+                <div v-for="person in approvedTeam" :key="person.photo_id" class="public-card">
+                    <img :src="person.review_url" class="public-photo">
+                    <h3 class="public-name">{{ person.full_name }}</h3>
+                    <p class="public-role">{{ person.role }}</p>
+                    <p class="public-creds" v-if="person.credentials">{{ person.credentials }}</p>
+                </div>
+            </div>
+            
+            <div v-if="approvedTeam.length === 0" style="text-align:center; padding:100px; color:var(--hp-muted); font-weight:600;">
+                No team members have been marked as 'Approved' and 'Website Permitted' yet.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, ref, computed, onMounted } = Vue;
+
+        createApp({
+            setup() {
+                const authenticated = ref(false);
+                const teamData = ref([]);
+
+                const checkAuth = async () => {
+                    try {
+                        const res = await fetch('/api/team-review');
+                        if (res.ok) {
+                            authenticated.value = true;
+                            teamData.value = await res.json();
+                        } else {
+                            window.location.href = '/internal/team-review';
+                        }
+                    } catch (e) {
+                        window.location.href = '/internal/team-review';
+                    }
+                };
+
+                const approvedTeam = computed(() => {
+                    // Filter to only show people who are approved AND have website permission = YES
+                    return teamData.value.filter(p => p.status === 'approved' && p.website_permission === 'YES');
+                });
+
+                onMounted(checkAuth);
+
+                return { authenticated, approvedTeam }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
