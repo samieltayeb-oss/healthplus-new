@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -330,10 +330,11 @@
                     isAuthenticating.value = true;
                     authError.value = '';
                     try {
+                        const cleanPassword = (password.value || '').trim();
                         const res = await fetch('/api/team-review', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ action: 'login', password: password.value })
+                            body: JSON.stringify({ action: 'login', password: cleanPassword })
                         });
                         
                         if (res.ok) {
