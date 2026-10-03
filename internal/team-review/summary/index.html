@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -76,6 +76,7 @@
                     <thead>
                         <tr>
                             <th>Photo</th>
+                            <th>Filename</th>
                             <th>Photo ID</th>
                             <th>Status</th>
                             <th>Full Name</th>
@@ -88,6 +89,7 @@
                     <tbody>
                         <tr v-for="person in teamData" :key="person.photo_id">
                             <td><img :src="person.review_url"></td>
+                            <td style="font-family:monospace; font-weight:700; color:#0A3631; font-size:13px;">{{ person.display_name || person.source_filename }}</td>
                             <td style="font-weight:700; color:var(--hp-slate);">{{ person.photo_id }}</td>
                             <td>
                                 <select class="form-input" v-model="person.status" @change="debouncedSave(person.photo_id)">
@@ -141,6 +143,7 @@
                             const data = await res.json();
                             teamData.value = data.map(item => ({
                                 ...item,
+                                display_name: item.display_name || (item.source_filename ? item.source_filename.replace(/\.[^/.]+$/, '') : ''),
                                 full_name: item.full_name || '',
                                 role: item.role || '',
                                 confidence: item.confidence || 'UNKNOWN',
