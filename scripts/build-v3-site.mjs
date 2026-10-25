@@ -1,14 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { services, teamMembers } from './v3-components.mjs';
 import { buildHomePage, buildTeamDirectoryPage, buildPhysicianProfilePage } from './v3-pages-home-team.mjs';
 import { buildServicesDirectoryPage, buildIndividualServicePage, buildWomensHealthCampaignPage } from './v3-pages-services.mjs';
 import { buildAboutPage, buildBookPage, buildContactPage, buildFaqPage, build404Page } from './v3-pages-core.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = 'C:/Users/mcreg/Desktop/healthplus/seha medical/healthplusnew';
 
 function writePage(relPath, html) {
   const fullPath = path.join(ROOT, relPath);

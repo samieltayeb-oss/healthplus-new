@@ -737,23 +737,37 @@ export function buildPhysicianProfilePage(member) {
   const matchedServices = services.filter(s => (member.specialties || []).includes(s.slug));
 
   const head = renderHead({
-    title: `${fullName} | ${member.role} | HealthPlus by SEHA Medical`,
+    title: `${fullName} | ${member.role} | HealthPlus by SEHA Medical Calgary`,
     description: member.shortBio || `${fullName} is a ${member.role} at HealthPlus by SEHA Medical in Midnapore, Calgary.`,
-    canonical: 'https://healthplusmed.ca/team/',
+    canonical: `https://healthplusmed.ca/team/${member.slug}`,
     ogImage: `https://healthplusmed.ca/${member.photo}`,
-    robots: 'noindex, follow',
+    robots: 'index, follow',
     depth: 1,
     jsonLd: [
       {
         '@context': 'https://schema.org',
         '@type': 'Physician',
+        '@id': `https://healthplusmed.ca/team/${member.slug}#physician`,
         name: fullName,
+        url: `https://healthplusmed.ca/team/${member.slug}`,
         jobTitle: member.role,
+        description: member.shortBio || `${fullName} is a ${member.role} at HealthPlus by SEHA Medical in Midnapore, Calgary.`,
         medicalSpecialty: member.role,
         image: `https://healthplusmed.ca/${member.photo}`,
+        telephone: '+1-403-455-6656',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '100-290 Midpark Way SE',
+          addressLocality: 'Calgary',
+          addressRegion: 'AB',
+          postalCode: 'T2X 1P1',
+          addressCountry: 'CA'
+        },
         worksFor: {
           '@type': 'MedicalClinic',
+          '@id': 'https://healthplusmed.ca/#clinic',
           name: 'HealthPlus by SEHA Medical',
+          url: 'https://healthplusmed.ca/',
           telephone: '+1-403-455-6656',
           address: {
             '@type': 'PostalAddress',

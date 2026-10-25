@@ -1,13 +1,10 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const require = createRequire(import.meta.url);
-export const siteConfig = require('../config/site.js');
-export const services = require('../config/services.js');
-export const teamMembers = require('../config/team.js');
+const require = createRequire('file:///C:/Users/mcreg/Desktop/healthplus/seha%20medical/healthplusnew/config/site.js');
+export const siteConfig = require('./site.js');
+export const services = require('./services.js');
+export const teamMembers = require('./team.js');
 
 export const JOTFORM_APPOINTMENT_URL = 'https://form.jotform.com/sehamanagementinv/-appointment-request-form';
 export const JOTFORM_CALLBACK_URL = 'https://form.jotform.com/sehamanagementinv/call-back-request-form';
@@ -40,9 +37,150 @@ export const serviceHeroAlts = {
   'concussion-care': 'Clinician performing non-invasive concussion assessment at HealthPlus'
 };
 
+export const HP_CLINIC_NODE = {
+  '@type': 'MedicalClinic',
+  '@id': 'https://healthplusmed.ca/#clinic',
+  name: 'HealthPlus by SEHA Medical',
+  alternateName: 'HealthPlus Medical',
+  url: 'https://healthplusmed.ca/',
+  logo: 'https://healthplusmed.ca/assets/logo_hp.png',
+  image: 'https://healthplusmed.ca/assets/images/home/home-hero.png',
+  description: 'Comprehensive family medicine, walk-in care, and integrated medical specialists in Midnapore, Calgary, Alberta.',
+  telephone: '+1-403-455-6656',
+  faxNumber: '+1-403-648-1876',
+  email: 'admin@healthplusmed.ca',
+  hasMap: 'https://www.google.com/maps?q=100-290+Midpark+Way+SE,+Calgary,+AB+T2X+1P1',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '100-290 Midpark Way SE',
+    addressLocality: 'Calgary',
+    addressRegion: 'AB',
+    postalCode: 'T2X 1P1',
+    addressCountry: 'CA'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 50.9098,
+    longitude: -114.0631
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Calgary' },
+    { '@type': 'Place', name: 'Midnapore, Calgary' },
+    { '@type': 'Place', name: 'Sundance, Calgary' },
+    { '@type': 'Place', name: 'Chaparral, Calgary' },
+    { '@type': 'Place', name: 'Shawnessy, Calgary' },
+    { '@type': 'Place', name: 'Somerset, Calgary' },
+    { '@type': 'Place', name: 'Bridlewood, Calgary' },
+    { '@type': 'Place', name: 'Legacy, Calgary' },
+    { '@type': 'Place', name: 'Walden, Calgary' },
+    { '@type': 'Place', name: 'McKenzie Lake, Calgary' }
+  ],
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '09:00', closes: '18:30' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday'], opens: '09:00', closes: '16:30' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '10:00', closes: '14:00' }
+  ],
+  medicalSpecialty: [
+    'Family Medicine',
+    'Walk-In Clinic',
+    'Internal Medicine',
+    'Obstetrics and Gynecology',
+    'Pediatrics',
+    'Psychiatry',
+    'Sports Medicine'
+  ],
+  isAcceptingNewPatients: true,
+  parentOrganization: {
+    '@type': 'MedicalOrganization',
+    name: 'SEHA Medical Network',
+    url: 'https://sehamedical.ca/'
+  }
+};
+
+function buildBreadcrumbsForUrl(canonical, title) {
+  const cleanTitle = title.split('|')[0].trim();
+  const crumbs = [{ name: 'Home', item: 'https://healthplusmed.ca/' }];
+  const u = new URL(canonical);
+  const p = u.pathname;
+  if (p === '/' || p === '/index.html') return null;
+  if (p.startsWith('/services/') && p !== '/services/') {
+    crumbs.push({ name: 'Medical Services', item: 'https://healthplusmed.ca/services/' });
+    crumbs.push({ name: cleanTitle, item: canonical });
+  } else if (p.startsWith('/team/') && p !== '/team/') {
+    crumbs.push({ name: 'Physicians & Medical Team', item: 'https://healthplusmed.ca/team/' });
+    crumbs.push({ name: cleanTitle, item: canonical });
+  } else {
+    crumbs.push({ name: cleanTitle, item: canonical });
+  }
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${canonical}#breadcrumbs`,
+    itemListElement: crumbs.map((c, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: c.name,
+      item: c.item
+    }))
+  };
+}
+
 export function renderHead({ title, description, canonical, ogImage, robots = 'index, follow', depth = 0, jsonLd = [] }) {
   const prefix = depth === 0 ? '' : '../';
-  const ldBlocks = (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).filter(Boolean).map(obj =>
+  const socialImg = ogImage || 'https://healthplusmed.ca/assets/images/global/social-share.png';
+  const rawBlocks = (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).filter(Boolean);
+
+  // Enrich any MedicalClinic nodes in jsonLd with full geo, openingHoursSpecification, and address
+  const enrichedBlocks = rawBlocks.map(block => {
+    const clone = JSON.parse(JSON.stringify(block));
+    if (clone['@type'] === 'MedicalClinic') {
+      return { ...HP_CLINIC_NODE, ...clone, geo: HP_CLINIC_NODE.geo, openingHoursSpecification: HP_CLINIC_NODE.openingHoursSpecification, areaServed: HP_CLINIC_NODE.areaServed, hasMap: HP_CLINIC_NODE.hasMap };
+    }
+    if (Array.isArray(clone['@graph'])) {
+      clone['@graph'] = clone['@graph'].map(node => {
+        if (node['@type'] === 'MedicalClinic') {
+          return { ...HP_CLINIC_NODE, ...node, geo: HP_CLINIC_NODE.geo, openingHoursSpecification: HP_CLINIC_NODE.openingHoursSpecification, areaServed: HP_CLINIC_NODE.areaServed, hasMap: HP_CLINIC_NODE.hasMap };
+        }
+        return node;
+      });
+    }
+    return clone;
+  });
+
+  // Ensure every page has a MedicalClinic node for Local/AI Geo Search
+  const hasClinicNode = JSON.stringify(enrichedBlocks).includes('"MedicalClinic"');
+  if (!hasClinicNode) {
+    enrichedBlocks.unshift({
+      '@context': 'https://schema.org',
+      ...HP_CLINIC_NODE
+    });
+  }
+
+  // Ensure every non-home page has BreadcrumbList JSON-LD
+  const hasBreadcrumbs = JSON.stringify(enrichedBlocks).includes('"BreadcrumbList"');
+  if (!hasBreadcrumbs) {
+    const bc = buildBreadcrumbsForUrl(canonical, title);
+    if (bc) enrichedBlocks.push(bc);
+  }
+
+  // Ensure every page has SpeakableSpecification for Voice & AI Answer Engines
+  const hasSpeakable = JSON.stringify(enrichedBlocks).includes('"SpeakableSpecification"');
+  if (!hasSpeakable) {
+    enrichedBlocks.push({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${canonical}#speakable-webpage`,
+      url: canonical,
+      name: title,
+      description,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', '.v3-hero-lead', '.v3-page-hero-lead', '.v3-prose p']
+      }
+    });
+  }
+
+  const ldBlocks = enrichedBlocks.map(obj =>
     `  <script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n  </script>`
   ).join('\n');
 
@@ -54,6 +192,10 @@ export function renderHead({ title, description, canonical, ogImage, robots = 'i
   <title>${title}</title>
   <meta name="description" content="${description.replace(/"/g, '&quot;')}">
   <meta name="robots" content="${robots}">
+  <meta name="geo.region" content="CA-AB">
+  <meta name="geo.placename" content="Midnapore, Calgary">
+  <meta name="geo.position" content="50.9098;-114.0631">
+  <meta name="ICBM" content="50.9098, -114.0631">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -63,8 +205,11 @@ export function renderHead({ title, description, canonical, ogImage, robots = 'i
   <meta property="og:description" content="${description.replace(/"/g, '&quot;')}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical}">
-  <meta property="og:image" content="${ogImage || 'https://healthplusmed.ca/assets/images/global/social-share.png'}">
+  <meta property="og:image" content="${socialImg}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title.replace(/"/g, '&quot;')}">
+  <meta name="twitter:description" content="${description.replace(/"/g, '&quot;')}">
+  <meta name="twitter:image" content="${socialImg}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
