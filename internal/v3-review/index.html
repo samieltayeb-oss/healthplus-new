@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>HealthPlus V3 — Before vs. After Design Review Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --surface: #FFFFFF;
+      --ink: #0B1F24;
+      --muted: #42585E;
+      --teal: #0A4D58;
+      --gold: #C89B57;
+      --border: #E4DED3;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 40px 24px 80px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    .header {
+      background: linear-gradient(135deg, #072930 0%, #0A4D58 100%);
+      color: #fff;
+      padding: 40px;
+      border-radius: 24px;
+      margin-bottom: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #E2B877;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      background: #C89B57;
+      color: #072930;
+    }
+    .btn-outline {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .pair-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 32px rgba(11, 31, 36, 0.05);
+    }
+    .pair-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .pair-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 24px;
+    }
+    .grid-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .grid-mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--border);
+    }
+    .shot-col {
+      background: #F3EFE6;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border);
+    }
+    .shot-col.after {
+      background: #EEF6F7;
+      border-color: #B4D4D9;
+    }
+    .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .badge.before { background: #E4DED3; color: #42585E; }
+    .badge.after { background: #0A4D58; color: #FFFFFF; }
+    .shot-col img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(11, 31, 36, 0.12);
+      display: block;
+    }
+    .shot-col.mobile-shot img {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+    @media (max-width: 960px) {
+      .grid-compare, .grid-mobile { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <div class="eyebrow">HEALTHPLUS V3 — THE MODERN CARE EXPERIENCE</div>
+        <h1>Before (V2) vs. After (V3) Visual Comparison</h1>
+        <p style="color: rgba(255,255,255,0.85); max-width: 760px;">
+          All 35 pages compiled on local branch <code>v3-modern-care</code>. Verified across 8 responsive viewports (1440px down to 320px) with 72/72 checks passing and 0px horizontal overflow. Production remains strictly locked.
+        </p>
+      </div>
+      <div class="nav-links">
+        <a class="btn" href="/" target="_blank">Open Live Local V3 Preview &rarr;</a>
+        <a class="btn btn-outline" href="/internal/team-review/contact-sheet.html" target="_blank">Staff Photography Contact Sheet</a>
+      </div>
+    </header>
+
+    <div class="pair-card">
+      <div class="pair-header">
+        <h2 class="pair-title">1. Homepage (<code>/</code>) — Architectural Split Hero &amp; Asymmetric Bento Grid</h2>
+        <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/" target="_blank">Inspect Live V3 Page &rarr;</a>
+      </div>
+      <div class="grid-compare">
+        <div class="shot-col">
+          <span class="badge before">BEFORE (V2 — Production Baseline) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/before/home-desktop-1440.webp" alt="Homepage V2 Desktop" loading="lazy" />
+        </div>
+        <div class="shot-col after">
+          <span class="badge after">AFTER (V3 — Modern Care Experience) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/after/home__desktop-1440.png" alt="Homepage V3 Desktop" loading="lazy" />
+        </div>
+      </div>
+      <div class="grid-mobile">
+        <div class="shot-col mobile-shot">
+          <span class="badge before">BEFORE (V2) · Mobile 390px</span>
+          <img src="/assets/v3-qa/before/home-mobile-390.webp" alt="Homepage V2 Mobile" loading="lazy" />
+        </div>
+        <div class="shot-col after mobile-shot">
+          <span class="badge after">AFTER (V3) · Mobile 390px</span>
+          <img src="/assets/v3-qa/after/home__mobile-390.png" alt="Homepage V3 Mobile" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="pair-header">
+        <h2 class="pair-title">2. Team &amp; Physicians Directory (<code>/team</code>) — Interactive Specialty Filter &amp; 4:5 Studio Portraits</h2>
+        <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/team" target="_blank">Inspect Live V3 Page &rarr;</a>
+      </div>
+      <div class="grid-compare">
+        <div class="shot-col">
+          <span class="badge before">BEFORE (V2) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/before/team-directory-desktop-1440.webp" alt="Team V2 Desktop" loading="lazy" />
+        </div>
+        <div class="shot-col after">
+          <span class="badge after">AFTER (V3) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/after/team-directory__desktop-1440.png" alt="Team V3 Desktop" loading="lazy" />
+        </div>
+      </div>
+      <div class="grid-mobile">
+        <div class="shot-col mobile-shot">
+          <span class="badge before">BEFORE (V2) · Mobile 390px</span>
+          <img src="/assets/v3-qa/before/team-directory-mobile-390.webp" alt="Team V2 Mobile" loading="lazy" />
+        </div>
+        <div class="shot-col after mobile-shot">
+          <span class="badge after">AFTER (V3) · Mobile 390px</span>
+          <img src="/assets/v3-qa/after/team-directory__mobile-390.png" alt="Team V3 Mobile" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="pair-header">
+        <h2 class="pair-title">3. Individual Physician Dossier (<code>/team/dr-6</code>) — Editorial Profile &amp; Booking Rail</h2>
+        <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/team/dr-6" target="_blank">Inspect Live V3 Page &rarr;</a>
+      </div>
+      <div class="grid-compare">
+        <div class="shot-col">
+          <span class="badge before">BEFORE (V2) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/before/physician-profile-dr-6-desktop-1440.webp" alt="Doctor Profile V2 Desktop" loading="lazy" />
+        </div>
+        <div class="shot-col after">
+          <span class="badge after">AFTER (V3) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/after/physician-profile-dr-6__desktop-1440.png" alt="Doctor Profile V3 Desktop" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="pair-header">
+        <h2 class="pair-title">4. Services Hub (<code>/services</code>) — Categorized Clinical Architecture</h2>
+        <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/services" target="_blank">Inspect Live V3 Page &rarr;</a>
+      </div>
+      <div class="grid-compare">
+        <div class="shot-col">
+          <span class="badge before">BEFORE (V2) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/before/services-directory-desktop-1440.webp" alt="Services V2 Desktop" loading="lazy" />
+        </div>
+        <div class="shot-col after">
+          <span class="badge after">AFTER (V3) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/after/services-directory__desktop-1440.png" alt="Services V3 Desktop" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="pair-header">
+        <h2 class="pair-title">5. Flagship Specialty Detail (<code>/services/womens-health-iud-clinic-calgary</code>) — Preparation Guide &amp; Clinicians</h2>
+        <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/services/womens-health-iud-clinic-calgary" target="_blank">Inspect Live V3 Page &rarr;</a>
+      </div>
+      <div class="grid-compare">
+        <div class="shot-col">
+          <span class="badge before">BEFORE (V2) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/before/service-womens-health-campaign-desktop-1440.webp" alt="Womens Health V2 Desktop" loading="lazy" />
+        </div>
+        <div class="shot-col after">
+          <span class="badge after">AFTER (V3) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/after/service-womens-health-campaign__desktop-1440.png" alt="Womens Health V3 Desktop" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="pair-header">
+        <h2 class="pair-title">6. Appointment Concierge (<code>/book</code>) — Guided Visit Pathway Selector &amp; Zero-PHI Safety</h2>
+        <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/book" target="_blank">Inspect Live V3 Page &rarr;</a>
+      </div>
+      <div class="grid-compare">
+        <div class="shot-col">
+          <span class="badge before">BEFORE (V2) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/before/book-desktop-1440.webp" alt="Book V2 Desktop" loading="lazy" />
+        </div>
+        <div class="shot-col after">
+          <span class="badge after">AFTER (V3) · Desktop 1440px</span>
+          <img src="/assets/v3-qa/after/book__desktop-1440.png" alt="Book V3 Desktop" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="pair-header">
+        <h2 class="pair-title">7. Contact &amp; Directions (<code>/contact</code>), About (<code>/about</code>), and FAQ (<code>/faq</code>)</h2>
+        <div style="display:flex;gap:8px;">
+          <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/contact" target="_blank">/contact</a>
+          <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/about" target="_blank">/about</a>
+          <a class="btn btn-outline" style="color:var(--teal); border-color:var(--teal);" href="/faq" target="_blank">/faq</a>
+        </div>
+      </div>
+      <div class="grid-compare">
+        <div class="shot-col">
+          <span class="badge before">BEFORE (V2) · /contact Desktop 1440px</span>
+          <img src="/assets/v3-qa/before/contact-desktop-1440.webp" alt="Contact V2 Desktop" loading="lazy" />
+        </div>
+        <div class="shot-col after">
+          <span class="badge after">AFTER (V3) · /contact Desktop 1440px</span>
+          <img src="/assets/v3-qa/after/contact__desktop-1440.png" alt="Contact V3 Desktop" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

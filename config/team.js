@@ -1,172 +1,271 @@
 module.exports = [
   // ═══════════════════════════════════════════════════════════════
-  // FAMILY PHYSICIANS
+  // FAMILY PHYSICIANS (11)
   // ═══════════════════════════════════════════════════════════════
   {
     "id": "dr-1",
     "slug": "dr-1",
     "firstName": "Aous",
     "lastName": "Al Shehabi",
+    "credentials": "MD · Family Medicine",
     "role": "Family Physician",
-    "photo": "assets/healthplus team/dr_aous_al_shehabi/dr_aous_al_shehabi.jpg",
+    "photo": "assets/images/team-v3/desktop/dr-aous-al-shehabi.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-aous-al-shehabi.webp",
+    "legacyPhoto": "assets/healthplus team/dr_aous_al_shehabi/dr_aous_al_shehabi.jpg",
     "category": "Physicians",
-    "bio": "I’m Dr Alshehabi ( Aous ) . I have been practicing medicine over the last 22 years . Last 8 years was In Dawson Creek (BC ) and before that I practiced in Sultanate Of Oman  and Iraq where  I practiced in the emergency room , In patients  long term care , Family Practice  . I love mountain biking  and sometimes I do ski . I believe My patients’ health is a mutual responsibility and I always like to share this responsibility with them to have optimum well being  ."
+    "specialties": ["family-medicine", "walk-in-clinic", "mva-care", "virtual-care"],
+    "focusAreas": ["Family Medicine", "Acute & Walk-In Care", "Longitudinal Care", "22+ Years Experience"],
+    "shortBio": "Practicing medicine for over 22 years across emergency, inpatient, and community family practice, including 8 years in British Columbia prior to joining HealthPlus Calgary.",
+    "bio": "Dr. Aous Al Shehabi has practiced medicine for over 22 years across emergency medicine, inpatient long-term care, and comprehensive family practice. Before relocating to Calgary, he spent 8 years practicing in Dawson Creek, British Columbia, following earlier clinical practice in the Sultanate of Oman and Iraq. Dr. Al Shehabi believes that a patient's health is a shared partnership and works collaboratively with individuals and families to achieve optimal long-term well-being."
   },
   {
     "id": "dr-5",
     "slug": "dr-5",
     "firstName": "Elhadi",
     "lastName": "Mohammed",
+    "credentials": "MD, CCFP · Family Physician & Hospitalist",
     "role": "Family Physician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-015.webp",
+    "photo": "assets/images/team-v3/desktop/dr-elhadi-mohammed.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-elhadi-mohammed.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-015.webp",
     "category": "Physicians",
-    "bio": "Dr. Mohammed is a Canadian licensed Family Physician and member of the College of Family Physicians of Canada. He had the opportunity to practice in Ireland and British Columbia before making Calgary his home this year. He also works as a Hospitalist at Foothills Medical Center in Calgary."
+    "specialties": ["family-medicine", "walk-in-clinic", "internal-medicine", "virtual-care"],
+    "focusAreas": ["Family Medicine (CCFP)", "Hospitalist Medicine", "Chronic Disease Care", "Preventive Health"],
+    "shortBio": "Canadian licensed Family Physician (CCFP) with clinical experience in Ireland and British Columbia, also serving as a Hospitalist at Foothills Medical Centre in Calgary.",
+    "bio": "Dr. Elhadi Mohammed is a Canadian licensed Family Physician and Certificant of the College of Family Physicians of Canada (CCFP). He practiced in Ireland and British Columbia before making Calgary his home, and also serves as a Hospitalist at Foothills Medical Centre in Calgary—bringing strong acute and complex-care continuity to his community family practice at HealthPlus Medical."
   },
   {
     "id": "dr-6",
     "slug": "dr-6",
     "firstName": "Hatim",
     "lastName": "Kheir",
-    "role": "Family Physician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-014.webp",
+    "credentials": "MD, MRCGP, DRCOG, DFSRH · Medical Director",
+    "role": "Family Physician & Medical Director",
+    "photo": "assets/images/team-v3/desktop/dr-hatim-kheir.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-hatim-kheir.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-014.webp",
     "category": "Physicians",
-    "bio": "• Dr Kheir is a family physician with interest in emergency medicine, acute & urgent care, chronic disease management, women’s health, sexual & reproductive healthcare minor surgical procedures, as well as bedside ultrasound. \n• He was trained in the UK and obtained his board certification in Family Medicine (MRCGP), as well the Diploma of the Royal College of Obstetrician & Gynaecologists (DRCOG) and the Diploma Faculty of Sexual and Reproductive Healthcare (DFSRH). \n • Before moving to Calgary, he worked at Johns Hopkins Aramco Healthcare for 5 years as a Family Medicine Consultant and he was the Chief (A) of the Primary Care Department. He was also a COVID team physician lead during the Pandemic.  He was also a faculty board member of the Family Medicine residency program."
+    "specialties": ["family-medicine", "walk-in-clinic", "womens-health", "mva-care", "concussion-care", "virtual-care"],
+    "focusAreas": ["Family & Urgent Care", "Women's & Reproductive Health", "Minor Procedures", "Chronic Disease Management"],
+    "shortBio": "UK-trained Family Physician (MRCGP, DRCOG, DFSRH) and Medical Director with expertise in acute care, chronic disease management, women's health, and minor surgical procedures.",
+    "bio": "Dr. Hatim Kheir is a Family Physician and Medical Director with clinical focus in emergency and urgent care, chronic disease management, women's health, sexual and reproductive healthcare, minor surgical procedures, and point-of-care ultrasound.\n\nTrained in the United Kingdom, Dr. Kheir holds board certification in Family Medicine (MRCGP), the Diploma of the Royal College of Obstetricians and Gynaecologists (DRCOG), and the Diploma of the Faculty of Sexual and Reproductive Healthcare (DFSRH).\n\nBefore moving to Calgary, he practiced at Johns Hopkins Aramco Healthcare for five years as a Family Medicine Consultant, served as Acting Chief of the Primary Care Department, led the COVID-19 clinical physician team, and served as a faculty board member of the Family Medicine residency program."
   },
   {
     "id": "dr-7",
     "slug": "dr-7",
     "firstName": "May",
     "lastName": "Aldabbagh",
+    "credentials": "MD · Family Medicine",
     "role": "Family Physician",
-    "photo": "assets/healthplus team/dr_may_aldabbagh/dr_may_aldabbagh.jpg",
-    "category": "Physicians"
+    "photo": "assets/images/team-v3/desktop/dr-may-aldabbagh.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-may-aldabbagh.webp",
+    "legacyPhoto": "assets/healthplus team/dr_may_aldabbagh/dr_may_aldabbagh.jpg",
+    "category": "Physicians",
+    "specialties": ["family-medicine", "womens-health", "pediatric-care", "walk-in-clinic"],
+    "focusAreas": ["Comprehensive Family Care", "Women's Health", "Preventive Screenings", "Pediatric & Adult Care"],
+    "shortBio": "Licensed Family Physician at HealthPlus by SEHA Medical in Midnapore, providing compassionate primary care, preventive health screenings, and ongoing family medicine.",
+    "bio": "Dr. May Aldabbagh is a licensed Family Physician practicing at HealthPlus by SEHA Medical in Midnapore, Calgary. She provides comprehensive primary care for individuals and families across all stages of life, including routine preventive screenings, women's health consultations, pediatric check-ups, and coordinated chronic condition management."
   },
   {
     "id": "dr-8",
     "slug": "dr-8",
     "firstName": "Mehwish",
     "lastName": "Hanif",
+    "credentials": "MD, CCFP · University of Calgary",
     "role": "Family Physician",
-    "photo": "assets/healthplus team/dr_mehwish_hanif/dr_mehwish_hanif.png",
+    "photo": "assets/images/team-v3/desktop/dr-mehwish-hanif.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-mehwish-hanif.webp",
+    "legacyPhoto": "assets/healthplus team/dr_mehwish_hanif/dr_mehwish_hanif.png",
     "category": "Physicians",
-    "bio": "• Dr. Mehwish Hanif is a Family Physician with a clinical focus in Aesthetic Medicine, preventive care, women’s health, skin wellness, and mental well-being. She graduated from the University of Calgary Medical School in 2016, completing her Family Medicine residency there as well. Certified by the College of Family Physicians of Canada (CCFP), Dr. Hanif is a recipient of the CFPC Medical Student Leadership Award and ACFP Outstanding New Professional Award. • Her practice includes evidence-based medical and aesthetic assessments as well as comprehensive women’s health services, including contraception counseling, IUD consultations, prenatal/postpartum care, and preventive gynecological screenings. • With a holistic approach, Dr. Hanif helps patients navigate both physical and psychological challenges. Outside of her medical practice, she enjoys traveling and staying active."
+    "specialties": ["family-medicine", "womens-health", "mental-health", "obstetrics-gynecology", "virtual-care"],
+    "focusAreas": ["Women's Health & IUD Clinic", "Preventive Family Medicine", "Mental Well-Being", "Skin Wellness"],
+    "shortBio": "University of Calgary Medical School graduate (MD, CCFP) specializing in comprehensive family medicine, women's health, contraception & IUD care, and mental well-being.",
+    "bio": "Dr. Mehwish Hanif is a Family Physician (MD, CCFP) with a clinical focus in preventive primary care, women's health, skin wellness, and mental well-being. She graduated from the University of Calgary Cumming School of Medicine in 2016 and completed her Family Medicine residency at the University of Calgary. Certified by the College of Family Physicians of Canada (CCFP), she is a recipient of the CFPC Medical Student Leadership Award and the ACFP Outstanding New Professional Award.\n\nHer practice includes comprehensive women's health services—contraception counseling, IUD consultations, prenatal and postpartum care, and preventive gynecological screenings—alongside holistic primary and mental health care."
   },
   {
     "id": "dr-9",
     "slug": "dr-9",
     "firstName": "Nour",
     "lastName": "Bukhres",
+    "credentials": "MD, CCFP · Family Medicine",
     "role": "Family Physician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-001.webp",
+    "photo": "assets/images/team-v3/desktop/dr-nour-bukhres.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-nour-bukhres.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-001.webp",
     "category": "Physicians",
-    "bio": "Dr. Bukhres is a Canadian licensed Family Physician and member of the College of Family Physicians of Canada; He recently relocated from Northern British Columbia, where he spent four years practicing family medicine, hospital care, and emergency medicine. Dr. Bukhres was trained in Libya before moving to Canada and obtained his full certificate of family medicine. He has a great interest in emergency medicine along with community-based family medicine.."
+    "specialties": ["family-medicine", "walk-in-clinic", "mva-care", "concussion-care", "virtual-care"],
+    "focusAreas": ["Family Medicine (CCFP)", "Emergency & Acute Care", "Community Primary Care", "Chronic Disease Care"],
+    "shortBio": "Canadian licensed Family Physician (CCFP) with four years of family, hospital, and emergency medicine experience in Northern British Columbia prior to relocating to Calgary.",
+    "bio": "Dr. Nour Bukhres is a Canadian licensed Family Physician and member of the College of Family Physicians of Canada (CCFP). Prior to joining HealthPlus Medical in Calgary, he spent four years in Northern British Columbia practicing full-scope family medicine, hospital care, and emergency medicine. He brings a strong clinical interest in acute and emergency medicine alongside longitudinal community-based family practice."
   },
   {
     "id": "dr-10",
     "slug": "dr-10",
     "firstName": "Oladotun",
     "lastName": "Oyediran",
+    "credentials": "MD · Family Medicine",
     "role": "Family Physician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-019.webp",
-    "category": "Physicians"
+    "photo": "assets/images/team-v3/desktop/dr-oladotun-oyediran.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-oladotun-oyediran.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-019.webp",
+    "category": "Physicians",
+    "specialties": ["family-medicine", "walk-in-clinic", "virtual-care"],
+    "focusAreas": ["Family Medicine", "Walk-In & Acute Care", "Preventive Health", "Chronic Disease Management"],
+    "shortBio": "Licensed Family Physician at HealthPlus by SEHA Medical in Midnapore, dedicated to accessible primary care, walk-in consultations, and long-term chronic disease management.",
+    "bio": "Dr. Oladotun Oyediran is a licensed Family Physician practicing at HealthPlus by SEHA Medical in Midnapore, Calgary. He provides attentive primary care, walk-in medical assessments, preventive health screenings, and ongoing management of chronic adult and family health conditions."
   },
   {
     "id": "dr-11",
     "slug": "dr-11",
     "firstName": "Radhya",
     "lastName": "Aboaziza",
+    "credentials": "MD · Family Medicine",
     "role": "Family Physician",
-    "photo": "assets/healthplus team/dr_radhya_aboaziza/dr_radhya_aboaziza.png",
+    "photo": "assets/images/team-v3/desktop/dr-radhya-aboaziza.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-radhya-aboaziza.webp",
+    "legacyPhoto": "assets/healthplus team/dr_radhya_aboaziza/dr_radhya_aboaziza.png",
     "category": "Physicians",
-    "bio": "Dr Radhya Aboaziza"
+    "specialties": ["family-medicine", "womens-health", "pediatric-care", "walk-in-clinic"],
+    "focusAreas": ["Family Medicine", "Women's & Children's Health", "Preventive Care", "Walk-In Clinic"],
+    "shortBio": "Licensed Family Physician at HealthPlus by SEHA Medical in Midnapore, offering patient-centred primary care, women's health, and family wellness across all life stages.",
+    "bio": "Dr. Radhya Aboaziza is a licensed Family Physician at HealthPlus by SEHA Medical in Midnapore, Calgary. Dedicated to compassionate, relationship-centred primary care, Dr. Aboaziza supports patients and families with routine preventive check-ups, women's and pediatric health, acute walk-in care, and coordinated specialist referrals."
   },
   {
     "id": "dr-12",
     "slug": "dr-12",
     "firstName": "Sandeep",
     "lastName": "Kumar",
+    "credentials": "MBBS, MRCGP (UK), PgDip Clinical Dermatology",
     "role": "Family Physician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-005.webp",
+    "photo": "assets/images/team-v3/desktop/dr-sandeep-kumar.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-sandeep-kumar.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-005.webp",
     "category": "Physicians",
-    "bio": "Dr. Sandeep Kumar: Your Trusted Family Physician in Calgary About Dr. KumarDr. Sandeep Kumar is a highly experienced and compassionate Family Physician with over 15 years of clinical expertise spanning India, the Republic of Ireland, the UK, and now Calgary. Trained as a family physician in the UK, he was awarded a Certificate of Completion of Training (CCT) and MRCGP and worked there as a full-time General Practitioner. He holds Postgraduate Diploma in Clinical Dermatology from the University of South Wales (USW), UK.Dr. Kumar is passionate about providing comprehensive care for individuals and families of all ages. Whether it’s managing chronic conditions, addressing acute health concerns, or promoting preventive care, Dr. Kumar ensures his patients receive personalized, evidence-based treatment in a warm and welcoming environment. What Dr. Kumar Offers: Primary Care for All Ages: From newborns to seniors, Dr. Kumar provides holistic care for the whole family.Chronic Disease Management: Expertise in managing conditions such as diabetes, high blood pressure, and asthma.Preventive Care: Helping patients stay healthy through screenings, vaccinations, and health education.Women’s Health: Support for family planning, prenatal care, and other women’s health needs. Dr. Kumar is fluent in English, Hindi, Punjabi, Urdu, and basic Armenian, which allows him to connect with patients from diverse backgrounds and provide culturally sensitive care. A Personal Note from Dr. Kumar“When I’m not working, I enjoy spending time outdoors with my family, listening to music, and playing table tennis and pool. My goal as a physician is to provide not just excellent medical care but also a positive and reassuring experience for every patient. I look forward to being a part of your health journey and supporting your well-being.” Dr. Kumar is currently accepting new patients.Contact us today to book an appointment and take the first step toward your best health!"
+    "specialties": ["family-medicine", "walk-in-clinic", "womens-health", "pediatric-care", "virtual-care"],
+    "focusAreas": ["Family Medicine (MRCGP)", "Clinical Dermatology", "Chronic Disease Care", "Multilingual Care"],
+    "shortBio": "UK-trained Family Physician (MRCGP) with 15+ years of clinical experience and a Postgraduate Diploma in Clinical Dermatology from the University of South Wales.",
+    "bio": "Dr. Sandeep Kumar is an experienced Family Physician with over 15 years of clinical practice across the United Kingdom, the Republic of Ireland, India, and Calgary. Trained as a General Practitioner in the UK, he holds his Certificate of Completion of Training (CCT), Membership of the Royal College of General Practitioners (MRCGP), and a Postgraduate Diploma in Clinical Dermatology from the University of South Wales.\n\nDr. Kumar provides holistic primary care from newborns to seniors, with particular focus on chronic disease management (diabetes, hypertension, asthma), dermatological conditions, women's health, and preventive medicine. He is fluent in English, Hindi, Punjabi, Urdu, and basic Armenian."
   },
   {
     "id": "dr-15",
     "slug": "dr-15",
     "firstName": "Ahmed",
     "lastName": "Enbya",
+    "credentials": "MD, CCFP · Family Medicine",
     "role": "Family Physician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-018.webp",
+    "photo": "assets/images/team-v3/desktop/dr-ahmed-enbya.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-ahmed-enbya.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-018.webp",
     "category": "Physicians",
-    "bio": "Dr. Ahmed Enbya is a family physician with over 10 years of experience providing comprehensive, patient-centered care. He recently relocated to Alberta from British Columbia, bringing with him a strong commitment to family medicine. Dr. Enbya has a strong interest in longitudinal care, supporting patients and families through all stages of life and all aspects of health. His dedication to his patients was recognized with a nomination for the BCCFP My Family Doctor 2025 award. Outside of medicine, Dr. Enbya is a proud father of three energetic boys. He enjoys spending time outdoors—whether camping, biking, or capturing moments through photography"
+    "specialties": ["family-medicine", "pediatric-care", "walk-in-clinic", "mva-care", "virtual-care"],
+    "focusAreas": ["Longitudinal Family Care", "Pediatric & Adult Medicine", "Preventive Health", "BCCFP Award Nominee"],
+    "shortBio": "Family Physician with over 10 years of patient-centred primary care experience and a 2025 BCCFP My Family Doctor Award nomination.",
+    "bio": "Dr. Ahmed Enbya is a Family Physician with over 10 years of experience providing comprehensive, patient-centred primary care. Having relocated to Alberta from British Columbia, he has a strong commitment to longitudinal family medicine—supporting individuals and families through every stage of life. His dedication to patient care was recognized with a nomination for the 2025 BCCFP My Family Doctor Award."
   },
   {
     "id": "dr-16",
     "slug": "dr-16",
     "firstName": "Sidra",
     "lastName": "Feroz",
+    "credentials": "MBBS · Family Medicine",
     "role": "Family Physician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-003.webp",
+    "photo": "assets/images/team-v3/desktop/dr-sidra-feroz.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-sidra-feroz.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-003.webp",
     "category": "Physicians",
-    "bio": "Dr. Feroz completed her medical degree in 2017 from Pakistan, followed by a two-year residency in Family Medicine. She has a special interest in women’s health and community-based care, with a strong focus on providing compassionate, patient-centered medicine for individuals and families across all stages of life.     Originally from Pakistan, Dr. Feroz made Calgary her home two years ago. Outside of the clinic, she enjoys traveling and spending time with her family."
+    "specialties": ["family-medicine", "womens-health", "pediatric-care", "walk-in-clinic", "virtual-care"],
+    "focusAreas": ["Women's Health", "Community Family Medicine", "Pediatric & Family Care", "Preventive Screenings"],
+    "shortBio": "Family Physician with a special interest in women's health, preventive care, and compassionate community-based medicine for individuals and families.",
+    "bio": "Dr. Sidra Feroz completed her medical degree in 2017 followed by residency training in Family Medicine. Practicing in Calgary, she has a special clinical interest in women's health and community-based primary care, with a strong focus on delivering compassionate, patient-centred medicine for individuals and families across all stages of life."
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // SPECIALISTS
+  // SPECIALIST CONSULTANTS (5)
   // ═══════════════════════════════════════════════════════════════
   {
     "id": "dr-0",
     "slug": "dr-0",
     "firstName": "Angela",
     "lastName": "Vinturache",
+    "credentials": "MD, PhD · Obstetrics & Gynecology",
     "role": "Obstetrics & Gynecology Specialist",
-    "photo": "assets/healthplus team/dr_angela_vinturache/dr_angela_vinturache.jpg",
+    "photo": "assets/images/team-v3/desktop/dr-angela-vinturache.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-angela-vinturache.webp",
+    "legacyPhoto": "assets/healthplus team/dr_angela_vinturache/dr_angela_vinturache.jpg",
     "category": "Specialists",
-    "bio": "Dr. Angela Vinturache is an obstetrician-gynecologist whose practice blends attentive, relationship-centred care with the best available evidence.  She provides comprehensive care from adolescence through the post-menopausal years, beginning with routine gynecologic care and the assessment of common concerns such as abnormal uterine bleeding and pelvic discomfort. Her clinical work also includes menopause care (symptom relief, cardiovascular and bone health, and individualized therapy), contraception and family planning—including counselling for routine and complex needs—infertility assessment and management, pre-conception counselling, prenatal and postpartum care, and expertise in high-risk obstetrics and maternal medicine.  Consultations focus on understanding each person’s priorities, explaining options in plain language, and building care plans together. Patients describe her style as warm, thorough, and collaborative; whether discussing contraception, navigating menopausal symptoms, planning a pregnancy, or reviewing test results, Dr. Vinturache aims to ensure every patient leaves with a clear plan and confidence in their next steps.  She is equally committed to patient education, safety culture, and quality improvement in women’s health. A clinician–scientist, she brings a wealth of experience from Oxford, London, and Dublin, and is actively involved with provincial and national professional bodies to develop guidelines, promote and advocate for women’s health, and continually improve the quality of care."
+    "specialties": ["obstetrics-gynecology", "womens-health"],
+    "focusAreas": ["Obstetrics & Gynecology", "Menopause & Hormonal Health", "Contraception & IUD Care", "High-Risk Prenatal Care"],
+    "shortBio": "Obstetrician-Gynecologist and clinician-scientist trained in Oxford, London, and Dublin, providing comprehensive reproductive, prenatal, and menopause care.",
+    "bio": "Dr. Angela Vinturache is an Obstetrician-Gynecologist whose practice blends attentive, relationship-centred care with rigorous clinical evidence. She provides comprehensive care from adolescence through the post-menopausal years, including abnormal uterine bleeding, pelvic pain assessment, menopause care, complex contraception and IUD counselling, infertility assessment, preconception counselling, and prenatal/postpartum care.\n\nA clinician-scientist with training and experience across Oxford, London, and Dublin, Dr. Vinturache focuses on explaining clinical options in clear, accessible language so every patient leaves with confidence in their care plan."
   },
   {
     "id": "dr-2",
     "slug": "dr-2",
     "firstName": "Asaad",
     "lastName": "Qaddori",
+    "credentials": "MD, CCFP (EM), Dip. Sport Med (CASEM)",
     "role": "Sport Medicine Specialist",
-    "photo": "assets/healthplus team/dr_asaad_qaddori/dr_asaad_qaddori.jpg",
+    "photo": "assets/images/team-v3/desktop/dr-asaad-qaddori.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-asaad-qaddori.webp",
+    "legacyPhoto": "assets/healthplus team/dr_asaad_qaddori/dr_asaad_qaddori.jpg",
     "category": "Specialists",
-    "bio": "Dr. Asaad Qaddori is a dedicated Sport Medicine Physician with a unique background in Emergencymedicine, Family Medicine and Prior Orthopedic Surgical training. He brings a comprehensive andevidence-based approach to the assessment and treatment of sports-related and musculoskeletalinjuries.Dr. Qaddori completed his Fellowship in Sport and Exercise Medicine at the University of Calgaryand holds the Diploma in Sport Medicine from the Canadian Academy of Sport and ExerciseMedicine. He has also achieved the certification of enhanced skills in Emergency Medicine, andcurrently work as Emergency Physician, ensuring he is expertly prepared to handle both acuteinjuries and chronic musculoskeletal conditions.Outside the clinic, Dr. Qaddori enjoys staying active through skiing and archery. He is also pursuingArt degree in visual communication with focus on photography. He is passionate about helpingpatients of all activity levels return to the sports and activities they love"
+    "specialties": ["sports-medicine", "concussion-care", "mva-care"],
+    "focusAreas": ["Sport & Exercise Medicine", "Musculoskeletal Injuries", "Concussion & MVA Recovery", "Orthopedic Assessment"],
+    "shortBio": "University of Calgary Fellowship-trained Sport and Exercise Medicine Physician (Dip. Sport Med, CASEM) with background in Emergency Medicine and Orthopedic training.",
+    "bio": "Dr. Asaad Qaddori is a Sport Medicine Physician with a background in Emergency Medicine, Family Medicine, and prior orthopedic surgical training. He completed his Fellowship in Sport and Exercise Medicine at the University of Calgary and holds the Diploma in Sport Medicine from the Canadian Academy of Sport and Exercise Medicine (CASEM), as well as Certification of Added Competence in Emergency Medicine.\n\nDr. Qaddori provides comprehensive, evidence-based assessment and rehabilitation planning for acute sports injuries, concussion recovery, MVA musculoskeletal injuries, and chronic joint and tendon conditions."
   },
   {
     "id": "dr-4",
     "slug": "dr-4",
     "firstName": "Bhavisha",
     "lastName": "Ramsamy",
+    "credentials": "MBBCh, FCPaed (SA), MMed (Paed), DCH",
     "role": "Pediatrician",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-012.webp",
+    "photo": "assets/images/team-v3/desktop/dr-bhavisha-ramsamy.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-bhavisha-ramsamy.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-012.webp",
     "category": "Specialists",
-    "bio": "• I am a South African–qualified pediatrician with over ten years of experience dedicated to pediatrics and child health. I hold a Master of Medicine in Pediatrics from the University of the Witwatersrand and a Fellowship from the College of Paediatricians of South Africa. In addition, I have obtained a Diploma in Child Health and a Diploma in HIV Management through the Colleges of Medicine of South Africa, further strengthening my expertise in comprehensive pediatric care. • My special interest lies in neonatology and the care of the newborn. I completed my specialist training at Chris Hani Baragwanath Hospital, one of the largest hospitals in the world, where I had the privilege of serving vulnerable rural and semi-urban communities in Soweto, South Africa. This experience shaped my clinical approach, grounding it in both evidence-based medicine and compassionate, community-centered care. • Alongside my clinical responsibilities, I have been actively involved in undergraduate and postgraduate medical education at the University of the Witwatersrand, contributing to the training of medical students and pediatric registrars. Teaching has been a deeply rewarding aspect of my career, allowing me to support the development of future healthcare professionals. • As a new mother, I have gained a profound appreciation for the lived experience of parenthood. This personal journey has enriched my understanding of holistic child care, strengthening my empathy and reinforcing my commitment to partnering with families in nurturing healthy, thriving children. • I look forward to embarking on this new chapter at Health Plus Medical, where I am committed to delivering compassionate, high-quality pediatric care and supporting families at every stage of their child’s development."
+    "specialties": ["pediatric-care"],
+    "focusAreas": ["Pediatrics & Child Health", "Neonatology & Newborn Care", "Developmental Milestones", "Complex Childhood Illness"],
+    "shortBio": "Specialist Pediatrician (MMed Pediatrics, FCPaed) with over 10 years of experience in child health, newborn care, and developmental pediatrics.",
+    "bio": "Dr. Bhavisha Ramsamy is a Specialist Pediatrician with over ten years of experience dedicated to pediatrics, neonatology, and child health. She holds a Master of Medicine in Pediatrics from the University of the Witwatersrand, a Fellowship from the College of Paediatricians of South Africa (FCPaed), and a Diploma in Child Health (DCH).\n\nHaving completed specialist training at Chris Hani Baragwanath Hospital and served as a clinical educator for medical students and pediatric registrars, Dr. Ramsamy partners closely with Calgary parents to support healthy growth, newborn care, and complex pediatric conditions."
   },
   {
     "id": "dr-13",
     "slug": "dr-13",
     "firstName": "Tariq",
     "lastName": "Khan",
+    "credentials": "MD, MRCPsych (UK) · Consultant Psychiatrist",
     "role": "Consultant Psychiatrist",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-002.webp",
+    "photo": "assets/images/team-v3/desktop/dr-tariq-khan.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-tariq-khan.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-002.webp",
     "category": "Specialists",
-    "bio": "• Dr Tariq Khan is a Consultant Psychiatrist with extensive experience in adult and old age psychiatry across the UK and Canada. He completed his medical foundation and specialty training in the UK and developed expertise in neuropsychiatry, dementia, general adult and adult ADHD. • Before moving to Canada from the UK, he worked as a consultant psychiatrist across NHS, independent sector and Her Majesty’s Prison Services, and served as Medical Lead for inpatient psychiatric services and postgraduate education tutor for psychiatry residents, receiving a LCEA – Clinical Excellence Award. • In Canada, he was faculty and Staff Psychiatrist at the Centre for Addiction and Mental Health Toronto (CAMH) within the Concurrent Disorders Programme, and Assistant Professor at the University of Toronto, where he established a pioneering service for concurrent ADHD in adults. • Dr Khan is an Expert Reference Group member for the Royal College of Psychiatrists’ UK International Diploma, and his work has been published in the College’s faculty newsletters. He now brings his expertise to Health Plus Medical in Calgary, where he provides compassionate, evidence-based psychiatric care."
+    "specialties": ["mental-health"],
+    "focusAreas": ["Adult & Old Age Psychiatry", "Adult ADHD Assessment", "Neuropsychiatry", "Mood & Anxiety Disorders"],
+    "shortBio": "UK- and Canada-trained Consultant Psychiatrist, former CAMH Staff Psychiatrist and University of Toronto Assistant Professor specializing in adult psychiatry and ADHD.",
+    "bio": "Dr. Tariq Khan is a Consultant Psychiatrist with extensive experience in adult and old-age psychiatry across the United Kingdom and Canada. Trained in the UK where he received a Clinical Excellence Award (LCEA), he later served in Canada as a Staff Psychiatrist at the Centre for Addiction and Mental Health (CAMH) in Toronto and Assistant Professor at the University of Toronto, where he established a specialized clinical service for adult ADHD.\n\nAt HealthPlus Medical in Calgary, Dr. Khan provides compassionate, evidence-based specialist psychiatric consultations."
   },
   {
     "id": "dr-14",
     "slug": "dr-14",
     "firstName": "Tyral",
     "lastName": "Ramsamy",
-    "role": "Infectious Diseases Consultant",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-011.webp",
+    "credentials": "MBBCh, FCP (SA), MMed (Int Med), Cert ID, DTM&H",
+    "role": "Internal Medicine & Infectious Diseases Consultant",
+    "photo": "assets/images/team-v3/desktop/dr-tyral-ramsamy.webp",
+    "photoMobile": "assets/images/team-v3/mobile/dr-tyral-ramsamy.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-011.webp",
     "category": "Specialists",
-    "bio": "• I am a South African–qualified Infectious Diseases Consultant with comprehensive training and extensive clinical experience in complex adult medical care. I hold a Master of Medicine from the Colleges of Medicine of South Africa, a Fellowship from the College of Physicians of South Africa, and a Subspecialty Fellowship in Infectious Diseases from the Colleges of Physicians of South Africa.• In addition, I have obtained a Diploma in Primary Emergency Care and a Diploma in HIV Management, both through the Colleges of Medicine of South Africa. I also hold a Diploma in Tropical Medicine and Hygiene from the University of Sheffield, further strengthening my expertise in global and travel-related infectious diseases.• I completed my specialist training at Chris Hani Baragwanath Hospital, one of the largest hospitals in the world. Training in this high-volume, resource-constrained environment provided unparalleled exposure to complex pathology and shaped my ability to manage critically ill and medically intricate patients with precision and confidence.• My clinical focus includes extensive experience in HIV and tuberculosis medicine, with special interests in infective endocarditis, viral hepatitis, and parasitology. I am particularly drawn to the diagnostic challenges within infectious diseases, where attention to detail and clinical curiosity are essential in delivering accurate, timely, and compassionate care.• Beyond clinical practice, I am a committed academic and researcher, having presented my work on international platforms. I am deeply invested in medical education and have contributed to both undergraduate and postgraduate teaching at the University of the Witwatersrand, mentoring the next generation of physicians.• My attentive approach, analytical mindset, and dedication to patient-centered care have equipped me to serve diverse communities effectively. I look forward to embarking on this new chapter at Health Plus Medical and to serving the people of Calgary with excellence, integrity, and compassion."
+    "specialties": ["internal-medicine"],
+    "focusAreas": ["Internal Medicine", "Infectious Diseases", "Complex Multi-System Diagnosis", "Tropical & Travel Medicine"],
+    "shortBio": "Internal Medicine and Infectious Diseases Consultant (FCP, MMed, Cert ID, DTM&H Sheffield) specializing in complex adult medical diagnostics and chronic disease management.",
+    "bio": "Dr. Tyral Ramsamy is an Internal Medicine and Infectious Diseases Consultant with extensive training in complex adult medical care. He holds a Master of Medicine in Internal Medicine (MMed), Fellowship of the College of Physicians (FCP), Subspecialty Certification in Infectious Diseases, and a Diploma in Tropical Medicine and Hygiene (DTM&H) from the University of Sheffield.\n\nAt HealthPlus Medical, Dr. Ramsamy works closely with referring family physicians to diagnose and manage complex multi-system adult conditions, chronic internal medicine presentations, and specialized infectious diseases."
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // CLINIC LEADERSHIP & SUPPORT STAFF (APPROVED BY MANAGEMENT)
+  // CLINIC LEADERSHIP & SUPPORT STAFF (8 APPROVED BY MANAGEMENT)
+  // Note: Jehan Mustafa (HP-TEAM-FINAL-013) is withheld per opt-out (website_permission: NO)
   // ═══════════════════════════════════════════════════════════════
   {
     "id": "staff-1",
@@ -174,9 +273,14 @@ module.exports = [
     "title": "",
     "firstName": "Nagham",
     "lastName": "Yehya",
+    "credentials": "Clinic Operations & Specialist Coordination",
     "role": "HR & Specialist Clinic Manager",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-007.webp",
+    "photo": "assets/images/team-v3/desktop/nagham-yehya.webp",
+    "photoMobile": "assets/images/team-v3/mobile/nagham-yehya.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-007.webp",
     "category": "Staff",
+    "focusAreas": ["Specialist Referral Coordination", "Clinic Operations", "Patient Experience"],
+    "shortBio": "Coordinating specialist clinic operations, human resources, and seamless referral pathways for patients and physicians at HealthPlus Medical.",
     "bio": "Dedicated to coordinating specialist clinic operations, human resources, and ensuring a seamless, supportive experience for every patient and provider at HealthPlus Medical."
   },
   {
@@ -185,9 +289,14 @@ module.exports = [
     "title": "",
     "firstName": "Yahaira",
     "lastName": "Arias",
+    "credentials": "Clinical Support Leadership",
     "role": "Team Lead",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-016.webp",
+    "photo": "assets/images/team-v3/desktop/yahaira-arias.webp",
+    "photoMobile": "assets/images/team-v3/mobile/yahaira-arias.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-016.webp",
     "category": "Staff",
+    "focusAreas": ["Patient Flow Leadership", "Clinical Support", "Quality Care"],
+    "shortBio": "Leading clinical support operations and daily patient flow at HealthPlus Medical with warmth, efficiency, and attentive care.",
     "bio": "Leading clinical support operations and daily patient flow at HealthPlus Medical with warmth, efficiency, and attentive care."
   },
   {
@@ -196,9 +305,14 @@ module.exports = [
     "title": "",
     "firstName": "Lea",
     "lastName": "Kalinovska",
+    "credentials": "Front Desk & Patient Scheduling Lead",
     "role": "Lead Receptionist",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-004.webp",
+    "photo": "assets/images/team-v3/desktop/lea-kalinovska.webp",
+    "photoMobile": "assets/images/team-v3/mobile/lea-kalinovska.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-004.webp",
     "category": "Staff",
+    "focusAreas": ["Patient Reception", "Appointment Scheduling", "Walk-In Triage"],
+    "shortBio": "Welcoming patients at the Midnapore front desk, coordinating appointments, and guiding families through a smooth clinic visit.",
     "bio": "Welcoming patients at the front desk, coordinating appointments, and guiding families through a smooth clinic visit."
   },
   {
@@ -207,9 +321,14 @@ module.exports = [
     "title": "",
     "firstName": "Priscilla",
     "lastName": "Olugbemiro",
+    "credentials": "Patient Reception & Scheduling",
     "role": "Receptionist",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-008.webp",
+    "photo": "assets/images/team-v3/desktop/priscilla-olugbemiro.webp",
+    "photoMobile": "assets/images/team-v3/mobile/priscilla-olugbemiro.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-008.webp",
     "category": "Staff",
+    "focusAreas": ["Patient Reception", "Telephone Scheduling", "Visitor Support"],
+    "shortBio": "Providing welcoming front-desk reception, telephone scheduling support, and attentive patient assistance at HealthPlus Medical.",
     "bio": "Providing friendly front-desk reception, scheduling support, and attentive patient assistance at HealthPlus Medical."
   },
   {
@@ -218,9 +337,14 @@ module.exports = [
     "title": "",
     "firstName": "Eva",
     "lastName": "Islam",
+    "credentials": "Clinical Care Support",
     "role": "Medical Office Assistant (MOA)",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-006.webp",
+    "photo": "assets/images/team-v3/desktop/eva-islam.webp",
+    "photoMobile": "assets/images/team-v3/mobile/eva-islam.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-006.webp",
     "category": "Staff",
+    "focusAreas": ["Clinical Intake", "Physician Support", "Patient Preparation"],
+    "shortBio": "Supporting our physicians and patients in clinical preparation, vitals intake, and compassionate day-to-day care.",
     "bio": "Supporting our physicians and patients in clinical preparation, intake, and compassionate day-to-day care."
   },
   {
@@ -229,9 +353,14 @@ module.exports = [
     "title": "",
     "firstName": "Shameem",
     "lastName": "Shaik",
+    "credentials": "Clinical Care Support",
     "role": "Medical Office Assistant (MOA)",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-009.webp",
+    "photo": "assets/images/team-v3/desktop/shameem-shaik.webp",
+    "photoMobile": "assets/images/team-v3/mobile/shameem-shaik.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-009.webp",
     "category": "Staff",
+    "focusAreas": ["Clinical Care Coordination", "Examination Room Prep", "Patient Comfort"],
+    "shortBio": "Assisting physicians and patients throughout their visit to ensure comfortable, timely, and well-organized clinical care.",
     "bio": "Assisting physicians and patients throughout their visit to ensure comfortable, timely, and well-organized clinical care."
   },
   {
@@ -240,9 +369,14 @@ module.exports = [
     "title": "",
     "firstName": "Najiba",
     "lastName": "Sana",
+    "credentials": "Clinical Care Support",
     "role": "Medical Office Assistant (MOA)",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-010.webp",
+    "photo": "assets/images/team-v3/desktop/najiba-sana.webp",
+    "photoMobile": "assets/images/team-v3/mobile/najiba-sana.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-010.webp",
     "category": "Staff",
+    "focusAreas": ["Patient Coordination", "Clinical Support", "Procedure Preparation"],
+    "shortBio": "Dedicated to patient care coordination, clinical room preparation, and supporting our medical team every day.",
     "bio": "Dedicated to patient care coordination, clinical room preparation, and supporting our medical team every day."
   },
   {
@@ -251,9 +385,14 @@ module.exports = [
     "title": "",
     "firstName": "Shams Waleed",
     "lastName": "Al-Turfi",
+    "credentials": "Clinical Care Support",
     "role": "Medical Office Assistant (MOA)",
-    "photo": "assets/images/team-review/HP-TEAM-FINAL-017.webp",
+    "photo": "assets/images/team-v3/desktop/shams-waleed-al-turfi.webp",
+    "photoMobile": "assets/images/team-v3/mobile/shams-waleed-al-turfi.webp",
+    "legacyPhoto": "assets/images/team-review/HP-TEAM-FINAL-017.webp",
     "category": "Staff",
+    "focusAreas": ["Patient Care Support", "Clinical Triage", "Physician Assistance"],
+    "shortBio": "Committed to helping patients feel welcomed and supported while assisting our physicians with daily clinical care.",
     "bio": "Committed to helping patients feel welcomed and supported while assisting our physicians with clinical care."
   }
 ];

@@ -1,193 +1,103 @@
-// HealthPlus Medical V2 — Core JavaScript Engine
-// Scroll Reveals, Accordion, Tabs, Navbar, Smooth UX
+// HealthPlus Medical V3 — Core Interactive Engine
+// Navigation, Accessible Modals, Physician Filter & Search, HIA Zero-PHI Form Guard
 
 (function () {
-    'use strict';
+  'use strict';
 
-    /* ─── Navbar Scroll State ─── */
-    const navbar = document.querySelector('.hp-navbar');
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 40);
-        }, { passive: true });
+  /* ─── 1. Sticky Header Scroll Elevation ─── */
+  const header = document.querySelector('.v3-header, .hp-navbar');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+  }
+
+  /* ─── 2. Mobile Navigation Drawer Toggle ─── */
+  const mobileToggle = document.querySelector('.v3-mobile-toggle');
+  const mobileDrawer = document.querySelector('.v3-mobile-drawer');
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('is-open');
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  /* ─── 3. Accessible Biography Modals ─── */
+  window.openModal = function (id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
     }
+  };
 
-    /* ─── Mobile Nav Toggle ─── */
-    const hamburger = document.querySelector('.nav-hamburger');
-    const navbarEl = document.querySelector('.hp-navbar');
-    const navLinks  = document.querySelector('.nav-links');
-    if (hamburger && navbarEl) {
-        hamburger.addEventListener('click', () => {
-            const open = navbarEl.classList.toggle('menu-open');
-            if (navLinks) navLinks.classList.toggle('nav-open', open);
-            hamburger.setAttribute('aria-expanded', open);
-            document.body.style.overflow = open ? 'hidden' : '';
-        });
-        
-        navbarEl.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navbarEl.classList.remove('menu-open');
-                if (navLinks) navLinks.classList.remove('nav-open');
-                hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            });
-        });
+  window.closeModal = function (id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
     }
+  };
 
-    // ==========================================
-    // Modals
-    // ==========================================
-    
-    window.openModal = function(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.display = 'flex';
-            // trigger reflow
-            void modal.offsetWidth;
-            modal.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-        }
-    };
-
-    window.closeModal = function(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.classList.remove('is-open');
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }, 300); // matches transition
-        }
-    };
-
-    // Close modal on outside click
-    document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('hp-modal')) {
-            window.closeModal(e.target.id);
-        }
-    });
-
-    // Close modal on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const openModal = document.querySelector('.hp-modal.is-open');
-            if (openModal) {
-                window.closeModal(openModal.id);
-            }
-        }
-    });
-
-    /* ─── Scroll Reveal (IntersectionObserver) ─── */
-    const revealEls = document.querySelectorAll('.reveal');
-    if (revealEls.length) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-        revealEls.forEach(el => observer.observe(el));
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.classList && e.target.classList.contains('v3-modal-backdrop')) {
+      window.closeModal(e.target.id);
     }
+  });
 
-    /* ─── Accordion / FAQ ─── */
-    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const expanded = trigger.getAttribute('aria-expanded') === 'true';
-            // Close all
-            document.querySelectorAll('.accordion-trigger').forEach(t => {
-                t.setAttribute('aria-expanded', 'false');
-                const c = t.nextElementSibling;
-                if (c) c.classList.remove('open');
-            });
-            // Open clicked
-            if (!expanded) {
-                trigger.setAttribute('aria-expanded', 'true');
-                const content = trigger.nextElementSibling;
-                if (content) content.classList.add('open');
-            }
-        });
-    });
-
-    /* ─── Tabs ─── */
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const tabGroup = btn.closest('.tabs-container');
-            if (!tabGroup) return;
-            tabGroup.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            tabGroup.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            const panel = tabGroup.querySelector(`#${btn.dataset.tab}`);
-            if (panel) panel.classList.add('active');
-        });
-    });
-
-    /* ─── Animated Counters ─── */
-    function animateCounter(el) {
-        const target = parseInt(el.dataset.target, 10);
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        const tick = () => {
-            current = Math.min(current + step, target);
-            el.textContent = Math.floor(current).toLocaleString() + (el.dataset.suffix || '');
-            if (current < target) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.v3-modal-backdrop').forEach(m => {
+        if (m.style.display !== 'none') window.closeModal(m.id);
+      });
+      if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+        mobileDrawer.classList.remove('is-open');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+      }
     }
+  });
 
-    const counterEls = document.querySelectorAll('[data-target]');
-    if (counterEls.length) {
-        const counterObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        counterEls.forEach(el => counterObserver.observe(el));
-    }
+  /* ─── 4. Team Directory Category Filter & Search ─── */
+  const filterBtns = document.querySelectorAll('[data-team-filter]');
+  const searchInput = document.querySelector('[data-team-search]');
 
-    /* ─── Smooth scroll for anchor links ─── */
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
+  function applyTeamFilters() {
+    const activeBtn = document.querySelector('[data-team-filter].active');
+    const activeCat = activeBtn ? activeBtn.getAttribute('data-team-filter') : 'all';
+    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+    document.querySelectorAll('[data-team-card]').forEach(card => {
+      const cat = card.getAttribute('data-category') || '';
+      const searchBlob = (card.getAttribute('data-search') || '').toLowerCase();
+      const catMatch = activeCat === 'all' || cat === activeCat;
+      const queryMatch = !query || searchBlob.includes(query);
+      card.style.display = (catMatch && queryMatch) ? '' : 'none';
     });
 
-    /* ─── FormSubmit AJAX Handler (Disabled for HIA Privacy Protection) ─── */
-    window.HealthPlusConfig = window.HealthPlusConfig || {};
-    window.HealthPlusConfig.Forms = {
-        endpoints: { contact: null, appointment: null, careers: null },
-        defaultMethod: 'POST'
-    };
-
-    const blockHpForm = (form) => {
-        form.removeAttribute('action');
-        const feedback = form.querySelector('.hp-form-feedback, .hp-form-status');
-        if (feedback) {
-            feedback.style.display = 'block';
-            feedback.textContent = 'Direct Clinic Booking Required (HIA Privacy Protection): Online relay submission is disabled. Please call HealthPlus Reception directly at (403) 455-6656.';
-        }
-    };
-
-    document.querySelectorAll('form.hp-ajax-form, #contact-form, #appointment-form').forEach(blockHpForm);
-    document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('form.hp-ajax-form, #contact-form, #appointment-form').forEach(blockHpForm);
+    document.querySelectorAll('[data-team-section]').forEach(sec => {
+      const secCat = sec.getAttribute('data-team-section');
+      const visibleInSec = sec.querySelectorAll('[data-team-card]:not([style*="display: none"])');
+      const secCatMatch = activeCat === 'all' || activeCat === secCat;
+      sec.style.display = (secCatMatch && visibleInSec.length > 0) ? '' : 'none';
     });
-    document.addEventListener('submit', (e) => {
-        const form = e.target;
-        if (form && form.matches && form.matches('form.hp-ajax-form, #contact-form, #appointment-form')) {
-            e.preventDefault();
-            e.stopPropagation();
-            blockHpForm(form);
-        }
-    }, true);
+  }
 
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyTeamFilters();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', applyTeamFilters);
+  }
+
+  /* ─── 5. HIA Zero-PHI Form Safety Guard ─── */
+  window.HealthPlusConfig = window.HealthPlusConfig || {};
+  window.HealthPlusConfig.Forms = {
+    endpoints: { contact: null, appointment: null, careers: null },
+    defaultMethod: 'POST'
+  };
 })();

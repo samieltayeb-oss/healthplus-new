@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>HealthPlus & SEHA Medical — Staff Photography Verification Contact Sheet</title>
+  <style>
+    :root {
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --ink: #0B2521;
+      --muted: #526561;
+      --teal: #0D4E47;
+      --teal-accent: #00796B;
+      --border: #E3DED6;
+      --ok-bg: #E6F4F1;
+      --ok-text: #0A5247;
+      --warn-bg: #FEF3C7;
+      --warn-text: #92400E;
+      --hold-bg: #FEE2E2;
+      --hold-text: #991B1B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      padding: 36px 24px 80px;
+    }
+    .wrap { max-width: 1360px; margin: 0 auto; }
+    .header-card {
+      background: linear-gradient(135deg, #08221E 0%, #0D4E47 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 40px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #97E2DC;
+      background: rgba(151, 226, 220, 0.14);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .sub { color: rgba(255,255,255,0.82); max-width: 780px; font-size: 15px; }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .stat-num { font-size: 28px; font-weight: 800; color: var(--teal); }
+    .stat-label { font-size: 13px; color: var(--muted); font-weight: 600; margin-top: 4px; }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 36px 0 8px;
+      color: var(--ink);
+    }
+    .section-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(11,37,33,0.04);
+    }
+    .photo-wrap {
+      aspect-ratio: 4/5;
+      background: #E5E7EB;
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .badge-ok { background: var(--ok-bg); color: var(--ok-text); }
+    .badge-warn { background: var(--warn-bg); color: var(--warn-text); }
+    .badge-hold { background: var(--hold-bg); color: var(--hold-text); }
+    .card-body { padding: 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .clinic-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-accent); }
+    .person-name { font-size: 18px; font-weight: 700; color: var(--ink); }
+    .person-role { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+    .meta-table {
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .meta-table strong { color: var(--ink); }
+    .confirm-input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .btn-export {
+      background: #97E2DC;
+      color: #06211D;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header-card">
+      <div>
+        <span class="kicker">Access-Protected Management Review · Noindex</span>
+        <h1>HealthPlus &amp; SEHA Medical — Staff Photography Contact Sheet</h1>
+        <p class="sub">Complete visual reconciliation of all discovered physician and staff portraits across HealthPlus Midnapore and SEHA Medical Crescent Heights. Zero synthetic faces or identity guessing used.</p>
+      </div>
+      <div>
+        <button class="btn-export" onclick="exportConfirmations()">Export Management Confirmations (JSON)</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num">24</div>
+        <div class="stat-label">COMPLETE AND VERIFIED (HealthPlus Midnapore Active)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">6 → WebP</div>
+        <div class="stat-label">Legacy JPG/PNG Physician Portraits Optimized to 4:5 WebP</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">1</div>
+        <div class="stat-label">CONSENT WITHHELD / OPTED OUT (Jehan Mustafa — Excluded)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">20</div>
+        <div class="stat-label">SEHA Crescent Heights Photos (NAME CONFIRMATION REQUIRED)</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Part 1: HealthPlus by SEHA Medical (Midnapore) — 24 Active Verified Profiles + 1 Opted-Out</h2>
+    <p class="section-desc">All 24 active profiles have verified identity and website display permission, and have been standardized into 800×1000 (Desktop) and 480×600 (Mobile) 4:5 WebP portraits.</p>
+    <div class="grid">
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/aous-al-shehabi.webp" alt="Aous Al Shehabi" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Aous Al Shehabi</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/healthplus team/dr_aous_al_shehabi/dr_aous_al_shehabi.jpg</code> (728x914)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/aous-al-shehabi.webp</code> (109 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Named Clinical File)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-1.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/elhadi-mohammed.webp" alt="Elhadi Mohammed" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Elhadi Mohammed</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-015.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/elhadi-mohammed.webp</code> (30 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-5.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/hatim-kheir.webp" alt="Hatim Kheir" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Hatim Kheir</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-014.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/hatim-kheir.webp</code> (38 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-6.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/may-aldabbagh.webp" alt="May Aldabbagh" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">May Aldabbagh</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/healthplus team/dr_may_aldabbagh/dr_may_aldabbagh.jpg</code> (1000x1100)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/may-aldabbagh.webp</code> (47 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Named Clinical File)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-7.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/mehwish-hanif.webp" alt="Mehwish Hanif" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Mehwish Hanif</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/healthplus team/dr_mehwish_hanif/dr_mehwish_hanif.png</code> (472x1024)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/mehwish-hanif.webp</code> (51 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Named Clinical File)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-8.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/nour-bukhres.webp" alt="Nour Bukhres" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Nour Bukhres</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-001.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/nour-bukhres.webp</code> (81 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-9.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/oladotun-oyediran.webp" alt="Oladotun Oyediran" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Oladotun Oyediran</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-019.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/oladotun-oyediran.webp</code> (44 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-10.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/radhya-aboaziza.webp" alt="Radhya Aboaziza" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Radhya Aboaziza</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/healthplus team/dr_radhya_aboaziza/dr_radhya_aboaziza.png</code> (300x200)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/radhya-aboaziza.webp</code> (79 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Named Clinical File)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-11.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/sandeep-kumar.webp" alt="Sandeep Kumar" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Sandeep Kumar</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-005.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/sandeep-kumar.webp</code> (34 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-12.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/ahmed-enbya.webp" alt="Ahmed Enbya" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Ahmed Enbya</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-018.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/ahmed-enbya.webp</code> (61 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-15.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/sidra-feroz.webp" alt="Sidra Feroz" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Sidra Feroz</div>
+            <div class="person-role">Family Physician (Physicians)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-003.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/sidra-feroz.webp</code> (81 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Physicians) + /team/dr-16.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/angela-vinturache.webp" alt="Angela Vinturache" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Angela Vinturache</div>
+            <div class="person-role">Obstetrics & Gynecology Specialist (Specialists)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/healthplus team/dr_angela_vinturache/dr_angela_vinturache.jpg</code> (219x300)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/angela-vinturache.webp</code> (31 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Named Clinical File)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Specialists) + /team/dr-0.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/asaad-qaddori.webp" alt="Asaad Qaddori" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Asaad Qaddori</div>
+            <div class="person-role">Sport Medicine Specialist (Specialists)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/healthplus team/dr_asaad_qaddori/dr_asaad_qaddori.jpg</code> (214x300)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/asaad-qaddori.webp</code> (18 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Named Clinical File)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Specialists) + /team/dr-2.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/bhavisha-ramsamy.webp" alt="Bhavisha Ramsamy" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Bhavisha Ramsamy</div>
+            <div class="person-role">Pediatrician (Specialists)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-012.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/bhavisha-ramsamy.webp</code> (92 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Specialists) + /team/dr-4.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/tariq-khan.webp" alt="Tariq Khan" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Tariq Khan</div>
+            <div class="person-role">Consultant Psychiatrist (Specialists)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-002.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/tariq-khan.webp</code> (35 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Specialists) + /team/dr-13.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/tyral-ramsamy.webp" alt="Tyral Ramsamy" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Tyral Ramsamy</div>
+            <div class="person-role">Infectious Diseases Consultant (Specialists)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-011.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/tyral-ramsamy.webp</code> (36 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Specialists) + /team/dr-14.html + Service Pages</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/nagham-yehya.webp" alt="Nagham Yehya" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Nagham Yehya</div>
+            <div class="person-role">HR & Specialist Clinic Manager (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-007.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/nagham-yehya.webp</code> (23 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/yahaira-arias.webp" alt="Yahaira Arias" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Yahaira Arias</div>
+            <div class="person-role">Team Lead (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-016.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/yahaira-arias.webp</code> (138 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/lea-kalinovska.webp" alt="Lea Kalinovska" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Lea Kalinovska</div>
+            <div class="person-role">Lead Receptionist (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-004.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/lea-kalinovska.webp</code> (51 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/priscilla-olugbemiro.webp" alt="Priscilla Olugbemiro" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Priscilla Olugbemiro</div>
+            <div class="person-role">Receptionist (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-008.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/priscilla-olugbemiro.webp</code> (96 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/eva-islam.webp" alt="Eva Islam" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Eva Islam</div>
+            <div class="person-role">Medical Office Assistant (MOA) (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-006.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/eva-islam.webp</code> (24 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/shameem-shaik.webp" alt="Shameem Shaik" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Shameem Shaik</div>
+            <div class="person-role">Medical Office Assistant (MOA) (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-009.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/shameem-shaik.webp</code> (45 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/najiba-sana.webp" alt="Najiba Sana" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Najiba Sana</div>
+            <div class="person-role">Medical Office Assistant (MOA) (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-010.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/najiba-sana.webp</code> (39 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/shams-waleed-al-turfi.webp" alt="Shams Waleed Al-Turfi" loading="lazy">
+            <span class="badge badge-ok">COMPLETE AND VERIFIED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Shams Waleed Al-Turfi</div>
+            <div class="person-role">Medical Office Assistant (MOA) (Staff)</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-017.webp</code> (800x1000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>assets/images/team-v3/desktop/shams-waleed-al-turfi.webp</code> (59 KB)</div>
+              <div><strong>Verification:</strong> CONFIRMED (Portal Approved)</div>
+              <div><strong>Placement:</strong> HealthPlus /team/ (Clinic Leadership & Support Staff)</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/hp-team-final-013-opted-out.webp" alt="Jehan Mustafa" loading="lazy">
+            <span class="badge badge-hold">IMAGE EXISTS, CONSENT UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">HealthPlus by SEHA Medical (Midnapore)</div>
+            <div class="person-name">Jehan Mustafa</div>
+            <div class="person-role">Operational Manager (Staff (Withheld))</div>
+            <div class="meta-table">
+              <div><strong>Source File:</strong> <code>assets/images/team-review/HP-TEAM-FINAL-013.webp (Source: DSC_0899.jpg)</code> (1600x2000)</div>
+              <div><strong>V3 WebP (4:5):</strong> <code>WITHHELD (website_permission: NO)</code> </div>
+              <div><strong>Verification:</strong> CONFIRMED (Opted Out: website_permission = NO)</div>
+              <div><strong>Placement:</strong> EXCLUDED FROM PUBLIC WEBSITE (Respecting Staff Opt-Out)</div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+
+    <h2 class="section-title">Part 2: SEHA Medical (Crescent Heights) — 20 Discovered Nikon Photographs (Staged for Confirmation)</h2>
+    <p class="section-desc">Discovered in <code>team/here/crescent-heights/</code> (including <code>HP-TEAM-FINAL-020</code> through <code>025</code>). Held out of public pages until management confirms Full Name, Role/Specialty, and Website Display Consent below.</p>
+    <div class="grid">
+      
+        <div class="card" data-ch-file="DSC_0987.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_0987.webp" alt="DSC_0987.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Portrait (Staff Candidate)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_0987.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_0987.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_0987.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>HP-TEAM-FINAL-020</code></div>
+              <div><strong>Dimensions:</strong> 3268x4902 (10230 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_0989.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_0989.webp" alt="DSC_0989.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Portrait (Staff Candidate)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_0989.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_0989.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_0989.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>HP-TEAM-FINAL-021</code></div>
+              <div><strong>Dimensions:</strong> 3712x5568 (14773 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_0994.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_0994.webp" alt="DSC_0994.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Portrait (Staff Candidate)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_0994.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_0994.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_0994.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>HP-TEAM-FINAL-022</code></div>
+              <div><strong>Dimensions:</strong> 3712x5568 (10813 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_0996.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_0996.webp" alt="DSC_0996.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Portrait (Staff Candidate)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_0996.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_0996.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_0996.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>HP-TEAM-FINAL-023</code></div>
+              <div><strong>Dimensions:</strong> 3712x5568 (10407 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1002.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1002.webp" alt="DSC_1002.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Portrait (Staff Candidate)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1002.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1002.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1002.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>HP-TEAM-FINAL-024</code></div>
+              <div><strong>Dimensions:</strong> 3437x5156 (11698 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1005.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1005.webp" alt="DSC_1005.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Portrait (Staff Candidate)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1005.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1005.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1005.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>HP-TEAM-FINAL-025</code></div>
+              <div><strong>Dimensions:</strong> 2951x4426 (8851 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1006.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1006.webp" alt="DSC_1006.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1006.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1006.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1006.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5266x3560 (13039 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1009.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1009.webp" alt="DSC_1009.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1009.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1009.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1009.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5276x3599 (11736 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1011.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1011.webp" alt="DSC_1011.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1011.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1011.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1011.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5157x3438 (11034 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1014.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1014.webp" alt="DSC_1014.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1014.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1014.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1014.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5568x3712 (13670 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1015.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1015.webp" alt="DSC_1015.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1015.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1015.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1015.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 4828x3219 (8624 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1016.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1016.webp" alt="DSC_1016.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1016.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1016.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1016.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5568x3712 (15785 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1017.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1017.webp" alt="DSC_1017.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1017.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1017.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1017.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5568x3712 (15563 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1018.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1018.webp" alt="DSC_1018.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1018.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1018.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1018.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5568x3712 (14201 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1019.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1019.webp" alt="DSC_1019.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1019.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1019.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1019.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5046x3364 (10578 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1020.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1020.webp" alt="DSC_1020.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1020.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1020.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1020.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5209x3473 (11045 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1021.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1021.webp" alt="DSC_1021.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Portrait (Staff Candidate)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1021.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1021.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1021.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 3712x5568 (13434 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1023.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1023.webp" alt="DSC_1023.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1023.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1023.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1023.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5568x3712 (14688 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1024.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1024.webp" alt="DSC_1024.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1024.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1024.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1024.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 4599x3626 (11101 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" data-ch-file="DSC_1027.jpg">
+          <div class="photo-wrap">
+            <img src="/internal/team-review/thumbs/seha-ch-dsc_1027.webp" alt="DSC_1027.jpg" loading="lazy">
+            <span class="badge badge-warn">IMAGE EXISTS, IDENTITY UNCONFIRMED</span>
+          </div>
+          <div class="card-body">
+            <div class="clinic-tag">SEHA Medical Clinic (Crescent Heights — 110-622 Edmonton Trail NE)</div>
+            <div class="person-name">NAME CONFIRMATION REQUIRED</div>
+            <div class="person-role">Landscape (Staff / Facility / Group)</div>
+            <input class="confirm-input ch-name" placeholder="Enter Confirmed Full Name & Credentials..." data-file="DSC_1027.jpg">
+            <input class="confirm-input ch-role" placeholder="Enter Confirmed Role / Specialty..." data-file="DSC_1027.jpg">
+            <div class="meta-table" style="margin-top:10px;">
+              <div><strong>Raw Filename:</strong> <code>team/here/crescent-heights/DSC_1027.jpg</code></div>
+              <div><strong>Portal ID:</strong> <code>Not in portal manifest yet</code></div>
+              <div><strong>Dimensions:</strong> 5367x3578 (16419 KB)</div>
+              <div><strong>Placement:</strong> HOLD IN STAGING — Deploy to sehamedical.ca / healthplusmed.ca only after written name + role + consent confirmation</div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  <script>
+    function exportConfirmations() {
+      const entries = [];
+      document.querySelectorAll('[data-ch-file]').forEach(card => {
+        const file = card.getAttribute('data-ch-file');
+        const name = card.querySelector('.ch-name').value.trim();
+        const role = card.querySelector('.ch-role').value.trim();
+        if (name || role) entries.push({ file, confirmedName: name, confirmedRole: role });
+      });
+      const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), entries }, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'seha-crescent-heights-staff-confirmations.json';
+      a.click();
+    }
+  </script>
+</body>
+</html>
