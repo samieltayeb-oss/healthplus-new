@@ -1,11 +1,11 @@
 {
-  "name": "healthplus-medical-v2",
-  "version": "1.0.0",
-  "description": "Static site generation scripts for HealthPlus Medical V2",
-  "main": "scripts/build-services.js",
+  "name": "healthplus-medical-v3",
+  "version": "3.0.0",
+  "description": "Static site generation scripts for HealthPlus Medical V3 — The Modern Care Experience",
+  "main": "scripts/build-v3-site.mjs",
   "scripts": {
-    "build:services": "node scripts/build-services.js && node scripts/init-team.js",
-    "build": "npm run build:services",
+    "build:services": "node scripts/build-v3-site.mjs",
+    "build": "node scripts/build-v3-site.mjs",
     "validate": "node scripts/validate-links.js"
   },
   "author": "",
