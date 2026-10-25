@@ -1,7 +1,12 @@
 import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 
-const require = createRequire('file:///C:/Users/mcreg/Desktop/healthplus/seha%20medical/healthplusnew/config/site.js');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const localConfigPath = path.resolve(__dirname, '../config/site.js');
+const fallbackConfigPath = 'C:/Users/mcreg/Desktop/healthplus/seha medical/healthplusnew/config/site.js';
+const require = createRequire(fs.existsSync(localConfigPath) ? localConfigPath : fallbackConfigPath);
 export const siteConfig = require('./site.js');
 export const services = require('./services.js');
 export const teamMembers = require('./team.js');
