@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="robots" content="noindex, nofollow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex,nofollow,noarchive">
+    
     <title>Team Identification Summary</title>
     <link rel="stylesheet" href="/css/hp-premium.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -51,7 +52,7 @@
                 <img src="/assets/logo_hp.png" alt="HealthPlus">
                 <div>
                     <h1 class="admin-title">TEAM IDENTIFICATION</h1>
-                    <div class="admin-subtitle">Management Summary Table</div>
+                    <div class="admin-subtitle">Management Summary Table &mdash; HealthPlus &amp; SEHA Medical</div>
                 </div>
             </div>
             <div class="view-toggle">
@@ -78,6 +79,7 @@
                             <th>Photo</th>
                             <th>Filename</th>
                             <th>Photo ID</th>
+                            <th>Clinic Location</th>
                             <th>Status</th>
                             <th>Full Name</th>
                             <th>Role</th>
@@ -91,6 +93,13 @@
                             <td><img :src="person.review_url"></td>
                             <td style="font-family:monospace; font-weight:700; color:#0A3631; font-size:13px;">{{ person.display_name || person.source_filename }}</td>
                             <td style="font-weight:700; color:var(--hp-slate);">{{ person.photo_id }}</td>
+                            <td>
+                                <select class="form-input" v-model="person.clinic" @change="debouncedSave(person.photo_id)" style="font-weight:600;">
+                                    <option value="HealthPlus (Midnapore)">HealthPlus (Midnapore)</option>
+                                    <option value="SEHA Medical (Crescent Heights)">SEHA Medical (Crescent Heights)</option>
+                                    <option value="Both Clinics (Midnapore & Crescent Heights)">Both Clinics (Midnapore & Crescent Heights)</option>
+                                </select>
+                            </td>
                             <td>
                                 <select class="form-input" v-model="person.status" @change="debouncedSave(person.photo_id)">
                                     <option value="unidentified">Unidentified</option>
@@ -143,6 +152,7 @@
                             const data = await res.json();
                             teamData.value = data.map(item => ({
                                 ...item,
+                                clinic: item.clinic || 'HealthPlus (Midnapore)',
                                 display_name: item.display_name || (item.source_filename ? item.source_filename.replace(/\.[^/.]+$/, '') : ''),
                                 full_name: item.full_name || '',
                                 role: item.role || '',
@@ -197,8 +207,8 @@
                 const exportCSV = () => {
                     const approved = teamData.value.filter(p => p.status === 'approved');
                     if(approved.length === 0) return alert("No approved records to export.");
-                    const headers = "photo_id,full_name,role,credentials,department,languages,website_permission\n";
-                    const rows = approved.map(p => `"${p.photo_id}","${p.full_name}","${p.role}","${p.credentials || ''}","${p.department || ''}","${p.languages || ''}","${p.website_permission}"`).join("\n");
+                    const headers = "photo_id,clinic,full_name,role,credentials,department,languages,website_permission\n";
+                    const rows = approved.map(p => `"${p.photo_id}","${p.clinic || ''}","${p.full_name}","${p.role}","${p.credentials || ''}","${p.department || ''}","${p.languages || ''}","${p.website_permission}"`).join("\n");
                     const csvStr = "data:text/csv;charset=utf-8," + encodeURIComponent(headers + rows);
                     const dl = document.createElement('a');
                     dl.setAttribute("href", csvStr);

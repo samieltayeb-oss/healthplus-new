@@ -8,6 +8,14 @@ const MANIFEST_FILE = path.join(__dirname, '../config/team-review-manifest.json'
 
 const SUPPORTED_EXTS = ['.jpg', '.jpeg', '.png', '.webp'];
 
+function inferClinic(filename) {
+    const match = filename.match(/DSC_(\d+)/i);
+    if (match && parseInt(match[1], 10) >= 980) {
+        return 'SEHA Medical (Crescent Heights)';
+    }
+    return 'HealthPlus (Midnapore)';
+}
+
 async function processPhotos() {
     if (!fs.existsSync(SOURCE_DIR)) {
         console.log(`Source directory not found: ${SOURCE_DIR}`);
@@ -41,7 +49,10 @@ async function processPhotos() {
     for (const file of files) {
         const existing = manifest.find(m => m.source_filename === file);
         if (existing) {
-            console.log(`Skipping already processed: ${file}`);
+            if (!existing.clinic) {
+                existing.clinic = inferClinic(file);
+            }
+            console.log(`Skipping already processed: ${file} (${existing.clinic})`);
             continue;
         }
 
@@ -49,8 +60,9 @@ async function processPhotos() {
         const photoId = `HP-TEAM-FINAL-${String(index).padStart(3, '0')}`;
         const targetFilename = `${photoId}.webp`;
         const targetPath = path.join(TARGET_DIR, targetFilename);
+        const clinic = inferClinic(file);
 
-        console.log(`Processing ${file} -> ${photoId}...`);
+        console.log(`Processing ${file} -> ${photoId} (${clinic})...`);
 
         try {
             await sharp(path.join(SOURCE_DIR, file))
@@ -67,6 +79,7 @@ async function processPhotos() {
             manifest.push({
                 photo_id: photoId,
                 source_filename: file,
+                clinic: clinic,
                 review_url: `/assets/images/team-review/${targetFilename}`,
                 created_at: new Date().toISOString()
             });

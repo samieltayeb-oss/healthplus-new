@@ -161,4 +161,33 @@
         });
     });
 
+    /* ─── FormSubmit AJAX Handler (Disabled for HIA Privacy Protection) ─── */
+    window.HealthPlusConfig = window.HealthPlusConfig || {};
+    window.HealthPlusConfig.Forms = {
+        endpoints: { contact: null, appointment: null, careers: null },
+        defaultMethod: 'POST'
+    };
+
+    const blockHpForm = (form) => {
+        form.removeAttribute('action');
+        const feedback = form.querySelector('.hp-form-feedback, .hp-form-status');
+        if (feedback) {
+            feedback.style.display = 'block';
+            feedback.textContent = 'Direct Clinic Booking Required (HIA Privacy Protection): Online relay submission is disabled. Please call HealthPlus Reception directly at (403) 455-6656.';
+        }
+    };
+
+    document.querySelectorAll('form.hp-ajax-form, #contact-form, #appointment-form').forEach(blockHpForm);
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('form.hp-ajax-form, #contact-form, #appointment-form').forEach(blockHpForm);
+    });
+    document.addEventListener('submit', (e) => {
+        const form = e.target;
+        if (form && form.matches && form.matches('form.hp-ajax-form, #contact-form, #appointment-form')) {
+            e.preventDefault();
+            e.stopPropagation();
+            blockHpForm(form);
+        }
+    }, true);
+
 })();

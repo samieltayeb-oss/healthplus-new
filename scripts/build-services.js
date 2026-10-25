@@ -10,8 +10,8 @@ const corePagesDir = rootDir;
 
 // Component Generators
 function generateNavDropdownLinks(depth = 0) {
-    const prefix = depth === 0 ? 'services/' : depth === 1 ? '' : '../';
-    const allServicesLink = depth === 0 ? 'services/index.html' : 'index.html';
+    const prefix = '/services/';
+    const allServicesLink = '/services/index.html';
     
     let html = `\n<div class="dropdown-menu mega-dropdown">
   <div class="dropdown-header">
@@ -36,7 +36,7 @@ function generateNavDropdownLinks(depth = 0) {
       <span class="pulse-dot"></span>
       <span>Walk-In Clinic & New Patients Welcome</span>
     </div>
-    <a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener" class="dropdown-quick-book">Book Online</a>
+    <a href="/book.html" class="dropdown-quick-book">Book Appointment</a>
   </div>
 </div>\n`;
     return html;
@@ -162,7 +162,7 @@ function generateContactInfo() {
         <p style="font-size:var(--text-xs);color:var(--hp-text-muted);margin-bottom:var(--space-4);">Open Monday to Saturday for appointments and walk-ins</p>
         
         <div style="background:rgba(115,201,190,0.12);border-left:3px solid var(--hp-primary);padding:10px 14px;border-radius:var(--radius-sm);margin-bottom:var(--space-5);">
-            <p style="margin:0;font-size:var(--text-xs);font-weight:600;color:var(--hp-primary-dark);line-height:1.5;">WE ARE ACCEPTING NEW PATIENTS. (<a href="https://form.jotform.com/sehamanagementinv/-appointment-request-form" target="_blank" rel="noopener" style="color:#d32f2f;text-decoration:underline;">Click here to request a MEET & GREET APPOINTMENT</a>)</p>
+            <p style="margin:0;font-size:var(--text-xs);font-weight:600;color:var(--hp-primary-dark);line-height:1.5;">WE ARE ACCEPTING NEW PATIENTS. (<a href="/book.html" style="color:#d32f2f;text-decoration:underline;">Click here to book a MEET &amp; GREET APPOINTMENT</a>)</p>
         </div>
 
         <ul style="list-style:none;padding:0;margin:0;">
@@ -186,8 +186,8 @@ function generateFooter(depth = 0) {
     const faqLink = `${rootPrefix}faq.html`;
     const contactLink = `${rootPrefix}contact.html`;
     const bookLink = `${rootPrefix}book.html`;
-    const bookingFormLink = 'https://form.jotform.com/sehamanagementinv/-appointment-request-form';
-    const callBackLink = 'https://form.jotform.com/sehamanagementinv/call-back-request-form';
+    const bookingFormLink = `${rootPrefix}book.html`;
+    const callBackLink = `${rootPrefix}book.html`;
 
     return `\n<footer class="hp-footer" style="margin-top:auto; background: linear-gradient(180deg, #092823 0%, #051A17 100%); border-top: 1px solid rgba(115, 201, 190, 0.22); color: #E2E8F0; padding-top: var(--space-16);">
     <!-- Pre-Footer Quick Action Strip -->
@@ -207,7 +207,7 @@ function generateFooter(depth = 0) {
                     <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.864-1.051l-3.213-.535a2.25 2.25 0 00-2.237.615l-1.52 1.52a14.122 14.122 0 01-6.578-6.578l1.52-1.52a2.25 2.25 0 00.615-2.237l-.535-3.213C7.716 2.601 7.266 2.25 6.75 2.25H5.378A2.25 2.25 0 003.15 4.312 15.91 15.91 0 002.25 6.75z"/></svg>
                     <span>${siteConfig.contact.phone}</span>
                 </a>
-                <a href="${bookLink}" class="btn btn-primary" style="background: linear-gradient(135deg, #00897B 0%, #0D4E47 100%); color: #FFFFFF; padding: 10px 22px; font-size: var(--text-sm); font-weight: 600; border-radius: var(--radius-full); text-decoration: none; border: 1px solid rgba(151, 226, 220, 0.6); box-shadow: 0 4px 14px rgba(0, 137, 123, 0.35);">
+                <a href="${bookingFormLink}" class="btn btn-primary" style="background: linear-gradient(135deg, #00897B 0%, #0D4E47 100%); color: #FFFFFF; padding: 10px 22px; font-size: var(--text-sm); font-weight: 600; border-radius: var(--radius-full); text-decoration: none; border: 1px solid rgba(151, 226, 220, 0.6); box-shadow: 0 4px 14px rgba(0, 137, 123, 0.35);">
                     Book Online 24/7 →
                 </a>
             </div>
@@ -250,7 +250,7 @@ function generateFooter(depth = 0) {
                 <li><a href="${teamLink}" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Our Medical Team</a></li>
                 <li><a href="${aboutLink}" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">About HealthPlus</a></li>
                 <li><a href="${faqLink}" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Patient FAQ</a></li>
-                <li><a href="${callBackLink}" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Request Call-Back</a></li>
+                <li><a href="${callBackLink}" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Request Call-Back</a></li>
                 <li><a href="${contactLink}" style="color: rgba(255, 255, 255, 0.75); text-decoration: none; font-size: var(--text-sm); transition: color 0.2s;">Contact & Map</a></li>
                 <li><a href="https://search.google.com/local/writereview?placeid=ChIJm-3P4A2wcVMRq4lXW_m9L3M" target="_blank" rel="noopener" style="color: #FCD34D; text-decoration: none; font-size: var(--text-sm); font-weight: 500; margin-top: 4px; display: inline-block;">★ Leave a Review</a></li>
             </ul>
@@ -287,7 +287,7 @@ function generateFooter(depth = 0) {
                     📍 ${siteConfig.contact.address.street}, Calgary, AB ${siteConfig.contact.address.postalCode}
                 </div>
 
-                <a href="${bookingFormLink}" target="_blank" rel="noopener" class="btn btn-sm btn-primary" style="display: block; text-align: center; background: linear-gradient(135deg, #00897B 0%, #0D4E47 100%); color: #FFFFFF; padding: 8px 14px; font-size: var(--text-xs); font-weight: 600; border-radius: var(--radius-full); text-decoration: none; border: 1px solid rgba(151, 226, 220, 0.5);">
+                <a href="${bookingFormLink}" class="btn btn-sm btn-primary" style="display: block; text-align: center; background: linear-gradient(135deg, #00897B 0%, #0D4E47 100%); color: #FFFFFF; padding: 8px 14px; font-size: var(--text-xs); font-weight: 600; border-radius: var(--radius-full); text-decoration: none; border: 1px solid rgba(151, 226, 220, 0.5);">
                     Request Appointment Online
                 </a>
             </div>
@@ -381,6 +381,7 @@ const coreHtmlFiles = [
     { file: 'faq.html', depth: 0 },
     { file: '404.html', depth: 0 },
     { file: path.join('about', 'index.html'), depth: 1 },
+    { file: path.join('services', 'womens-health-iud-clinic-calgary.html'), depth: 1 },
     { file: path.join('team', 'index.html'), depth: 1 }
 ];
 

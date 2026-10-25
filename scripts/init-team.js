@@ -5,6 +5,12 @@ const teamMembers = require('../config/team.js');
 const rootDir = path.join(__dirname, '..');
 const teamHtmlPath = path.join(rootDir, 'team', 'index.html');
 
+function formatName(member) {
+    const prefix = member.title !== undefined ? member.title : 'Dr.';
+    const parts = [prefix, member.firstName, member.lastName].map(s => (s || '').trim()).filter(Boolean);
+    return parts.join(' ');
+}
+
 function generateCardsAndModals(category) {
     let cardsHtml = `<div class="team-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">\n`;
     let modalsHtml = '';
@@ -12,26 +18,27 @@ function generateCardsAndModals(category) {
     const members = teamMembers.filter(m => m.category === category);
     
     members.forEach((member, index) => {
-        const name = `Dr. ${member.firstName} ${member.lastName}`;
+        const name = formatName(member);
         const role = member.role;
         const imgPath = `/${member.photo}`;
         const modalId = `modal-${category.toLowerCase()}-${index}`;
+        const isStaff = category === 'Staff';
         
         cardsHtml += `
-        <!-- <meta name="robots" content="noindex, nofollow"> -->
         <div class="team-card" style="background:var(--hp-surface);border:1px solid var(--hp-border);border-radius:var(--radius-xl);overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;display:flex;flex-direction:column;">
             <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
-                <img src="${imgPath}" alt="${name}" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                <img src="${imgPath}" alt="${name}" width="800" height="1000" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
             </div>
             <div style="padding:var(--space-6);flex:1;display:flex;flex-direction:column;">
                 <p style="color:var(--hp-primary);font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">${role}</p>
                 <h3 style="font-size:var(--text-xl);color:var(--hp-heading);margin-bottom:var(--space-2);">${name}</h3>
-                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:var(--space-5);line-height:1.6;flex:1;">${member.bio ? (member.bio.length > 150 ? member.bio.substring(0, 150).trim() + '...' : member.bio) : 'Biography and professional credentials will be updated once the final medical team profile is approved.'}</p>
-                <button onclick="openModal('${modalId}')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>
+                <p style="color:var(--hp-text-muted);font-size:var(--text-sm);margin-bottom:${isStaff ? '0' : 'var(--space-5)'};line-height:1.6;flex:1;">${member.bio ? (member.bio.length > 150 ? member.bio.substring(0, 150).trim() + '...' : member.bio) : 'Biography and professional credentials will be updated once the final medical team profile is approved.'}</p>
+                ${!isStaff ? `<button onclick="openModal('${modalId}')" class="btn btn-outline" style="width:100%;text-align:center;padding:8px;border-radius:var(--radius-full);color:var(--hp-primary);border:2px solid var(--hp-primary);background:transparent;cursor:pointer;font-weight:600;font-size:var(--text-sm);">View Profile</button>` : ''}
             </div>
         </div>\n`;
 
-        modalsHtml += `
+        if (!isStaff) {
+            modalsHtml += `
         <div id="${modalId}" class="hp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:var(--space-4);">
             <div class="hp-modal-content" style="background:var(--hp-surface);border-radius:var(--radius-2xl);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);transform:translateY(20px);transition:all 0.3s ease-out;">
                 <button onclick="closeModal('${modalId}')" style="position:absolute;top:var(--space-4);right:var(--space-4);background:rgba(0,0,0,0.05);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--hp-text);z-index:10;" aria-label="Close modal">
@@ -39,7 +46,7 @@ function generateCardsAndModals(category) {
                 </button>
                 <div style="display:grid;grid-template-columns:1fr;gap:0;">
                     <div style="aspect-ratio:4/5;background:#e2e8f0;overflow:hidden;">
-                        <img src="${imgPath}" alt="${name}" width="1200" height="1500" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                        <img src="${imgPath}" alt="${name}" width="800" height="1000" decoding="async" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
                     </div>
                     <div style="padding:var(--space-8);">
                         <p style="color:var(--hp-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">${role}</p>
@@ -49,6 +56,7 @@ function generateCardsAndModals(category) {
                 </div>
             </div>
         </div>\n`;
+        }
     });
 
     cardsHtml += `</div>\n`;
@@ -62,12 +70,24 @@ function initTeam() {
 
     const physData = generateCardsAndModals('Physicians');
     const specData = generateCardsAndModals('Specialists');
+    const staffData = generateCardsAndModals('Staff');
 
     html = html.replace(/<!-- HP_TEAM_PHYSICIANS_START -->[\s\S]*?<!-- HP_TEAM_PHYSICIANS_END -->/, 
         `<!-- HP_TEAM_PHYSICIANS_START -->\n${physData.cards}<!-- HP_TEAM_PHYSICIANS_END -->`);
 
     html = html.replace(/<!-- HP_TEAM_SPECIALISTS_START -->[\s\S]*?<!-- HP_TEAM_SPECIALISTS_END -->/, 
         `<!-- HP_TEAM_SPECIALISTS_START -->\n${specData.cards}<!-- HP_TEAM_SPECIALISTS_END -->`);
+
+    // Inject Staff Section if markers don't exist yet
+    if (!html.includes('<!-- HP_TEAM_STAFF_START -->')) {
+        html = html.replace(
+            /(<!-- HP_TEAM_SPECIALISTS_END -->\s*<\/div>\s*<\/div>\s*<\/section>)/,
+            `$1\n\n    <!-- CLINIC LEADERSHIP & SUPPORT STAFF SECTION -->\n    <section class="section">\n        <div class="container text-center">\n            <h2 style="color:var(--hp-primary);margin-bottom:var(--space-8);">Clinic Leadership &amp; Support Staff</h2>\n            <div class="team-grid">\n                <!-- HP_TEAM_STAFF_START -->\n                <!-- HP_TEAM_STAFF_END -->\n            </div>\n        </div>\n    </section>`
+        );
+    }
+
+    html = html.replace(/<!-- HP_TEAM_STAFF_START -->[\s\S]*?<!-- HP_TEAM_STAFF_END -->/, 
+        `<!-- HP_TEAM_STAFF_START -->\n${staffData.cards}<!-- HP_TEAM_STAFF_END -->`);
 
     html = html.replace(/<!-- HP_TEAM_MODALS_START -->[\s\S]*?<!-- HP_TEAM_MODALS_END -->/, 
         `<!-- HP_TEAM_MODALS_START -->\n${physData.modals}\n${specData.modals}<!-- HP_TEAM_MODALS_END -->`);
